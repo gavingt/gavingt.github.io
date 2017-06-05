@@ -101,7 +101,6 @@ body {
 }
 
 .container {
-
 }
 
 .header {
@@ -133,7 +132,7 @@ body {
 
 .avatar {
     width: 25%;
-    border: 9px #d5d9dc solid;
+    border: 2px #6a6e71 solid;
     border-radius: 5px;
 }
 
@@ -141,10 +140,13 @@ body {
     background-color: white;
 }
 
-.projects img {
-    width: 200px;
-    border: 1px #d5d9dc solid;
+.projects .row img {
+    border: 2px #6a6e71 solid;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
+
+
 
 
 /* Make the masthead heading the same height as the navigation */
