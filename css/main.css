@@ -105,11 +105,11 @@ body {
 }
 
 .jumbotron {
-    border: 1px gray solid;
+    border: 1px #000000 solid;
+    background-color: white;
 }
 
 .introduction {
-    background-color: #ffffff;
     margin-bottom: 20px;
 }
 
@@ -125,7 +125,7 @@ body {
 }
 
 .avatar {
-    border: 2px #6a6e71 solid;
+    border: 1px #000000 solid;
     border-radius: 5px;
 }
 
@@ -136,16 +136,15 @@ body {
     }
 
     .avatar {
-        margin: 0 auto; //centers avatar on small screen sizes
+        margin: 0 auto 25px auto; //centers avatar on small screen sizes
     }
 }
 
 .projects {
-    background-color: white;
 }
 
 .projects .row img {
-    border: 2px #6a6e71 solid;
+    border: 1px #000000 solid;
     border-radius: 5px;
     margin-bottom: 20px;
 }
