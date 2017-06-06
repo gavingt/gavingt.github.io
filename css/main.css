@@ -100,9 +100,6 @@ body {
     font-size: 20px;
 }
 
-.container {
-}
-
 .header {
     margin: 5px 0 30px 0;
 }
@@ -111,29 +108,36 @@ body {
     border: 1px gray solid;
 }
 
-
-
 .introduction {
     background-color: #ffffff;
-    line-height: 35px;
-    border-radius: 5px;
-    padding: 15px 25px;
-    border: 1px gray solid;
     margin-bottom: 20px;
-    display: inline-flex;
-    align-items: center;
 }
 
 .intro-text {
     text-align: center;
-    margin: 0 50px;
-    width: 75%;
+    line-height: 1.8em;
+    padding: 0 25px;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
 }
 
 .avatar {
-    width: 25%;
     border: 2px #6a6e71 solid;
     border-radius: 5px;
+}
+
+/* Fixes problems for extra small devices (767px and down) */
+@media (max-width: 767px) {
+    .row.vertical-align {
+        display: block; /* Turn off the flexible box layout */
+    }
+
+    .avatar {
+        margin: 0 auto; //centers avatar on small screen sizes
+    }
 }
 
 .projects {
