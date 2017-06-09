@@ -1,9 +1,27 @@
 var page = $("html, body");
 var lastScrollTop = 0;
 
-initializeMenuButtons();
+initializeHeaderMenuButtons();
+initializeSortMenuButtons();
 
-function initializeMenuButtons () {
+
+//TODO: make sort buttons work (give each project a class with same name as sort button category)
+
+function initializeSortMenuButtons() {
+    $(".sortBtn").click(function() {
+        $(".sortBtn").not(this).removeClass("sortBtnActive");
+        $(this).addClass("sortBtnActive");
+    });
+}
+
+
+
+
+
+
+
+
+function initializeHeaderMenuButtons () {
 
     $(".btn").on("click touchend", function (event) {
         $(this).addClass("activeBtn");

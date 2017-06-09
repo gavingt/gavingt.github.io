@@ -210,6 +210,31 @@ ul {
     padding-top: 30px;
 }
 
+.sortMenu {
+    margin: 45px auto 30px;
+    float: none;
+    font-size: 21px;
+    text-align: center;
+}
+
+
+@media(max-width: 370px) {
+    .sortMenu {
+        font-size: 18px;
+    }
+}
+
+.sortBtn {
+    color: #333;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.sortBtnActive {
+    color: #888;
+}
+
+
 .portfolio .row img {
     border: 1px #000000 solid;
     border-radius: 5px;
@@ -224,8 +249,9 @@ ul {
 h2 {
     width: 85%;
     margin: 20px auto 15px;
-    color: #888;
+    color: #666;
     font-weight: bold;
+    font-size: 34px;
 }
 
 @media (max-width: 1022px) {
@@ -270,7 +296,7 @@ hr.emblem-dark::after {
 }
 
 hr.emblem-dark {
-    border-color: #888;
+    border-color: #666;
 }
 
 @media (min-width: 1023px) {
@@ -279,10 +305,14 @@ hr.emblem-dark {
         margin-right: 6%;
         max-width: 65%;
     }
+
+    .contact hr.emblem-dark {
+        max-width: 62%;
+    }
 }
 
 hr.emblem-dark::after {
-    color: #888;
+    color: #666;
     background-color: #eee;
 }
 
