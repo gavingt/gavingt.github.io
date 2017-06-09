@@ -5,8 +5,9 @@ $(".btn").on("click touchend", function(event) {
     $(this).addClass("activeBtn");
     $(".btn").not(this).removeClass("activeBtn");  //remove "active" class from all nav-pills other than the one clicked
 
+    clearTimeout(mobileTimeout);
     if (event.type === "touchend") {
-        setTimeout(function() {
+        var mobileTimeout = setTimeout(function() {
             $(this).removeClass("activeBtn");
             $("#about_button").addClass("activeBtn");
         }, 1000);
