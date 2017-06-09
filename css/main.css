@@ -140,6 +140,11 @@ ul {
     color: #333;
 }
 
+.inactiveBtn {
+    background-color: #c6c6c6;
+    color: #326e9e;
+}
+
 .jumbotron {
     border: 1px #000000 solid;
     margin-bottom: 20px;
