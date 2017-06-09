@@ -118,6 +118,7 @@ body {
 ul {
     list-style: none;
     float: right;
+    padding-left: 0 !important;
 }
 
 .btn {
