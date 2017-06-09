@@ -207,7 +207,7 @@ ul {
 }
 
 .portfolio.jumbotron, .contact.jumbotron {
-    padding: 30px 60px 40px;
+    padding-top: 30px;
 }
 
 .portfolio .row img {
