@@ -103,9 +103,8 @@ body {
 .header {
     margin: 0 0 30px 0;
     color: #eee;
-    background-color: rgb(99, 126, 156);
+    background-color: #326e9e;
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 4px 0 rgba(0, 0, 0, 0.19);
-
 }
 
 /* Make the masthead heading the same height as the navigation */
@@ -116,8 +115,12 @@ body {
     margin-top: 9px;
 }
 
+.nav-pills {
+    float: right;
+}
+
 .nav-pills li {
-    margin: 7px 2px 5px 0;
+    margin: 7px 2px 5px 2px;
 }
 
 .nav li a {
@@ -156,8 +159,22 @@ body {
 
 /* Fixes problems for extra small devices (767px and down) */
 @media (max-width: 767px) {
+
+    h3 {
+        text-align: center;
+        margin-bottom: 2px;
+    }
+
+    .nav-pills {
+        display: flex;
+        justify-content: center;
+        float: none;
+        margin-bottom: 5px;
+    }
+
+
     .row.vertical-align {
-        display: block; /* Turn off the flexible box layout */
+        display: block; /* Turn off the flexible box layout so that avatar appears above intro-text */
     }
 
     .avatar {
