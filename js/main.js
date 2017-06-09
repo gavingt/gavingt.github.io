@@ -1,3 +1,4 @@
+/*
 $(".nav-pills>*").click(function() {
     $(".nav-pills>*").not(this).removeClass("active");  //remove "active" class from all nav-pills other than the one clicked
 
@@ -7,4 +8,5 @@ $(".nav-pills>*").click(function() {
         }, 1000);
     }
 });
+*/
 

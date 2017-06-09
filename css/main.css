@@ -115,12 +115,27 @@ body {
     margin-top: 9px;
 }
 
-.nav-pills {
+ul {
+    list-style: none;
     float: right;
 }
 
-.nav-pills li {
-    margin: 7px 2px 5px 2px;
+.btn {
+    background-color: #c6c6c6;
+    margin: 7px 0 0 0;
+    color: #326e9e;
+    font-weight: 500;
+    font-size: 19px;
+    padding: 4px 10px;
+
+}
+
+.btn:hover {
+    background-color: #eee;
+}
+
+.nav-pills {
+    float: right;
 }
 
 .nav li a {
@@ -163,11 +178,15 @@ body {
         margin-bottom: 2px;
     }
 
-    .nav-pills {
+    ul {
         display: flex;
         justify-content: center;
         float: none;
         margin-bottom: 5px;
+    }
+
+    .btn {
+        margin: 7px 3px 5px 3px;
     }
 
 
