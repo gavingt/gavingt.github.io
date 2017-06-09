@@ -3,11 +3,12 @@ var lastScrollTop = 0;
 
 $(".btn").on("click touchend", function(event) {
     $(this).addClass("activeBtn");
+    $(this).removeClass("inactiveBtn");
     $(".btn").not(this).removeClass("activeBtn");  //remove "active" class from all nav-pills other than the one clicked
 
-    clearTimeout(mobileTimeout);
+
     if (event.type === "touchend") {
-        var mobileTimeout = setTimeout(function() {
+        setTimeout(function() {
             $(this).removeClass("activeBtn");
             $("#about_button").addClass("activeBtn");
         }, 1000);
