@@ -130,15 +130,13 @@ body {
 
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
     background-color: #eee;
-    color: #337ab7;
+    color: #23527c;
 }
 
 .jumbotron {
     border: 1px #000000 solid;
-}
-
-.introduction {
     margin-bottom: 20px;
+
 }
 
 .intro-text {
@@ -182,10 +180,7 @@ body {
     }
 }
 
-.projects {
-}
-
-.projects .row img {
+.portfolio .row img {
     border: 1px #000000 solid;
     border-radius: 5px;
     margin-bottom: 20px;
