@@ -267,7 +267,6 @@ h2 {
 }
 
 @media (max-width: 1022px) {
-
     h2 {
         text-align:center;
     }
@@ -280,14 +279,8 @@ hr.emblem-dark {
     border: 0;
     border-top: solid 3px;
     text-align: center;
-}
+    border-color: #666;
 
-@media(min-width: 1023px) {
-    hr.emblem-dark {
-        margin-right: 0;
-        text-align: right;
-        max-width: 585px;
-    }
 }
 
 hr.emblem-dark::after {
@@ -298,26 +291,23 @@ hr.emblem-dark::after {
     top: -0.77em;
     padding: 0 20px;
     font-size: 2em;
+    color: #666;
+    background-color: #eee;
 }
 
-@media(min-width: 1023px) {
-    hr.emblem-dark::after {
-        right: 0;
-        padding-right: 0;
-    }
-}
-
-hr.emblem-dark {
-    border-color: #666;
-}
 
 @media (min-width: 1023px) {
     hr.emblem-dark {
         margin-top: -30px;
         margin-right: 6%;
+        text-align: right;
+        max-width: 585px;
     }
 
-
+    hr.emblem-dark::after {
+        right: 0;
+        padding-right: 0;
+    }
 
     .intro-text hr.emblem-dark {
         margin-top: 45px;
@@ -334,16 +324,17 @@ hr.emblem-dark {
     }
 }
 
-hr.emblem-dark::after {
-    color: #666;
-    background-color: #eee;
-}
+@media (min-width: 1200px) {
+    .portfolio hr.emblem-dark {
+        max-width: 64%;
+    }
 
-@media (min-width: 1023px) {
-    hr.emblem-dark::after {
-        padding-right: 0;
+    .contact hr.emblem-dark {
+        max-width: 61%;
     }
 }
+
+
 
 
 
