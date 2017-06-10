@@ -230,10 +230,10 @@ ul {
     cursor: pointer;
 }
 
-.sortBtnActive {
-    color: #888;
-}
 
+.sortBtnActive {
+    color: #337ab7;
+}
 
 .portfolio .row img {
     border: 1px #000000 solid;
@@ -241,9 +241,15 @@ ul {
     margin-bottom: 20px;
 }
 
+.contact-info {
+    margin-top: 65px;
+    font-size: 24px;
+}
 
-
-
+.contact div {
+    text-align: center;
+    line-height: 37px;
+}
 
 
 h2 {

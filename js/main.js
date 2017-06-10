@@ -15,24 +15,25 @@ function initializeSortMenuButtons() {
     });
 
     $(".all-button").click(function() {
-        $(".all-projects").fadeIn( "slow", function() {});
+        $(".all-projects").css("display", "none");
+        $(".all-projects").fadeIn( "slow");
     });
 
     $(".web-button").click(function() {
-        $(".web-projects").fadeIn( "slow", function() {});
-        $(".all-projects").not($(".web-projects")).css("display", "none");
+        $(".all-projects").css("display", "none");
+        $(".web-projects").fadeIn( "slow");
 
     });
 
     $(".android-button").click(function() {
-        $(".android-projects").fadeIn( "slow", function() {});
-        $(".all-projects").not($(".android-projects")).css("display", "none");
+        $(".all-projects").css("display", "none");
+        $(".android-projects").fadeIn( "slow");
 
     });
 
     $(".other-button").click(function() {
-        $(".other-projects").fadeIn( "slow", function() {});
-        $(".all-projects").not($(".other-projects")).css("display", "none");
+        $(".all-projects").css("display", "none");
+        $(".other-projects").fadeIn( "slow");
 
     });
 }
