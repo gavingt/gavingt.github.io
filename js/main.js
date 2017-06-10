@@ -8,9 +8,32 @@ initializeSortMenuButtons();
 //TODO: make sort buttons work (give each project a class with same name as sort button category)
 
 function initializeSortMenuButtons() {
-    $(".sortBtn").click(function() {
+    $(".sortBtn").on("click", function() {
+        console.log("click");
         $(".sortBtn").not(this).removeClass("sortBtnActive");
         $(this).addClass("sortBtnActive");
+    });
+
+    $(".all-button").click(function() {
+        $(".all-projects").fadeIn( "slow", function() {});
+    });
+
+    $(".web-button").click(function() {
+        $(".web-projects").fadeIn( "slow", function() {});
+        $(".all-projects").not($(".web-projects")).css("display", "none");
+
+    });
+
+    $(".android-button").click(function() {
+        $(".android-projects").fadeIn( "slow", function() {});
+        $(".all-projects").not($(".android-projects")).css("display", "none");
+
+    });
+
+    $(".other-button").click(function() {
+        $(".other-projects").fadeIn( "slow", function() {});
+        $(".all-projects").not($(".other-projects")).css("display", "none");
+
     });
 }
 
