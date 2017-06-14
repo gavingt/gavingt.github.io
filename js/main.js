@@ -3,9 +3,26 @@ var lastScrollTop = 0;
 
 initializeHeaderMenuButtons();
 initializeSortMenuButtons();
+initializeProjectButtons();
+
+function initializeProjectButtons() {
+    $(".all-projects").click(function() {
+
+        if (this.classList.contains("project1")) {
+            $(".modal-title").text("project 1");
+            $(".modal-footer").text("Hey this is the project 1 text I changed it see?");
+        }
+
+        $('#myModal').modal("show");
+    });
+}
 
 
-//TODO: make sort buttons work (give each project a class with same name as sort button category)
+
+
+
+
+
 
 function initializeSortMenuButtons() {
     $(".sortBtn").on("click", function() {
@@ -15,8 +32,9 @@ function initializeSortMenuButtons() {
     });
 
     $(".all-button").click(function() {
-        $(".all-projects").css("display", "none");
-        $(".all-projects").fadeIn( "slow");
+        var allProjects = $(".all-projects");
+        allProjects.css("display", "none");
+        allProjects.fadeIn( "slow");
     });
 
     $(".web-button").click(function() {

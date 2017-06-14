@@ -230,7 +230,6 @@ ul {
     cursor: pointer;
 }
 
-
 .sortBtnActive {
     color: #337ab7;
 }
@@ -239,6 +238,41 @@ ul {
     border: 1px #000000 solid;
     border-radius: 5px;
     margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.modal-dialog{
+    width: 1200px;
+    max-width: 90%;
+    margin: auto;
+
+    padding-top: 10px;
+}
+
+.modal-footer {
+    text-align: left;
+}
+
+.carousel-control {
+    opacity: 1;
+    color: gray;
+}
+
+.glyphicon {
+    color: gray;
+}
+
+.glyphicon:hover {
+    color: black;
+}
+
+.carousel-control:hover >* {
+    opacity: 1;
+    color: black;
+}
+
+.right.carousel-control, .left.carousel-control {
+    background-image: none;
 }
 
 .contact-info {
