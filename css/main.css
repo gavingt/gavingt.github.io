@@ -242,38 +242,83 @@ ul {
 }
 
 .modal-dialog{
-    width: 1200px;
-    max-width: 90%;
+    width: 1500px;
+    max-width: 85%;
     margin: auto;
+    padding-top: 50px;
+}
 
-    padding-top: 10px;
+.modal-content {
+    background: rgba(60, 60, 60, 0.4);
+}
+
+.modal-body {
+    padding: 0;
 }
 
 .modal-footer {
     text-align: left;
+    background-color: white;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.item img {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 }
 
 .carousel-control {
     opacity: 1;
-    color: gray;
+    color: lightgray;
+    width: 9%;
 }
 
 .glyphicon {
-    color: gray;
+    color: lightgray;
 }
 
 .glyphicon:hover {
-    color: black;
+    color: darkgray;
 }
 
-.carousel-control:hover >* {
+.glyphicon-chevron-right {
+    right: 10% !important;
+}
+
+.glyphicon-chevron-left {
+    left: 10% !important;
+}
+
+.carousel-control:hover >*, .close:hover {
     opacity: 1;
-    color: black;
+    color: darkgray;
 }
 
 .right.carousel-control, .left.carousel-control {
     background-image: none;
 }
+
+.right.carousel-control {
+    right: -3%;
+}
+
+.left.carousel-control {
+    left: -3%;
+}
+
+.close {
+    top: -40px;
+    right: 1px;
+    position: absolute;
+    z-index: 1;
+    font-size: 38px;
+    color: lightgray;
+    opacity: 1;
+    outline: none;
+}
+
+
 
 .contact-info {
     margin-top: 65px;
