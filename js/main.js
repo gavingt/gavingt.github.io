@@ -7,10 +7,42 @@ initializeProjectButtons();
 
 function initializeProjectButtons() {
     $(".all-projects").click(function() {
-
         if (this.classList.contains("project1")) {
-            $(".modal-title").text("project 1");
+            $(".carousel-inner").html(
+                "<div class='item active'><img src='img/project1/1.png' class='d-block img-fluid'> </div> <div class='item'> <img src='img/project1/2.png' class='d-block img-fluid'>" +
+                "</div><div class='item'><img src='img/project1/3.png' class='d-block img-fluid'></div><div class='item'> <img src='img/project1/4.png' class='d-block img-fluid'>" +
+                "</div><div class='item'><img src='img/project1/5.png' class='d-block img-fluid'></div>"
+            );
+
             $(".modal-footer").text("Hey this is the project 1 text I changed it see?");
+        }
+        else if (this.classList.contains("project2")) {
+            $(".carousel-inner").html(
+                "<div class='item active'><img src='img/project2/1.png' class='d-block img-fluid'></div><div class='item'><img src='img/project2/2.png' class='d-block img-fluid'>" +
+                "</div><div class='item'><img src='img/project2/3.png' class='d-block img-fluid'></div><div class='item'><img src='img/project2/4.png' class='d-block img-fluid'></div>"
+            );
+
+            $(".modal-footer").text("Hey this is the project 2 text dontcha know?");
+        }
+        else if (this.classList.contains("project3")) {
+            $(".carousel-inner").html(
+                "<div class='item active'><img src='img/project3/1.png' class='d-block img-fluid'></div><div class='item'><img src='img/project3/2.png' class='d-block img-fluid'>" +
+                "</div><div class='item'><img src='img/project3/3.png' class='d-block img-fluid'></div><div class='item'><img src='img/project3/4.png' class='d-block img-fluid'>" +
+                "</div><div class='item'><img src='img/project3/5.png' class='d-block img-fluid'></div><div class='item'><img src='img/project3/6.png' class='d-block img-fluid'>" +
+                "</div><div class='item'><img src='img/project3/7.png' class='d-block img-fluid'></div><div class='item'><img src='img/project3/8.png' class='d-block img-fluid'></div>"
+            );
+
+            $(".modal-footer").text("This is project 3 text");
+        }
+        else if (this.classList.contains("project4")) {
+            $(".carousel-inner").html(
+                "<div class='item active'><img src='img/project4/1.png' class='d-block img-fluid'></div><div class='item'><img src='img/project4/2.png' class='d-block img-fluid'>" +
+                "</div><div class='item'><img src='img/project4/3.png' class='d-block img-fluid'></div><div class='item'><img src='img/project4/4.png' class='d-block img-fluid'>" +
+                "</div><div class='item'><img src='img/project4/5.png' class='d-block img-fluid'></div><div class='item'><img src='img/project4/6.png' class='d-block img-fluid'>" +
+                "</div><div class='item'><img src='img/project4/7.png' class='d-block img-fluid'></div><div class='item'><img src='img/project4/8.png' class='d-block img-fluid'></div>"
+            );
+
+            $(".modal-footer").text("And here's project 4 text");
         }
 
         $('#myModal').modal("show");
