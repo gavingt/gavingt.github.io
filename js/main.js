@@ -5,6 +5,13 @@ initializeHeaderMenuButtons();
 initializeSortMenuButtons();
 initializeProjectButtons();
 
+//Preloads images in the carousels so they're hopefully ready when the user wants to see them. This must come before we call the function below.
+$.preload = function() {
+    for (var i = 0; i < arguments.length; i++) {
+        $("<img />").attr("src", arguments[i]);
+    }
+};
+
 $.preload("img/project2/1.jpg", "img/project2/2.jpg", "img/project2/3.jpg", "img/project2/4.jpg",
     "img/project3/1.jpg", "img/project3/2.jpg", "img/project3/3.jpg", "img/project3/4.jpg", "img/project3/5.jpg", "img/project3/6.jpg", "img/project3/7.jpg", "img/project3/8.jpg",
     "img/project4/1.jpg", "img/project4/2.jpg", "img/project4/3.jpg", "img/project4/4.jpg", "img/project4/5.jpg", "img/project4/6.jpg", "img/project4/7.jpg", "img/project4/8.jpg", "img/project4/9.jpg", "img/project4/10.jpg",
@@ -12,12 +19,7 @@ $.preload("img/project2/1.jpg", "img/project2/2.jpg", "img/project2/3.jpg", "img
 );
 
 
-//preloads images in the carousels so they're hopefully ready when the user wants to see them
-$.preload = function() {
-    for (var i = 0; i < arguments.length; i++) {
-        $("<img />").attr("src", arguments[i]);
-    }
-};
+
 
 
 function initializeProjectButtons() {
