@@ -5,6 +5,21 @@ initializeHeaderMenuButtons();
 initializeSortMenuButtons();
 initializeProjectButtons();
 
+$.preload("img/project2/1.jpg", "img/project2/2.jpg", "img/project2/3.jpg", "img/project2/4.jpg",
+    "img/project3/1.jpg", "img/project3/2.jpg", "img/project3/3.jpg", "img/project3/4.jpg", "img/project3/5.jpg", "img/project3/6.jpg", "img/project3/7.jpg", "img/project3/8.jpg",
+    "img/project4/1.jpg", "img/project4/2.jpg", "img/project4/3.jpg", "img/project4/4.jpg", "img/project4/5.jpg", "img/project4/6.jpg", "img/project4/7.jpg", "img/project4/8.jpg", "img/project4/9.jpg", "img/project4/10.jpg",
+    "img/project5/1.jpg", "img/project5/2.jpg", "img/project5/3.jpg", "img/project5/4.jpg", "img/project5/5.jpg", "img/project5/6.jpg"
+);
+
+
+//preloads images in the carousels so they're hopefully ready when the user wants to see them
+$.preload = function() {
+    for (var i = 0; i < arguments.length; i++) {
+        $("<img />").attr("src", arguments[i]);
+    }
+};
+
+
 function initializeProjectButtons() {
     $(".all-projects").click(function() {
         if (this.classList.contains("project1")) {

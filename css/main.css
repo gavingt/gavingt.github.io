@@ -106,6 +106,7 @@ body {
     font-size: 20px;
 }
 
+
 .header {
     margin: 0 0 30px 0;
     color: #eee;
@@ -252,8 +253,7 @@ ul {
 .modal-dialog{
     width: 1250px;
     max-width: 85%;
-    margin: auto;
-    padding-top: 50px;
+    margin: 50px auto auto auto;
 }
 
 .modal-content {
