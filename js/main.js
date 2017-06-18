@@ -45,14 +45,19 @@ function initializeProjectButtons() {
             $(".modal-footer").text("And here's project 4 text");
         }
 
+        else if (this.classList.contains("project5")) {
+            $(".carousel-inner").html(
+                "<div class='item active'><img src='img/project5/1.png' class='d-block img-fluid'></div><div class='item'><img src='img/project5/2.png' class='d-block img-fluid'>" +
+                "</div><div class='item'><img src='img/project5/3.png' class='d-block img-fluid'></div><div class='item'><img src='img/project5/4.png' class='d-block img-fluid'>" +
+                "</div><div class='item'><img src='img/project5/5.png' class='d-block img-fluid'></div><div class='item'><img src='img/project5/6.png' class='d-block img-fluid'></div>"
+            );
+
+            $(".modal-footer").text("And here's project 5 text");
+        }
+
         $('#myModal').modal("show");
     });
 }
-
-
-
-
-
 
 
 
