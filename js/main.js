@@ -5,6 +5,10 @@ initializeHeaderMenuButtons();
 initializeSortMenuButtons();
 initializeProjectButtons();
 
+document.getElementById("myCarousel").addEventListener("ontouchmove", function(event) {
+    event.preventDefault();
+});
+
 //Preloads images in the carousels so they're hopefully ready when the user wants to see them. This must come before we call the function below.
 $.preload = function() {
     for (var i = 0; i < arguments.length; i++) {
@@ -31,7 +35,7 @@ function initializeProjectButtons() {
                 "</div><div class='item'><img src='img/project1/5.jpg' class='d-block img-fluid'></div>"
             );
 
-            $(".modal-footer").text("Hey this is the project 1 text I changed it see?");
+            $(".modal-footer").text("ClassTask is a to-do list app created specifically for students. Using an intuitive interface, students enter in information about the classes they are currently taking");
         }
         else if (this.classList.contains("project2")) {
             $(".carousel-inner").html(
