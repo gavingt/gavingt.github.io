@@ -252,7 +252,9 @@ ul {
 .modal-dialog{
     width: 1250px;
     max-width: 85%;
-    margin: auto auto auto auto;
+    /*
+    margin: 50px auto auto auto;
+    */
 }
 
 .modal-content {
