@@ -234,10 +234,18 @@ ul {
     color: #337ab7;
 }
 
-.portfolio .row img {
+.portfolio .row .img-responsive {
     border: 1px #000000 solid;
     border-radius: 5px;
     margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.image-zoom {
+    position: absolute;
+    right: 20px;
+    top: 3px;
+    width: 18px;
     cursor: pointer;
 }
 
