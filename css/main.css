@@ -250,9 +250,9 @@ ul {
 }
 
 .modal-dialog{
-    width: 1250px;
+    width: 1050px;
     max-width: 85%;
-    margin: 50px auto auto auto;
+    margin: 50px auto 50px auto;
 }
 
 .modal-content {
@@ -264,10 +264,17 @@ ul {
 }
 
 .modal-footer {
-    text-align: left;
     background-color: white;
     border-bottom-right-radius: 6px;
     border-bottom-left-radius: 6px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.modal-title {
+    text-align: center;
+    padding-bottom: 14px;
+    font-size: 19px;
 }
 
 .item img {
