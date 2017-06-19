@@ -269,6 +269,8 @@ ul {
     border-bottom-left-radius: 6px;
     font-size: 16px;
     text-align: center;
+    overflow-y: scroll;
+    height: 250px;
 }
 
 .modal-title {
