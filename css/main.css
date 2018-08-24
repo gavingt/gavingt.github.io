@@ -372,10 +372,11 @@ hr.emblem-dark {
     padding: 0;
     width: 80%;
     border: 0;
+    overflow: visible;
+
     border-top: solid 3px;
     text-align: center;
     border-color: #666;
-
 }
 
 hr.emblem-dark::after {
@@ -389,6 +390,7 @@ hr.emblem-dark::after {
     color: #666;
     background-color: #eee;
 }
+
 
 
 @media (min-width: 1023px) {
