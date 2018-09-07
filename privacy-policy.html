@@ -22,23 +22,45 @@
 
 <h2>Information we collect</h2>
 
-<div>The information we collect comes in two forms: error reporting and local storage.</div>
+<div>The information we collect comes in three forms: error reporting, user engagement, and local storage.</div>
 
 <h4>Error reporting</h4>
 
-<div>Our apps use Crashlytics, the industry standard method for collecting crash data and troubleshooting information. Crashlytics collects the following information:</div>
+<div>Our apps use Firebase Crashlytics, which is the industry standar method for collecting crash data and troubleshooting information.
+    Firebase collects the following information:</div>
 
 <ul>
-    <li>Installation UUID</li>
+    <li>Instance IDs</li>
     <li>Crash traces</li>
     <li>Custom error reports</li>
 </ul>
 
-<div>Crashlytics stores crash traces and their associated identifiers for 90 days. We do not make use of IP Tracking through Crashlytics.
-    We also don't include any personally identifiable information in our custom Crashlytics error reports. Crashlytics reports indicate the device being used as well as basic
-    hardware information such as RAM and Android version. Crashlytics internally uses your "Installation UUID" to distinguish unique user sessions. This is a number that is assigned to a user
-    upon installing the app. We also use Crashlytics to provide custom error reports for non-fatal exceptions. These custom error reports contain only stack traces for the associated exceptions.
-</div>
+<div>Firebase stores crash traces for 180 days. Additionally, it stores Instance IDs for each user indefinitely. Firebase reports indicate the device being used as well as basic
+    hardware information such as RAM and Android version. Firebase internally uses your Instance ID to distinguish unique user sessions. An Instance ID is a number that is assigned to a user
+    upon installing the app. We also use Firebase to provide custom error reports for non-fatal exceptions. These custom error reports contain only stack traces for the associated exceptions.
+    We don't collect an advertising ID, since our apps contain no advertisements.</div>
+
+
+<h4>User engagement</h4>
+
+    <div>Our apps use Google Analytics for Firebase, which monitors user engagement. We use the default implementation for Google Analytics for Firebase, which collects the following information:</div>
+
+<ul>
+    <li>Number of users and sessions</li>
+    <li>Session duration</li>
+    <li>Operating systems</li>
+    <li>Device models</li>
+    <li>Geography</li>
+    <li>First launches</li>
+    <li>App opens</li>
+    <li>App updates</li>
+    <li>In-app purchases</li>
+</ul>
+
+    <div>Google Analytics for Firebase indefinitely stores an Instance ID for each user (the same Instance ID use by Firebase Crashlytics).
+        We don't collect an advertising ID, since our apps contain no advertisements. Google Analytics for Firebase provides us with rough information about how users engage with the app (such as which
+        Activities users access). It also provides anonymized information about user location. This information is approximated to the city level.  
+    </div>
 
 <h4>Local storage</h4>
 
