@@ -33,9 +33,12 @@ function initializeProjectButtons() {
             );
 
             $(".modal-footer").html("<div class='modal-title'>Delivery Tip Tracker<br>Pro version: <a href='http://goo.gl/KD2y1t' target='_blank'>goo.gl/KD2y1t</a> &nbsp;| &nbsp;Free version: <a href='https://goo.gl/E8xff3' target='_blank'>goo.gl/E8xff3</a></div>" +
-                "Delivery Tip Tracker is an Android app that helps delivery drivers quickly track their tips. Drivers enter their tips using voice or through a simple touch interface. The app uses GPS to calculate the distance driven on " +
-                "each delivery, yielding useful statistics such as average tip per mile driven and average distance per delivery. The Pro version stores comprehensive tip history with daily, monthly, yearly, and all-time views, and even " +
-                "the ability to see their &quot;high scores&quot; in various stats. Users also have access to cloud-based backup and restore functionality, so they never have to worry about losing their data.<br><br>" +
+                "Delivery Tip Tracker is an Android app that helps delivery drivers to keep track of their tips as well as delivery addresses, customers, and more. " +
+                "After adding a tip amount, the app can automatically find the GPS coordinates, delivery address, and driving distance for the delivery. Users who want more " +
+                "can enter in the addresses ahead of time to start navigation, or enter in customer phone numbers to quickly call them. " +
+                "The app surfaces useful stats such as average tip per mile driven and average distance per delivery. " +
+                "It stores customer info, including phone numbers, names, notes, and previous orders. " +
+                "It also contains comprehensive order history functionality, allowing users to view everything from individual shifts to entire years worth of data.<br><br>" +
                 "As of September 2018, the Pro version has accumulated about 1,000 purchases at $2.99 and the Free version has about 6,000 installs. The Pro version has a user rating of 4.6/5 stars, while the Free version is rated 4.2/5 stars."
             );
         }
