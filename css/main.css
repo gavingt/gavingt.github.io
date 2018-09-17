@@ -312,15 +312,18 @@ ul {
 
 .glyphicon-chevron-right {
     right: 10% !important;
+    pointer-events: none !important;
 }
 
 .glyphicon-chevron-left {
     left: 10% !important;
+    pointer-events: none !important;
 }
 
 /*.carousel-control:hover >*, .close:hover {
-    opacity: 1;
-    color: darkgray;
+!*    opacity: 1;
+    color: darkgray;*!
+    color: gray;
 }*/
 
 .right.carousel-control, .left.carousel-control {
@@ -344,8 +347,8 @@ ul {
     color: lightgray;
     opacity: 1;
     outline: none;
+    pointer-events: none;
 }
-
 
 
 .contact-info {
