@@ -250,17 +250,19 @@ ul {
 }
 
 .modal-dialog{
-    /*width: 1050px;*/
-    max-width: 85%;
+    width: 85%;
     margin: 50px auto 50px auto;
 }
 
+
+
 .modal-content {
-    background: rgba(60, 60, 60, 0.4);
+    background: white;
 }
 
 .modal-body {
     padding: 0;
+
 }
 
 .modal-footer {
@@ -282,6 +284,7 @@ ul {
 .item img {
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
+    margin:auto;
 }
 
 .carousel-control {
