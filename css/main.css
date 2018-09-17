@@ -137,9 +137,9 @@ ul {
 
 }
 
-.btn:hover {
+/*.btn:hover {
     background-color: #eee;
-}
+}*/
 
 .activeBtn {
     background-color: #eee;
@@ -292,6 +292,7 @@ ul {
 
 .carousel-inner>.item>a>img, .carousel-inner>.item>img {
     max-height: 55vh;
+    cursor: pointer;
 }
 
 
@@ -305,9 +306,9 @@ ul {
     color: lightgray;
 }
 
-.glyphicon:hover {
+/*.glyphicon:hover {
     color: darkgray;
-}
+}*/
 
 .glyphicon-chevron-right {
     right: 10% !important;
@@ -317,10 +318,10 @@ ul {
     left: 10% !important;
 }
 
-.carousel-control:hover >*, .close:hover {
+/*.carousel-control:hover >*, .close:hover {
     opacity: 1;
     color: darkgray;
-}
+}*/
 
 .right.carousel-control, .left.carousel-control {
     background-image: none;

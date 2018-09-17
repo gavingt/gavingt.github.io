@@ -211,8 +211,8 @@ function initializeHeaderMenuButtons () {
     $(window).on({
         'touchmove': function (e) {
             $("#about_button").attr("class", "btn activeBtn");
-            $("#portfolio_button").attr("class", "btn inactiveBtn");
-            $("#contact_button").attr("class", "btn inactiveBtn");
+            $("#portfolio_button").attr("class", "btn inactiveBtn").removeClass("activeBtn");
+            $("#contact_button").attr("class", "btn inactiveBtn").removeClass("activeBtn");
 
             var touch = 'ontouchstart' in document.documentElement
                 || navigator.maxTouchPoints > 0
