@@ -272,7 +272,7 @@ ul {
     font-size: 16px;
     text-align: center;
     overflow-y: auto;
-    height: 250px;
+    max-height: 20%;
 }
 
 .modal-title {
@@ -285,6 +285,8 @@ ul {
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     margin:auto;
+    padding: 8px;
+    max-height: 70%;
 }
 
 .carousel-control {
