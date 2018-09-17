@@ -258,6 +258,7 @@ ul {
 
 .modal-content {
     background: white;
+    max-height: 90vh;
 }
 
 .modal-body {
@@ -272,7 +273,7 @@ ul {
     font-size: 16px;
     text-align: center;
     overflow-y: auto;
-    max-height: 20%;
+    max-height: 20vh;
 }
 
 .modal-title {
@@ -286,8 +287,13 @@ ul {
     border-top-right-radius: 6px;
     margin:auto;
     padding: 8px;
-    max-height: 70%;
+
 }
+
+.carousel-inner>.item>a>img, .carousel-inner>.item>img {
+    height: 70vh;
+}
+
 
 .carousel-control {
     opacity: 1;
