@@ -15,8 +15,8 @@ $.preload = function() {
 
 $.preload("img/project2/1.jpg", "img/project2/2.jpg", "img/project2/3.jpg", "img/project2/4.jpg",
     "img/project3/1.jpg", "img/project3/2.jpg", "img/project3/3.jpg", "img/project3/4.jpg", "img/project3/5.jpg", "img/project3/6.jpg", "img/project3/7.jpg", "img/project3/8.jpg",
-    "img/project4/1.jpg", "img/project4/2.jpg", "img/project4/3.jpg", "img/project4/4.jpg", "img/project4/5.jpg", "img/project4/6.jpg", "img/project4/7.jpg", "img/project4/8.jpg", "img/project4/9.jpg", "img/project4/10.jpg",
-    "img/project5/1.jpg", "img/project5/2.jpg", "img/project5/3.jpg", "img/project5/4.jpg", "img/project5/5.jpg", "img/project5/6.jpg"
+    "img/project4/1.jpg", "img/project4/2.jpg", "img/project4/3.jpg", "img/project4/4.jpg", "img/project4/5.jpg", "img/project4/6.jpg", "img/project4/7.jpg", "img/project4/8.jpg", "img/project4/9.jpg",
+    "img/project4/10.jpg", "img/project5/1.jpg", "img/project5/2.jpg", "img/project5/3.jpg", "img/project5/4.jpg", "img/project5/5.jpg", "img/project5/6.jpg"
 );
 
 
@@ -24,6 +24,7 @@ $.preload("img/project2/1.jpg", "img/project2/2.jpg", "img/project2/3.jpg", "img
 
 function initializeProjectButtons() {
     $(".all-projects").click(function() {
+
         if (this.classList.contains("project1")) {
             $(".carousel-inner").html(
                 "<div class='item active'><img src='img/project1/1.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
@@ -36,7 +37,7 @@ function initializeProjectButtons() {
                 "<div class='item'><img src='img/project1/8.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>"
             );
 
-            $(".modal-footer").html("<div class='modal-title'>Delivery Tip Tracker<br>Pro version: <a href='http://goo.gl/KD2y1t' target='_blank'>goo.gl/KD2y1t</a> &nbsp;| &nbsp;Free version: <a href='https://goo.gl/E8xff3' target='_blank'>goo.gl/E8xff3</a></div>" +
+            $(".modal-footer").html("<div class='modal-title'>Delivery Tip Tracker<br>Pro version: <a href='http://goo.gl/KD2y1t' target='_blank'>goo.gl/KD2y1t</a><br>Free version: <a href='https://goo.gl/E8xff3' target='_blank'>goo.gl/E8xff3</a></div>" +
                 "Delivery Tip Tracker is an Android app that helps delivery drivers to keep track of their tips as well as delivery addresses, customers, and more. " +
                 "After adding a tip amount, the app can automatically find the GPS coordinates, delivery address, and driving distance for the delivery. Users who want more " +
                 "can enter in the addresses ahead of time to start navigation, or enter in customer phone numbers to quickly call them. " +
@@ -121,7 +122,6 @@ function initializeProjectButtons() {
 
 
 function showFullscreen(imageUrl) {
-    //window.location.href = imageUrl;
     window.open(imageUrl, '_blank');
 }
 
@@ -213,6 +213,28 @@ function initializeHeaderMenuButtons () {
             $("#about_button").attr("class", "btn activeBtn");
             $("#portfolio_button").attr("class", "btn inactiveBtn");
             $("#contact_button").attr("class", "btn inactiveBtn");
+
+            var touch = 'ontouchstart' in document.documentElement
+                || navigator.maxTouchPoints > 0
+                || navigator.msMaxTouchPoints > 0;
+
+            if (touch) { // remove all :hover stylesheets
+                try { // prevent exception on browsers not supporting DOM styleSheets properly
+                    for (var si in document.styleSheets) {
+                        var styleSheet = document.styleSheets[si];
+                        if (!styleSheet.rules) continue;
+
+                        for (var ri = styleSheet.rules.length - 1; ri >= 0; ri--) {
+                            if (!styleSheet.rules[ri].selectorText) continue;
+
+                            if (styleSheet.rules[ri].selectorText.match(':hover')) {
+                                styleSheet.deleteRule(ri);
+                            }
+                        }
+                    }
+                } catch (ex) {
+                }
+            }
         }
     });
 
@@ -225,7 +247,7 @@ function initializeHeaderMenuButtons () {
     }
 
 
-    var touch = 'ontouchstart' in document.documentElement
+/*    var touch = 'ontouchstart' in document.documentElement
         || navigator.maxTouchPoints > 0
         || navigator.msMaxTouchPoints > 0;
 
@@ -245,6 +267,6 @@ function initializeHeaderMenuButtons () {
             }
         } catch (ex) {
         }
-    }
+    }*/
 
 }
