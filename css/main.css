@@ -273,7 +273,7 @@ ul {
     font-size: 16px;
     text-align: center;
     overflow-y: auto;
-    max-height: 35vh;
+    max-height: 30vh;
 }
 
 .modal-title {
@@ -291,7 +291,7 @@ ul {
 }
 
 .carousel-inner>.item>a>img, .carousel-inner>.item>img {
-    max-height: 55vh;
+    max-height: 50vh;
 }
 
 
