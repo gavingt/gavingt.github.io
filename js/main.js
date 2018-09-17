@@ -26,10 +26,14 @@ function initializeProjectButtons() {
     $(".all-projects").click(function() {
         if (this.classList.contains("project1")) {
             $(".carousel-inner").html(
-                "<div class='item active'><img src='img/project1/1.jpg' class='d-block img-fluid'></div><div class='item'><img src='img/project1/2.jpg' class='d-block img-fluid'>" +
-                "</div><div class='item'><img src='img/project1/3.jpg' class='d-block img-fluid'></div><div class='item'><img src='img/project1/4.jpg' class='d-block img-fluid'>" +
-                "</div><div class='item'><img src='img/project1/5.jpg' class='d-block img-fluid'></div><div class='item'><img src='img/project1/6.jpg' class='d-block img-fluid'>" +
-                "</div><div class='item'><img src='img/project1/7.jpg' class='d-block img-fluid'></div><div class='item'><img src='img/project1/8.jpg' class='d-block img-fluid'></div>"
+                "<div class='item active'><img src='img/project1/1.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project1/2.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project1/3.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project1/4.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project1/5.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project1/6.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project1/7.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project1/8.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>"
             );
 
             $(".modal-footer").html("<div class='modal-title'>Delivery Tip Tracker<br>Pro version: <a href='http://goo.gl/KD2y1t' target='_blank'>goo.gl/KD2y1t</a> &nbsp;| &nbsp;Free version: <a href='https://goo.gl/E8xff3' target='_blank'>goo.gl/E8xff3</a></div>" +
@@ -44,10 +48,13 @@ function initializeProjectButtons() {
         }
         else if (this.classList.contains("project2")) {
             $(".carousel-inner").html(
-                "<div class='item active'><img src='img/project2/1.jpg' class='d-block img-fluid'></div><div class='item'><img src='img/project2/2.jpg' class='d-block img-fluid'>" +
-                "</div><div class='item'><img src='img/project2/3.jpg' class='d-block img-fluid'></div><div class='item'><img src='img/project2/4.jpg' class='d-block img-fluid'>" +
-                "</div><div class='item'><img src='img/project2/5.jpg' class='d-block img-fluid'></div><div class='item'><img src='img/project2/6.jpg' class='d-block img-fluid'>" +
-                "</div><div class='item'><img src='img/project2/7.jpg' class='d-block img-fluid'></div>"
+                "<div class='item active'><img src='img/project2/1.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project2/2.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project2/3.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project2/4.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project2/5.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project2/6.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project2/7.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>"
             );
 
             $(".modal-footer").html("<div class='modal-title'>Store 7667 Delivery Maps<br><a href='http://goo.gl/nfQDfa' target='_blank'>goo.gl/nfQDfa</a></div>" +
@@ -59,9 +66,11 @@ function initializeProjectButtons() {
         }
         else if (this.classList.contains("project3")) {
             $(".carousel-inner").html(
-                "<div class='item active'><img src='img/project3/1.jpg' class='d-block img-fluid'> </div> <div class='item'> <img src='img/project3/2.jpg' class='d-block img-fluid'>" +
-                "</div><div class='item'><img src='img/project3/3.jpg' class='d-block img-fluid'></div><div class='item'> <img src='img/project3/4.jpg' class='d-block img-fluid'>" +
-                "</div><div class='item'><img src='img/project3/5.jpg' class='d-block img-fluid'></div>"
+                "<div class='item active'><img src='img/project3/1.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div> " +
+                "<div class='item'> <img src='img/project3/2.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project3/3.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'> <img src='img/project3/4.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project3/5.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>"
             );
 
             $(".modal-footer").html("<div class='modal-title'>ClassTask<br><a href='https://gavingt.github.io/ClassTask' target='_blank'>gavingt.github.io/ClassTask</a></div>ClassTask is a " +
@@ -71,8 +80,10 @@ function initializeProjectButtons() {
         }
         else if (this.classList.contains("project4")) {
             $(".carousel-inner").html(
-                "<div class='item active'><img src='img/project4/1.jpg' class='d-block img-fluid'></div><div class='item'><img src='img/project4/2.jpg' class='d-block img-fluid'>" +
-                "</div><div class='item'><img src='img/project4/3.jpg' class='d-block img-fluid'></div><div class='item'><img src='img/project4/4.jpg' class='d-block img-fluid'></div>"
+                "<div class='item active'><img src='img/project4/1.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project4/2.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project4/3.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project4/4.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>"
             );
 
             $(".modal-footer").html("<div class='modal-title'>Store 7667 Address Verifier<br><a href='https://gavingt.github.io/address-checker' target='_blank'>gavingt.github.io/address-checker</a></div>" +
@@ -86,9 +97,12 @@ function initializeProjectButtons() {
 
         else if (this.classList.contains("project5")) {
             $(".carousel-inner").html(
-                "<div class='item active'><img src='img/project5/1.jpg' class='d-block img-fluid'></div><div class='item'><img src='img/project5/2.jpg' class='d-block img-fluid'>" +
-                "</div><div class='item'><img src='img/project5/3.jpg' class='d-block img-fluid'></div><div class='item'><img src='img/project5/4.jpg' class='d-block img-fluid'>" +
-                "</div><div class='item'><img src='img/project5/5.jpg' class='d-block img-fluid'></div><div class='item'><img src='img/project5/6.jpg' class='d-block img-fluid'></div>"
+                "<div class='item active'><img src='img/project5/1.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project5/2.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project5/3.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project5/4.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project5/5.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project5/6.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>"
             );
 
             $(".modal-footer").html("<div class='modal-title'>Visual Surround Sound<br><a href='https://www.youtube.com/watch?v=OtKxeBzwyX0' target='_blank'>youtube.com/watch?v=OtKxeBzwyX0</a></div>" +
@@ -106,6 +120,10 @@ function initializeProjectButtons() {
 }
 
 
+function showFullscreen(imageUrl) {
+    //window.location.href = imageUrl;
+    window.open(imageUrl, '_blank');
+}
 
 
 function initializeSortMenuButtons() {
