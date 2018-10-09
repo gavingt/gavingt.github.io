@@ -44,7 +44,7 @@ function initializeProjectButtons() {
                 "The app surfaces useful stats such as average tip per mile driven and average distance per delivery. " +
                 "It stores customer info, including phone numbers, names, notes, and previous orders. " +
                 "It also contains comprehensive order history functionality, allowing users to view everything from individual shifts to entire years worth of data.<br><br>" +
-                "As of September 2018, the Pro version has accumulated about 1,000 purchases at $2.99 and the Free version has about 6,000 installs. The Pro version has a user rating of 4.6/5 stars, while the Free version is rated 4.2/5 stars."
+                "As of September 2018, the Pro version has accumulated about 1,000 purchases at $2.99 and the Free version has about 6,000 installs. The Pro version has a user rating of 4.7/5 stars, while the Free version is rated 4.4/5 stars."
             );
         }
         else if (this.classList.contains("project2")) {
