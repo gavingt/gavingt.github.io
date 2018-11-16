@@ -87,7 +87,7 @@ function initializeProjectButtons() {
                 "<div class='item'><img src='img/project4/4.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>"
             );
 
-            $(".modal-footer").html("<div class='modal-title'>Store 7667 Address Verifier<br><a href='https://gavingt.github.io/address-checker' target='_blank'>gavingt.github.io/address-checker</a></div>" +
+            $(".modal-footer").html("<div class='modal-title'>Store 7667 Address Verifier<br><a href='https://goo.gl/HiASid' target='_blank'>https://goo.gl/HiASid</a></div>" +
                 "I wrote this app to rectify a shortcoming in the computer system of the Domino's store I worked at. When an employee took a delivery order over the phone, the system " +
                 "provided no way to verify whether a given address was actually in the store's delivery area. This led to significant losses for the store, as orders were prepared and then " +
                 "cancelled only after it became apparent that the customer was out of the delivery area.<br><br>With this app, the user begins to type an address and is given relevant autocomplete " +
