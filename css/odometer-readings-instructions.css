@@ -7,64 +7,52 @@ html {
 body {
     background-color: rgba(184, 184, 184, 0.33);
     font-size: 24px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 20px;
 }
 
 
 img {
     display: block;
-    margin-bottom: 60px;
+    padding-bottom: 30px;
+    padding-top: 30px;
     margin-left: auto;
     margin-right: auto;
     width: 450px;
 }
 
-p {
+#top-paragraph {
     width: 450px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 30px;
+}
+
+#bottom-paragraph {
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
 @media screen and (max-width: 450px) {
     img {
         display: block;
-        padding-bottom: 60px;
+        padding-bottom: 30px;
+        padding-top: 30px;
         width: 100%;
         margin: 0;
     }
 
-    p {
+    #top-paragraph {
         width: 100%;
         margin: 0;
-        margin-bottom: 30px;
+    }
+
+    #bottom-paragraph {
+        width: 100%;
+        margin: 0;
     }
 
 }
 
 
 
-
-
-h2 {
-    color: #536a80;
-    margin-left: -1%;
-}
-
-div {
-    color: #1e1e1e;
-}
-
-li {
-    padding-left: 1%;
-}
-
-h4 {
-    color: #404040;
-}
-
-i {
-    margin-left: -1%;
-}
