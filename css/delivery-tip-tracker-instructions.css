@@ -1,0 +1,59 @@
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+body {
+    background-color: rgba(184, 184, 184, 0.33);
+    font-size: 24px;
+    padding: 20px;
+}
+
+.caption {
+    padding-bottom: 30px;
+    font-size: 22px;
+}
+
+img.img-with-caption {
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+img.img-no-caption {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 510px;
+}
+
+
+p {
+    margin: 10px auto;
+    text-align: center;
+    width: 450px;
+}
+
+
+@media screen and (max-width: 510px) {
+    img {
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+
+
+    p {
+        width: 90%;
+        margin: auto;
+    }
+
+}
+
+
+
