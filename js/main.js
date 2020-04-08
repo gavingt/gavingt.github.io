@@ -13,11 +13,20 @@ $.preload = function() {
     }
 };
 
-$.preload("img/project2/1.jpg", "img/project2/2.jpg", "img/project2/3.jpg", "img/project2/4.jpg",
-    "img/project3/1.jpg", "img/project3/2.jpg", "img/project3/3.jpg", "img/project3/4.jpg", "img/project3/5.jpg", "img/project3/6.jpg", "img/project3/7.jpg", "img/project3/8.jpg",
-    "img/project4/1.jpg", "img/project4/2.jpg", "img/project4/3.jpg", "img/project4/4.jpg", "img/project4/5.jpg", "img/project4/6.jpg", "img/project4/7.jpg", "img/project4/8.jpg", "img/project4/9.jpg",
-    "img/project4/10.jpg", "img/project5/1.jpg", "img/project5/2.jpg", "img/project5/3.jpg", "img/project5/4.jpg", "img/project5/5.jpg", "img/project5/6.jpg"
-);
+$.preload("img/project1/1.jpg", "img/project1/2.jpg", 
+	"img/project1/3.jpg", "img/project1/4.jpg",
+"img/project1/5.jpg", "img/project1/6.jpg", "img/project1/7.jpg",
+"img/project1/8.jpg", "img/project2/1.jpg", "img/project2/2.jpg",
+"img/project2/3.jpg", "img/project2/4.jpg", "img/project3/1.jpg",
+"img/project3/2.jpg", "img/project3/3.jpg", "img/project3/4.jpg",
+"img/project3/5.jpg", "img/project3/6.jpg", "img/project3/7.jpg",
+"img/project3/8.jpg", "img/project4/1.jpg", "img/project4/2.jpg",
+"img/project4/3.jpg", "img/project4/4.jpg", "img/project4/5.jpg",
+"img/project4/6.jpg", "img/project4/7.jpg", "img/project4/8.jpg",
+"img/project4/9.jpg", "img/project4/10.jpg", "img/project5/1.jpg",
+"img/project5/2.jpg", "img/project5/3.jpg", "img/project5/4.jpg",
+"img/project5/5.jpg", "img/project5/6.jpg", "img/project7/1.jpg",
+"img/project7/2.jpg", "img/project7/3.jpg" );
 
 
 
@@ -58,7 +67,8 @@ function initializeProjectButtons() {
                 "<div class='item'><img src='img/project2/7.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>"
             );
 
-            $(".modal-footer").html("<div class='modal-title'>Store 7667 Delivery Maps<br><a href='http://goo.gl/nfQDfa' target='_blank'>goo.gl/nfQDfa</a></div>" +
+            $(".modal-footer").html("<div class='modal-title'>Store 7667 Delivery Maps<br>Video: <a href='https://www.youtube.com/watch?v=gUfGd5VvuFI' target='_blank'>youtube.com/watch?v=gUfGd5VvuFI</a>" +
+            	"<br>Play Store link: <a href='http://goo.gl/nfQDfa' target='_blank'>goo.gl/nfQDfa</a></div>" +
                 "I wrote this Android app to help delivery drivers at the Domino's store I worked at. It contains all the apartment and hotel maps for our delivery area, allowing drivers " +
                 "to quickly find their destinations. The user can employ voice search or a touch menu to find the relevant map. The app also contains a list of known gate codes in the area, " +
                 "which any user can update on-the-fly. Store-wide use of my app led to a significant increase in on-time deliveries, an important metric for any delivery restaurant."
@@ -87,7 +97,8 @@ function initializeProjectButtons() {
                 "<div class='item'><img src='img/project4/4.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>"
             );
 
-            $(".modal-footer").html("<div class='modal-title'>Store 7667 Address Verifier<br><a href='https://goo.gl/HiASid' target='_blank'>https://goo.gl/HiASid</a></div>" +
+            $(".modal-footer").html("<div class='modal-title'>Store 7667 Address Verifier<br>Video link: <a href='https://www.youtube.com/watch?v=6K_QVE_PDjY' target='_blank'>youtube.com/watch?v=6K_QVE_PDjY</a>" +
+            	"<br>App link: <a href='https://goo.gl/HiASid' target='_blank'>https://goo.gl/HiASid</a></div>" +
                 "I wrote this app to rectify a shortcoming in the computer system of the Domino's store I worked at. When an employee took a delivery order over the phone, the system " +
                 "provided no way to verify whether a given address was actually in the store's delivery area. This led to significant losses for the store, as orders were prepared and then " +
                 "cancelled only after it became apparent that the customer was out of the delivery area.<br><br>With this app, the user begins to type an address and is given relevant autocomplete " +
@@ -113,6 +124,34 @@ function initializeProjectButtons() {
                 "signal. This frequency information is then fed into a microcontroller that runs various filtering functions before outputting the results to the LEDs in the glasses. A Bluetooth module enables the microcontroller to " +
                 "communicate with an Android companion app so that the user can customize various settings.<br><br>My contributions to the project were extensive. I conceived the idea, designed the circuit board, and wrote " +
                 "both the microcontroller code and the Android companion app."
+            );
+        }
+        else if (this.classList.contains("project6")) {
+            $(".carousel-inner").html(
+                "<div class='item active'><img src='img/project6/1.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project6/2.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project6/3.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project6/4.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project6/5.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project6/6.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>"
+            );
+
+            $(".modal-footer").html("<div class='modal-title'>Upcoming Games<br>Video link: <a href='https://www.youtube.com/watch?v=RS_684kyOEk' target='_blank'>youtube.com/watch?v=RS_684kyOEk</a>" +
+            	"<br>Github link: <a href='https://github.com/gavingt/upcoming-games' target='_blank'>github.com/gavingt/upcoming-games</a></div>" +
+                "Android app for viewing release dates and other info for every video game ever made. Keep track of your favorite and most anticipated games easily. Contains full sorting and search capabilities. Database updates itself periodically."+
+                " Built with the most up-to-date tech stack, including Kotlin, MVVM, Room, Retrofit, Paging Library, WorkManager, Navigation Component, Kotlin Coroutines, Moshi, Glide, and Guava."
+            );
+        }
+        else if (this.classList.contains("project7")) {
+            $(".carousel-inner").html(
+                "<div class='item active'><img src='img/project7/1.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project7/2.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>" +
+                "<div class='item'><img src='img/project7/3.jpg' onclick=\"showFullscreen(this.src)\" class='d-block img-fluid'></div>"
+            );
+
+            $(".modal-footer").html("<div class='modal-title'>Upcoming Games<br>Video link: <a href='https://www.youtube.com/watch?v=pPLaoyW__1s' target='_blank'>youtube.com/watch?v=pPLaoyW__1s</a>" +
+            	"<br>Github link: <a href='https://github.com/gavingt/SunCalculator' target='_blank'>github.com/gavingt/SunCalculator</a></div>" +
+                "Android app that fetches sunrise and sunset times for any date/city. Uses APIs for fetching sun data as well as timezone data. Built with a modern tech stack, leveraging MVVM, Retrofit, Moshi, Kotlin, and Coroutines."
             );
         }
 
