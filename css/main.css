@@ -104,12 +104,16 @@ textarea {
 body {
     background-color: rgba(184, 184, 184, 0.33);
     font-size: 20px;
+    background-image: url("../img/background1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
 }
 
 .header {
     margin: 0 0 30px 0;
     color: #eee;
-    background-color: #326e9e;
+    background-color: #607D8B;
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 4px 0 rgba(0, 0, 0, 0.19);
 }
 
