@@ -5,7 +5,6 @@ initializeHeaderMenuButtons();
 initializeSortMenuButtons();
 initializeProjectButtons();
 
-
 //Preloads images in the carousels so they're hopefully ready when the user wants to see them. This must come before we call the function below.
 $.preload = function() {
     for (var i = 0; i < arguments.length; i++) {
