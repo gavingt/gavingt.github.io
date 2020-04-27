@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delivery Tip Tracker FAQ</title>
+    <link rel="stylesheet" href="css/delivery-tip-tracker-instructions.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+<h3>Frequently Asked Questions</h3>
+
+<div class="faqQuestion">Is there an iPhone version of Delivery Tip Tracker?</div>
+<div class="faqAnswer">Unfortunately, no. I'm working to become a professional Android developer, so I'm purely focused on Android at the moment.</div>
+
+<div class="faqQuestion">How do I remove previous orders? I only see the option to remove the latest order.</div>
+<div class="faqAnswer">Currently, the app only supports removing the latest order. This is a shortcoming that I hope to address in the future.</div>
+
+<div class="faqQuestion">I got a new phone. How do I transfer my app data over from my old phone?</div>
+<div class="faqAnswer">On your old phone, make a backup of your app data by going to Settings > Manage data > Generate database backup file. When the 'Share' menu appears, choose to email this file to yourself. Then, on your new phone, download the file from your email app. Then go to Settings > Manage data > Restore database from file, and locate the backup file in your 'Download' folder. See this video for a walkthrough of the restore process: <a href>https://youtu.be/zrYjOjrRYOs</a> </div>
+
+<div class="faqQuestion">My phone was broken or lost. Can I still restore my app data?</div>
+<div class="faqAnswer">The app data is stored on your phone. The app reminds you periodically to back up your app data and store the database backup file on Google Drive. That way your data can always be retrieved.</br></br>Android devices are supposed to automatically back up your app data and store it to Google servers, but these automated backups can fail for a variety of reasons. It's best to make your own backup files to keep your app data safe.</div>
+
+<div class="faqQuestion">Does the app support split pay? My store pays us different rates when on the road versus in the store.</div>
+<div class="faqAnswer">It does not. Accurately tracking split pay would require either 1) Constantly tracking the user's location (which would be a huge battery drain), or 2) 
+Forcing the user to press a button every time they enter/leave the store. I don't like either of these options.</br></br>Instead, I recommend that you determine your average hourly pay rate
+and use that value as your 'Hourly pay rate' in the app. You can find your average rate by looking at your paychecks and dividing your wages earned by your hours worked. In my 
+experience, this provides a reasonable approximation of your wages earned.</div>
+
+<div class="faqQuestion">A customer paid for their order with a credit card, but tipped me in cash. How do I enter this into the app?</div>
+<div class="faqAnswer">Simply enter the order price, change the 'Payment method' slider to cash, and then enter the tip amount. Pressing the 'Payment method' slider doesn't change any of the values you've already entered.</div>
+
+<div class="faqQuestion">How do I view info about my previous shifts in the Free version of the app?</div>
+<div class="faqAnswer">You'll need the Pro version for that. The Free version only stores the current shift's data.</div>
+
+<div class="faqQuestion">Why do I occasionally have problems with the app not finding an address, or with the address being in the wrong location?</div>
+<div class="faqAnswer">The app uses Google's Geocoder service for turning the text you type or speak into full addresses, and then finding the locations of these addresses. Their Geocoder database occasionally returns incorrect results. My app does a lot of processing to try to filter out bad results, and I'm constantly improving these efforts in order to
+minimize these erroneous occurences.</br></br>Correctly setting the 'Store radius' from the 'Advanced settings' screen will restrict the searching of addresses only to those near your store. And if all else fails, you can select the address using the 'Pick address from map' feature.</div>
+
+<div class="faqQuestion">Why are driving distances shown in the app sometimes inaccurate?</div>
+<div class="faqAnswer">Google offers a great service for calculating driving distances. Unfortunately, they charge a ridiculous amount of money to developers for the use of this service. I would be spending far more than I earn if I enabled this service.</br></br>Instead, I use my own algorithm to calculate driving distances. The algorithm uses the starting and ending points of a given trip, and assumes you're travelling in straight lines on a grid. Of course, in the real world things aren't so straightforard. So the algorithm adds a certain percentage to the grid-based estimate to account for things like curves and backtracking. The user can customize this percentage by using the 'Adjust driving distance estimate' option on the 'Advanced settings' screen.</div>
+
+
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+<script src="js/plugins.js"></script>
+
+
+</body>
+
+
+</html>
