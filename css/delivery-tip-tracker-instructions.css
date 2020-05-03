@@ -22,6 +22,12 @@ body {
     font-size: 16px;
 }
 
+.videoLink {
+    margin-bottom: 42px;
+    margin-left: 32px;
+    font-size: 16px;
+}
+
 .caption {
     padding-bottom: 30px;
     font-size: 22px;
