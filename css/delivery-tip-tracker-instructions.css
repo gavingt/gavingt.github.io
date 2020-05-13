@@ -24,7 +24,10 @@ body {
 
 .proOnly {
     font-size: 12px;
-    padding: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     display: inline-block; 
     margin-bottom: 6px;
     color: #FFFFFF;
