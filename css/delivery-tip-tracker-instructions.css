@@ -22,6 +22,14 @@ body {
     color: #555555;
 }
 
+.proOnly {
+    font-size: 13px;
+    padding: 4px;
+    margin-right: 4px;
+    color: #FFFFFF;
+    background-color: #777777;
+}
+
 .faqQuestion {
     padding-bottom: 6px;
     font-weight: bold;
