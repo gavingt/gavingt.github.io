@@ -10,6 +10,17 @@ body {
     padding: 20px;
 }
 
+.faqHeader {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.faqSubHeader {
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 6px;
+}
+
 .faqQuestion {
     padding-bottom: 6px;
     font-weight: bold;
