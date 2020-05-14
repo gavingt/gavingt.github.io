@@ -26,7 +26,7 @@ body {
     font-size: 12px;
     padding-left: 4px;
     padding-right: 4px;
-    padding-top: 1px;
+    padding-top: 3px;
     padding-bottom: 3px;
     display: inline-block; 
     margin-bottom: 6px;
@@ -43,6 +43,7 @@ body {
 .faqQuestionProOnly {
     font-weight: bold;
     font-size: 17px;
+    margin-bottom: -2px;
 }
 
 .faqAnswer {
