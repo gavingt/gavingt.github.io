@@ -29,7 +29,7 @@ body {
     padding-top: 3px;
     padding-bottom: 3px;
     display: inline-block; 
-    margin-bottom: 6px;
+    margin-bottom: 7px;
     color: #FFFFFF;
     background-color: #777777;
 }
@@ -43,7 +43,7 @@ body {
 .faqQuestionProOnly {
     font-weight: bold;
     font-size: 17px;
-    margin-bottom: -6px;
+    margin-bottom: -5px;
 }
 
 .faqAnswer {
