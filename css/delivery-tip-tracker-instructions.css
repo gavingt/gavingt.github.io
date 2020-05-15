@@ -68,6 +68,10 @@ body {
     margin-bottom: 42px;
 }
 
+.listItem {
+    padding-bottom: 2px;
+}
+
 .caption {
     padding-bottom: 30px;
     font-size: 22px;
