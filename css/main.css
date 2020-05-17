@@ -374,12 +374,23 @@ ul {
         margin-bottom: 18px;
     }
 
+
+    @media (min-width: 445px) {
+        .social-link-row {
+            margin-left: auto;       
+            margin-right: auto;
+            width:60%;
+            margin-top: 0px;
+        }
+    }
+
+
     /* Fixes problems for small devices (991px and down) */
     @media (max-width: 991px) {
         .social-link-row {
             margin-left: auto;       
             margin-right: auto;
-            width:50%;
+            width:70%;
             margin-top: 0px;
         }
 
