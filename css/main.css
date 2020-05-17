@@ -448,7 +448,9 @@ ul {
         background-color: #eee;
     }
 
-
+    .intro-text hr.emblem-dark::after {
+        padding-top: 10px;
+    }
 
     @media (min-width: 1023px) {
         hr.emblem-dark {
