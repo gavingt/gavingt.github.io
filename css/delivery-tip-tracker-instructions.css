@@ -101,13 +101,13 @@ p {
     width: 450px;
 }
 
-ul {
-    margin: 10px auto;
+.header {
+    font-size: 30px;
+    font-weight: bold;
+    margin: auto;
     text-align: center;
     width: 450px;
 }
-
-
 
 
 
