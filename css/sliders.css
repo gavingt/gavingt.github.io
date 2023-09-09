@@ -1,36 +1,46 @@
-/* Hide the watermark in the bottom-right */
+html, body {
+    height: 100%;
+    margin: 0;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+/* Hide the watermark that would otherwise be visible in the bottom-right of the slider container */
 a.jx-knightlab {
     display: none !important;
 }
 
-/* Define the dimensions of the slider */
-.juxtapose {
+/* Define the position of the slider container */
+#slider_container {
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 100px;
 }
 
 /* Define the dimensions of the bottom row of thumbnails */
-div.thumbnail_container {
-    position: absolute;
-    bottom: 20px;
+#thumbnail_container {
     display: flex;
-    justify-content: space-between;
     flex-direction: row;
     width: 1200px;
+    height: 150px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
     left: 0;
     right: 0;
     text-align: center;
 }
 
 /* Define the dimensions of each thumbnail item in the bottom row */
-div.thumbnail_container img {
+#thumbnail_container img {
     flex: 0 0 auto;
     margin-inline: 2px;
     width: 150px;
     height: 150px;
     object-fit: cover;
-
 }

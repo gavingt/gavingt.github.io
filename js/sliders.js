@@ -22,7 +22,6 @@ $.preload(
     "img/slider-photos/13a.jpeg", "img/slider-photos/13b.jpeg",
     "img/slider-photos/14a.jpeg", "img/slider-photos/14b.jpeg",
     "img/slider-photos/15a.jpeg", "img/slider-photos/15b.jpeg",
-
 );
 
 
@@ -64,11 +63,13 @@ $(".thumbnail8").on("click", function () {
 
 
 function changeSliderPhotos(sliderNumber, actualPhotoWidth, actualPhotoHeight) {
-    // Scale image down so it's always 900px in height.
+    var adjustedWidth = actualPhotoWidth
+    var adjustedHeight = actualPhotoHeight
+    // Calculate new slider dimensions based on photo. Prevent the slider height from exceeding 900px.
     if (actualPhotoHeight > 900) {
-        var adjustedHeight = 900
+        adjustedHeight = 900
         var scaleFactor = adjustedHeight / actualPhotoHeight
-        var adjustedWidth = actualPhotoWidth * scaleFactor
+        adjustedWidth = actualPhotoWidth * scaleFactor
     }
 
     // Prepare slider_container for new photo.
