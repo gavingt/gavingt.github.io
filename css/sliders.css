@@ -14,19 +14,23 @@ a.jx-knightlab {
 div.thumbnail_container {
     position: absolute;
     bottom: 20px;
-    margin-left: auto;
-    margin-right: auto;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     width: 1200px;
-  }
-  
-  /* Define the dimensions of each thumbnail item in the bottom row */
-  div.thumbnail_container img {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+/* Define the dimensions of each thumbnail item in the bottom row */
+div.thumbnail_container img {
     flex: 0 0 auto;
     margin-inline: 2px;
     width: 150px;
     height: 150px;
     object-fit: cover;
-  }
+
+}
