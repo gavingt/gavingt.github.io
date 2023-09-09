@@ -1,10 +1,10 @@
-html {
+/* html {
     color: #222;
     font-size: 1em;
     line-height: 1.4;
-}
+} */
 
-body {
+/* body {
     background-color: rgba(184, 184, 184, 0.33);
     font-size: 20px;
     margin-left: 3%;
@@ -32,4 +32,25 @@ h4 {
 
 i {
     margin-left: -1%;
+} */
+
+a.jx-knightlab {
+    display: none !important;
+}
+
+div.juxtapose.juxtapose-0 {
+    width: 2048px;
+    height: 1152px; 
+}
+
+div.juxtapose.juxtapose-1 {
+    margin-top: 100px;
+    width: 2000px;
+    height: 1500px; 
+}
+
+div.juxtapose.juxtapose-2 {
+    margin-top: 100px;
+    width: 1056px;
+    height: 1500px; 
 }
