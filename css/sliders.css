@@ -10,47 +10,43 @@
     margin-left: 3%;
     margin-right: 3%;
     margin-bottom: 4%;
-}
-
-h2 {
-    color: #536a80;
-    margin-left: -1%;
-}
-
-div {
-    color: #1e1e1e;
-}
-
-
-li {
-    padding-left: 1%;
-}
-
-h4 {
-    color: #404040;
-}
-
-i {
-    margin-left: -1%;
 } */
 
+
+
+/* Hide the watermark in the bottom-right */
 a.jx-knightlab {
     display: none !important;
 }
 
-div.juxtapose.juxtapose-0 {
+/* div.juxtapose.juxtapose-0 {
     width: 2048px;
     height: 1152px; 
+    margin-bottom: 100px;
+} */
+
+/* Define the dimensions of the slider */
+.juxtapose {
+    width:2048px !important;
+    height: 1152px !important;
+    margin-bottom: 100px;
 }
 
-div.juxtapose.juxtapose-1 {
-    margin-top: 100px;
-    width: 2000px;
-    height: 1500px; 
-}
 
-div.juxtapose.juxtapose-2 {
-    margin-top: 100px;
-    width: 1056px;
-    height: 1500px; 
-}
+/* Define the dimensions of the bottom row of thumbnails */
+div.thumbnail_container {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 1200px;
+    overflow-x: hidden;
+  }
+  
+  /* Define the dimensions of each thumbnail item in the bottom row */
+  div.thumbnail_container img {
+    flex: 0 0 auto;
+    width: 150px;
+    height: 150px;
+  }
