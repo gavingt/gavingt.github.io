@@ -14,14 +14,7 @@ $.preload(
     "img/slider-photos/5a.jpeg", "img/slider-photos/5b.jpeg",
     "img/slider-photos/6a.jpeg", "img/slider-photos/6b.jpeg",
     "img/slider-photos/7a.jpeg", "img/slider-photos/7b.jpeg",
-    "img/slider-photos/8a.jpeg", "img/slider-photos/8b.jpeg",
-    "img/slider-photos/9a.jpeg", "img/slider-photos/9b.jpeg",
-    "img/slider-photos/10a.jpeg", "img/slider-photos/10b.jpeg",
-    "img/slider-photos/11a.jpeg", "img/slider-photos/11b.jpeg",
-    "img/slider-photos/12a.jpeg", "img/slider-photos/12b.jpeg",
-    "img/slider-photos/13a.jpeg", "img/slider-photos/13b.jpeg",
-    "img/slider-photos/14a.jpeg", "img/slider-photos/14b.jpeg",
-    "img/slider-photos/15a.jpeg", "img/slider-photos/15b.jpeg",
+    "img/slider-photos/8a.jpeg", "img/slider-photos/8b.jpeg"
 );
 
 
