@@ -203,7 +203,7 @@ ul {
         }
 
         .avatar {
-            margin: 0 auto 25px auto; //centers avatar on small screen sizes
+            margin: 0 auto 25px auto; /* centers avatar on small screen sizes */
         }
 
         .avatar.img-responsive {
