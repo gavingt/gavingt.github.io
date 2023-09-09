@@ -19,16 +19,9 @@ a.jx-knightlab {
     display: none !important;
 }
 
-/* div.juxtapose.juxtapose-0 {
-    width: 2048px;
-    height: 1152px; 
-    margin-bottom: 100px;
-} */
 
 /* Define the dimensions of the slider */
 .juxtapose {
-    width:2048px !important;
-    height: 1152px !important;
     margin-bottom: 100px;
 }
 
@@ -49,4 +42,5 @@ div.thumbnail_container {
     flex: 0 0 auto;
     width: 150px;
     height: 150px;
+    object-fit: cover;
   }

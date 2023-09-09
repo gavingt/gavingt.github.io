@@ -17,43 +17,50 @@ $.preload(
     "img/slider-photos/8a.jpeg", "img/slider-photos/8b.jpeg"
 );
 
+// Initialize slider to first photo.
+changeSliderPhotos(1, 2048, 1152)
+
 
 $(".thumbnail1").on("click", function () {
-    showSlider(1)
+    changeSliderPhotos(1, 2048, 1152)
 });
 
 $(".thumbnail2").on("click", function () {
-    showSlider(2)
+    changeSliderPhotos(2, 2000, 1500)
 });
 
 $(".thumbnail3").on("click", function () {
-    showSlider(3)
+    changeSliderPhotos(3, 1056, 1500)
 });
 
 $(".thumbnail4").on("click", function () {
-    showSlider(4)
+    changeSliderPhotos(4, 2048, 1152)
 });
 
 $(".thumbnail5").on("click", function () {
-    showSlider(5)
+    changeSliderPhotos(5, 2048, 1365)
 });
 
 $(".thumbnail6").on("click", function () {
-    showSlider(6)
+    changeSliderPhotos(6, 2000, 1500)
 });
 
 $(".thumbnail7").on("click", function () {
-    showSlider(7)
+    changeSliderPhotos(7, 2048, 1365)
 });
 
 $(".thumbnail8").on("click", function () {
-    showSlider(8)
+    changeSliderPhotos(8, 2000, 1500)
 });
 
 
-function showSlider(sliderNumber) {
+function changeSliderPhotos(sliderNumber, photoWidth, photoHeight) {
+    // Prepare slider_container for new photo.
     $('#slider_container').empty()
+    $("#slider_container").css('width', photoWidth)
+    $("#slider_container").css('height', photoHeight)
 
+    // Slider is from here: https://github.com/NUKnightLab/juxtapose
     new juxtapose.JXSlider('#slider_container',
         [
             {
