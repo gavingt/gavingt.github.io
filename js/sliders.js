@@ -1,3 +1,4 @@
+var currentSliderNumber
 
 // Preload images so they're hopefully ready when the user wants to see them.
 $.preload = function () {
@@ -56,6 +57,10 @@ $(".thumbnail8").on("click", function () {
 
 
 function changeSliderPhotos(sliderNumber, actualPhotoWidth, actualPhotoHeight) {
+    // Prevent the currently selected slider from being selected again.
+    if (currentSliderNumber == sliderNumber) return
+    currentSliderNumber = sliderNumber
+
     var adjustedWidth = actualPhotoWidth
     var adjustedHeight = actualPhotoHeight
     // Calculate new slider dimensions based on photo. Prevent the slider height from exceeding 900px.
