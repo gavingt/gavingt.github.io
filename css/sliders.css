@@ -26,6 +26,7 @@ a.jx-knightlab {
 #slider_container {
     margin-left: auto;
     margin-right: auto;
+    height: 850px !important;
     padding-top: 20px;
 }
 
