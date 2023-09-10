@@ -1,7 +1,7 @@
 html, body {
     height: 100%;
     margin: 0;
-    /* Disable highlighting in various browsers */
+    /* Disable highlighting in all browsers */
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
     -khtml-user-select: none; /* Konqueror HTML */
@@ -13,6 +13,13 @@ html, body {
 /* Hide the watermark that would otherwise be visible in the bottom-right of the slider container */
 a.jx-knightlab {
     display: none !important;
+}
+
+#overall_container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* Define the position of the slider container */
