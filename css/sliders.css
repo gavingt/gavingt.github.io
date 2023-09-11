@@ -10,13 +10,10 @@ html, body {
     user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
-/* Hide the watermark that would otherwise be visible in the bottom-right of the slider container */
-a.jx-knightlab {
-    display: none !important;
-}
-
 #overall_container {
     position: absolute;
+    margin-top: 20px;
+    margin-bottom: 20px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -27,7 +24,15 @@ a.jx-knightlab {
     margin-left: auto;
     margin-right: auto;
     height: 850px !important;
-    padding-top: 20px;
+}
+
+.jx-slider {
+    border-radius: 12px;
+}
+
+/* Hide the watermark that would otherwise be visible in the bottom-right of the slider container */
+a.jx-knightlab {
+    display: none !important;
 }
 
 /* Define the dimensions of the bottom row of thumbnails */
@@ -37,7 +42,6 @@ a.jx-knightlab {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-    margin-bottom: 20px;
     align-items: center;
     justify-content: center;
 }
@@ -45,9 +49,8 @@ a.jx-knightlab {
 /* Define the dimensions of each thumbnail item in the bottom row */
 #thumbnail_container img {
     flex: 0 0 auto;
-    margin-inline: 5px;
     width: 120px;
     height: 120px;
     object-fit: cover;
-    border-radius: 9px;
+    border-radius: 12px;
 }

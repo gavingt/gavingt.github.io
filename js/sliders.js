@@ -77,7 +77,7 @@ $("#thumbnail10").on("click", function () {
 });
 
 $("#thumbnail11").on("click", function () {
-    changeSliderPhotos(11)
+    changeSliderPhotos(11)    
 });
 
 function changeSliderPhotos(sliderNumber) {
@@ -105,7 +105,7 @@ function changeSliderPhotos(sliderNumber) {
     $("#slider_container").css('width', adjustedWidth)
     $("#slider_container").css('height', adjustedHeight)
 
-    // Slider is from here: https://github.com/NUKnightLab/juxtapose
+    // Slider documentation is here: https://github.com/NUKnightLab/juxtapose
     new juxtapose.JXSlider('#slider_container',
         [
             {
@@ -129,9 +129,9 @@ function setBorderForSelectedThumbnail(sliderNumber) {
     var index = 0
     $('#thumbnail_container img').each(function () {
         if (index == sliderNumber) {
-            $(this).css('border', '6px solid #4798d1')
+            $(this).css('border', '6px solid #4798D1')
         } else {
-            $(this).css('border', '')
+            $(this).css('border', '6px solid #FFFFFF')
         }
         index++
     })
