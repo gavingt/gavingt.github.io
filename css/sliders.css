@@ -49,8 +49,8 @@ a.jx-knightlab {
 /* Define the dimensions of each thumbnail item in the bottom row */
 #thumbnail_container img {
     flex: 0 0 auto;
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
     border-radius: 12px;
 }

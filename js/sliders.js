@@ -1,20 +1,22 @@
 var currentSliderNumber
 
-// TODO: Any time we change these 12 photos, make sure to enter their dimensions properly in this array.
+// TODO: Any time we change these 14 photos, make sure to enter their dimensions properly in this array.
 var photosToDisplay = [
     // [original path, new path, width, height]
-    ["img/slider-photos/0a.jpeg", "img/slider-photos/0b.jpeg", 2048, 1365],
-    ["img/slider-photos/1a.jpeg", "img/slider-photos/1b.jpeg", 2048, 1374],
-    ["img/slider-photos/2a.jpeg", "img/slider-photos/2b.jpeg", 2000, 1500],
-    ["img/slider-photos/3a.jpeg", "img/slider-photos/3b.jpeg", 2048, 1152],
-    ["img/slider-photos/4a.jpeg", "img/slider-photos/4b.jpeg", 2048, 1365],
-    ["img/slider-photos/5a.jpeg", "img/slider-photos/5b.jpeg", 2000, 1500],
-    ["img/slider-photos/6a.jpeg", "img/slider-photos/6b.jpeg", 2048, 1152],
-    ["img/slider-photos/7a.jpeg", "img/slider-photos/7b.jpeg", 2000, 1500],
-    ["img/slider-photos/8a.jpeg", "img/slider-photos/8b.jpeg", 2001, 1500],
-    ["img/slider-photos/9a.jpeg", "img/slider-photos/9b.jpeg", 1000, 1499],
-    ["img/slider-photos/10a.jpeg", "img/slider-photos/10b.jpeg", 2000, 1500],
-    ["img/slider-photos/11a.jpeg", "img/slider-photos/11b.jpeg", 3230, 2396],
+    ["img/slider-photos/0a.jpg", "img/slider-photos/0b.jpg", 1258, 1647],
+    ["img/slider-photos/1a.jpg", "img/slider-photos/1b.jpg", 1180, 1753],
+    ["img/slider-photos/2a.jpg", "img/slider-photos/2b.jpg", 1266, 1233],
+    ["img/slider-photos/3a.jpg", "img/slider-photos/3b.jpg", 1261, 1550],
+    ["img/slider-photos/4a.jpg", "img/slider-photos/4b.jpg", 1284, 1112],
+    ["img/slider-photos/5a.jpg", "img/slider-photos/5b.jpg", 2000, 1484],
+    ["img/slider-photos/6a.jpg", "img/slider-photos/6b.jpg", 2048, 1365],
+    ["img/slider-photos/7a.jpg", "img/slider-photos/7b.jpg", 2048, 1374],
+    ["img/slider-photos/8a.jpg", "img/slider-photos/8b.jpg", 2000, 1500],
+    ["img/slider-photos/9a.jpg", "img/slider-photos/9b.jpg", 2048, 1152],
+    ["img/slider-photos/10a.jpg", "img/slider-photos/10b.jpg", 2048, 1365],
+    ["img/slider-photos/11a.jpg", "img/slider-photos/11b.jpg", 2000, 1500],
+    ["img/slider-photos/12a.jpg", "img/slider-photos/12b.jpg", 2001, 1500],
+    ["img/slider-photos/13a.jpg", "img/slider-photos/13b.jpg", 2048, 1152],
 ]
 
 // Preload images so they're hopefully ready when the user wants to see them.
@@ -27,10 +29,8 @@ $.preload = function () {
 
 $.preload();
 
-
 // Initialize slider to first photo.
 changeSliderPhotos(0)
-
 
 $("#thumbnail0").on("click", function () {
     changeSliderPhotos(0)
@@ -80,6 +80,14 @@ $("#thumbnail11").on("click", function () {
     changeSliderPhotos(11)    
 });
 
+$("#thumbnail12").on("click", function () {
+    changeSliderPhotos(12)    
+});
+
+$("#thumbnail13").on("click", function () {
+    changeSliderPhotos(13)    
+});
+
 function changeSliderPhotos(sliderNumber) {
     // Prevent the currently selected slider from being selected again.
     if (currentSliderNumber == sliderNumber) return
@@ -109,10 +117,10 @@ function changeSliderPhotos(sliderNumber) {
     new juxtapose.JXSlider('#slider_container',
         [
             {
-                src: "img/slider-photos/" + sliderNumber + "b.jpeg"
+                src: "img/slider-photos/" + sliderNumber + "b.jpg"
             },
             {
-                src: "img/slider-photos/" + sliderNumber + "a.jpeg"
+                src: "img/slider-photos/" + sliderNumber + "a.jpg"
             }
         ],
         {
