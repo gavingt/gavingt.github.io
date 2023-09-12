@@ -54,11 +54,13 @@ a.jx-knightlab {
 #thumbnail_container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    width: 1568px;
     margin-left: auto;
     margin-right: auto;
     padding-top: 20px;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
 }
 
 /* Define the dimensions of each thumbnail item in the bottom row */

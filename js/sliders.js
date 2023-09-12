@@ -1,6 +1,6 @@
 var currentSliderNumber
 
-// TODO: Any time we change these 14 photos, make sure to enter their dimensions properly in this array.
+// TODO: Any time we change these photos, make sure to enter their dimensions properly in this array.
 var photosToDisplay = [
     // [original path, new path, width, height]
     ["img/slider-photos/0a.jpg", "img/slider-photos/0b.jpg", 1258, 1647],
@@ -17,6 +17,9 @@ var photosToDisplay = [
     ["img/slider-photos/11a.jpg", "img/slider-photos/11b.jpg", 2000, 1500],
     ["img/slider-photos/12a.jpg", "img/slider-photos/12b.jpg", 2001, 1500],
     ["img/slider-photos/13a.jpg", "img/slider-photos/13b.jpg", 2048, 1152],
+    ["img/slider-photos/14a.jpg", "img/slider-photos/14b.jpg", 2000, 1500],
+    ["img/slider-photos/15a.jpg", "img/slider-photos/15b.jpg", 2400, 2400],
+    ["img/slider-photos/16a.jpg", "img/slider-photos/16b.jpg", 2400, 2400]
 ]
 
 // Preload images so they're hopefully ready when the user wants to see them.
@@ -103,6 +106,19 @@ $("#thumbnail12").on("click", function () {
 $("#thumbnail13").on("click", function () {
     changeSliderPhotos(13)
 });
+
+$("#thumbnail14").on("click", function () {
+    changeSliderPhotos(14)
+});
+
+$("#thumbnail15").on("click", function () {
+    changeSliderPhotos(15)
+});
+
+$("#thumbnail16").on("click", function () {
+    changeSliderPhotos(16)
+});
+
 
 function changeSliderPhotos(sliderNumber) {
     // Prevent the currently selected slider from being selected again.
