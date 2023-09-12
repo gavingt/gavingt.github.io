@@ -24,8 +24,25 @@ html, body {
     height: 850px !important;
 }
 
+/* Add rounded corners to slider container */
 .jx-slider {
     border-radius: 12px;
+}
+
+/* Define width of container for vertical slider bar */
+.jx-handle {
+    width: 46px !important;
+}
+
+/* Define width of entire vertical slider bar */
+div.jx-control {
+    width: 8px !important;
+}
+
+/* Define width of thicker middle piece of vertical slider bar */
+div.jx-controller {
+    margin-left: -4px !important;
+    width: 16px !important;
 }
 
 /* Hide the watermark that would otherwise be visible in the bottom-right of the slider container */
