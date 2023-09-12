@@ -20,14 +20,30 @@ var photosToDisplay = [
 ]
 
 // Preload images so they're hopefully ready when the user wants to see them.
-$.preload = function () {
-    for (var i = 0; i < photosToDisplay.length; i++) {
-        $("<img />").attr("src", photosToDisplay[i][0])
-        $("<img />").attr("src", photosToDisplay[i][1])
-    }
-};
+for (var i = 0; i < photosToDisplay.length; i++) {
+    $("<img />").attr("src", photosToDisplay[i][0])
+    $("<img />").attr("src", photosToDisplay[i][1])
+}
 
-$.preload();
+// Define a callback that fires any time slider_container's childList changes. If it has more than 1 child, remove all but the last child.
+// This solves a bug in which two sliders could be made visible.
+const callback = (mutationList) => {
+    for (const mutation of mutationList) {
+        if (mutation.type === "childList") {
+            console.log("A child node has been added or removed.");
+            const children = $("#slider_container").children()
+            if (children.length > 1) {
+                console.log("Duplicate child detected and removed")
+                children.not(":last").each(function () {
+                    $(this).remove()
+                })
+            }
+        }
+    }
+}
+
+// Start observing slider_container for changes.
+new MutationObserver(callback).observe(document.getElementById("slider_container"), { attributes: true, childList: true, subtree: true })
 
 // Initialize slider to first photo.
 changeSliderPhotos(0)
@@ -77,15 +93,15 @@ $("#thumbnail10").on("click", function () {
 });
 
 $("#thumbnail11").on("click", function () {
-    changeSliderPhotos(11)    
+    changeSliderPhotos(11)
 });
 
 $("#thumbnail12").on("click", function () {
-    changeSliderPhotos(12)    
+    changeSliderPhotos(12)
 });
 
 $("#thumbnail13").on("click", function () {
-    changeSliderPhotos(13)    
+    changeSliderPhotos(13)
 });
 
 function changeSliderPhotos(sliderNumber) {
