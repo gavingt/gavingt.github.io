@@ -10,16 +10,18 @@ var photosToDisplay = [
     ["img/slider-photos/4a.jpg", "img/slider-photos/4b.jpg", 1600, 1600],
     ["img/slider-photos/5a.jpg", "img/slider-photos/5b.jpg", 1296, 2000],
     ["img/slider-photos/6a.jpg", "img/slider-photos/6b.jpg", 1992, 1500],
-    ["img/slider-photos/7a.jpg", "img/slider-photos/7b.jpg", 2000, 1484],
-    ["img/slider-photos/8a.jpg", "img/slider-photos/8b.jpg", 2048, 1374],
-    ["img/slider-photos/9a.jpg", "img/slider-photos/9b.jpg", 2000, 1500],
-    ["img/slider-photos/10a.jpg", "img/slider-photos/10b.jpg", 2048, 1152],
-    ["img/slider-photos/11a.jpg", "img/slider-photos/11b.jpg", 2048, 1365],
-    ["img/slider-photos/12a.jpg", "img/slider-photos/12b.jpg", 2000, 1500],
-    ["img/slider-photos/13a.jpg", "img/slider-photos/13b.jpg", 2001, 1500],
-    ["img/slider-photos/14a.jpg", "img/slider-photos/14b.jpg", 2048, 1152],
-    ["img/slider-photos/15a.jpg", "img/slider-photos/15b.jpg", 915, 963],
-    ["img/slider-photos/16a.jpg", "img/slider-photos/16b.jpg", 853, 1024],
+    ["img/slider-photos/7a.jpg", "img/slider-photos/7b.jpg", 1600, 1695],
+    ["img/slider-photos/8a.jpg", "img/slider-photos/8b.jpg", 1979, 1518],
+    ["img/slider-photos/9a.jpg", "img/slider-photos/9b.jpg", 2000, 1484],
+    ["img/slider-photos/10a.jpg", "img/slider-photos/10b.jpg", 2048, 1374],
+    ["img/slider-photos/11a.jpg", "img/slider-photos/11b.jpg", 2000, 1500],
+    ["img/slider-photos/12a.jpg", "img/slider-photos/12b.jpg", 2048, 1152],
+    ["img/slider-photos/13a.jpg", "img/slider-photos/13b.jpg", 2048, 1365],
+    ["img/slider-photos/14a.jpg", "img/slider-photos/14b.jpg", 2000, 1500],
+    ["img/slider-photos/15a.jpg", "img/slider-photos/15b.jpg", 2001, 1500],
+    ["img/slider-photos/16a.jpg", "img/slider-photos/16b.jpg", 2048, 1152],
+    ["img/slider-photos/17a.jpg", "img/slider-photos/17b.jpg", 915, 963],
+    ["img/slider-photos/18a.jpg", "img/slider-photos/18b.jpg", 853, 1024],
 ]
 
 // Preload images so they're hopefully ready when the user wants to see them.
@@ -117,6 +119,14 @@ $("#thumbnail15").on("click", function () {
 
 $("#thumbnail16").on("click", function () {
     changeSliderPhotos(16)
+});
+
+$("#thumbnail17").on("click", function () {
+    changeSliderPhotos(17)
+});
+
+$("#thumbnail18").on("click", function () {
+    changeSliderPhotos(18)
 });
 
 
