@@ -179,9 +179,9 @@ function setBorderForSelectedThumbnail(sliderNumber) {
     var index = 0
     $('#thumbnail_container img').each(function () {
         if (index == sliderNumber) {
-            $(this).css('border', '6px solid #4798D1')
-        } else {
             $(this).css('border', '6px solid #FFFFFF')
+        } else {
+            $(this).css('border', '6px solid #000000')
         }
         index++
     })
