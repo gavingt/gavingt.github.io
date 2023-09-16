@@ -37,13 +37,19 @@ html, body {
 
 /* Define width of entire vertical slider bar */
 div.jx-control {
+    color: #6fbbf2;
     width: 8px !important;
 }
 
 /* Define width of thicker middle piece of vertical slider bar */
 div.jx-controller {
+    color: #6fbbf2;
     margin-left: -4px !important;
     width: 16px !important;
+}
+
+.jx-arrow {
+    color: #6fbbf2;
 }
 
 /* Hide the watermark that would otherwise be visible in the bottom-right of the slider container */
