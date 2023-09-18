@@ -9,7 +9,7 @@ var photosToDisplay = [
     ["img/slider-photos/3a.jpg", "img/slider-photos/3b.jpg", 1261, 1550],
     ["img/slider-photos/4a.jpg", "img/slider-photos/4b.jpg", 1600, 1600],
     ["img/slider-photos/5a.jpg", "img/slider-photos/5b.jpg", 1296, 2000],
-    ["img/slider-photos/6a.jpg", "img/slider-photos/6b.jpg", 1992, 1500],
+    ["img/slider-photos/6a.jpg", "img/slider-photos/6b.jpg", 1312, 2176],
     ["img/slider-photos/7a.jpg", "img/slider-photos/7b.jpg", 1600, 1695],
     ["img/slider-photos/8a.jpg", "img/slider-photos/8b.jpg", 1979, 1518],
     ["img/slider-photos/9a.jpg", "img/slider-photos/9b.jpg", 2000, 1484],
