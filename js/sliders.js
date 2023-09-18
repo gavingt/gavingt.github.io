@@ -24,7 +24,7 @@ var photosToDisplay = [
     ["img/slider-photos/18a.jpg", "img/slider-photos/18b.jpg", 1700, 1800],
     ["img/slider-photos/19a.jpg", "img/slider-photos/19b.jpg", 2200, 2000],
     ["img/slider-photos/20a.jpg", "img/slider-photos/20b.jpg", 1500, 1500],
-    ["img/slider-photos/21a.jpg", "img/slider-photos/21b.jpg", 1333, 2000], 
+    ["img/slider-photos/21a.jpg", "img/slider-photos/21b.jpg", 1333, 2000],
 ]
 
 // Preload images so they're hopefully ready when the user wants to see them.
