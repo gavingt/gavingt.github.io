@@ -17,19 +17,20 @@ var photosToDisplay = [
     ["img/slider-photos/11a.jpg", "img/slider-photos/11b.jpg", 2016, 1536],
     ["img/slider-photos/12a.jpg", "img/slider-photos/12b.jpg", 1688, 1664],
     ["img/slider-photos/13a.jpg", "img/slider-photos/13b.jpg", 1960, 1955],
-    ["img/slider-photos/14a.jpg", "img/slider-photos/14b.jpg", 2000, 1484],
-    ["img/slider-photos/15a.jpg", "img/slider-photos/15b.jpg", 2048, 1374],
-    ["img/slider-photos/16a.jpg", "img/slider-photos/16b.jpg", 2000, 1500],
-    ["img/slider-photos/17a.jpg", "img/slider-photos/17b.jpg", 2048, 1152],
-    ["img/slider-photos/18a.jpg", "img/slider-photos/18b.jpg", 2048, 1365],
+    ["img/slider-photos/14a.jpg", "img/slider-photos/14b.jpg", 1309, 1164],
+    ["img/slider-photos/15a.jpg", "img/slider-photos/15b.jpg", 1140, 1800],
+    ["img/slider-photos/16a.jpg", "img/slider-photos/16b.jpg", 1772, 1423],
+    ["img/slider-photos/17a.jpg", "img/slider-photos/17b.jpg", 2000, 1484],
+    ["img/slider-photos/18a.jpg", "img/slider-photos/18b.jpg", 2048, 1374],
     ["img/slider-photos/19a.jpg", "img/slider-photos/19b.jpg", 2000, 1500],
-    ["img/slider-photos/20a.jpg", "img/slider-photos/20b.jpg", 2001, 1500],
-    ["img/slider-photos/21a.jpg", "img/slider-photos/21b.jpg", 2048, 1152],
-    ["img/slider-photos/22a.jpg", "img/slider-photos/22b.jpg", 853, 1024],
-    ["img/slider-photos/23a.jpg", "img/slider-photos/23b.jpg", 1700, 1800],
-    ["img/slider-photos/24a.jpg", "img/slider-photos/24b.jpg", 2200, 2000],
-    ["img/slider-photos/25a.jpg", "img/slider-photos/25b.jpg", 1500, 1500],
-    ["img/slider-photos/26a.jpg", "img/slider-photos/26b.jpg", 1333, 2000],
+    ["img/slider-photos/20a.jpg", "img/slider-photos/20b.jpg", 2048, 1152],
+    ["img/slider-photos/21a.jpg", "img/slider-photos/21b.jpg", 2048, 1365],
+    ["img/slider-photos/22a.jpg", "img/slider-photos/22b.jpg", 2000, 1500],
+    ["img/slider-photos/23a.jpg", "img/slider-photos/23b.jpg", 2001, 1500],
+    ["img/slider-photos/24a.jpg", "img/slider-photos/24b.jpg", 1700, 1800],
+    ["img/slider-photos/25a.jpg", "img/slider-photos/25b.jpg", 2200, 2000],
+    ["img/slider-photos/26a.jpg", "img/slider-photos/26b.jpg", 1500, 1500],
+    ["img/slider-photos/27a.jpg", "img/slider-photos/27b.jpg", 1333, 2000],
 ]
 
 // Preload images so they're hopefully ready when the user wants to see them.
@@ -167,6 +168,10 @@ $("#thumbnail25").on("click", function () {
 
 $("#thumbnail26").on("click", function () {
     changeSliderPhotos(26)
+});
+
+$("#thumbnail27").on("click", function () {
+    changeSliderPhotos(27)
 });
 
 
