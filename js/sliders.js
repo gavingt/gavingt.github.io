@@ -24,6 +24,13 @@ var photosToDisplay = [
     ["img/slider-photos/18a.jpg", "img/slider-photos/18b.jpg", 1250, 1600],
     ["img/slider-photos/19a.jpg", "img/slider-photos/19b.jpg", 2000, 1484],
     ["img/slider-photos/20a.jpg", "img/slider-photos/20b.jpg", 2000, 1500],
+    ["img/slider-photos/21a.jpg", "img/slider-photos/21b.jpg", 2000, 1333],
+    ["img/slider-photos/22a.jpg", "img/slider-photos/22b.jpg", 2000, 1230],
+    ["img/slider-photos/23a.jpg", "img/slider-photos/23b.jpg", 2000, 1333],
+    ["img/slider-photos/24a.jpg", "img/slider-photos/24b.jpg", 2000, 1333],
+    ["img/slider-photos/25a.jpg", "img/slider-photos/25b.jpg", 2000, 1333],
+    ["img/slider-photos/26a.jpg", "img/slider-photos/26b.jpg", 2000, 1331],
+    ["img/slider-photos/27a.jpg", "img/slider-photos/27b.jpg", 2000, 1334],
 ]
 
 // Preload images so they're hopefully ready when the user wants to see them.
@@ -137,6 +144,34 @@ $("#thumbnail19").on("click", function () {
 
 $("#thumbnail20").on("click", function () {
     changeSliderPhotos(20)
+});
+
+$("#thumbnail21").on("click", function () {
+    changeSliderPhotos(21)
+});
+
+$("#thumbnail22").on("click", function () {
+    changeSliderPhotos(22)
+});
+
+$("#thumbnail23").on("click", function () {
+    changeSliderPhotos(23)
+});
+
+$("#thumbnail24").on("click", function () {
+    changeSliderPhotos(24)
+});
+
+$("#thumbnail25").on("click", function () {
+    changeSliderPhotos(25)
+});
+
+$("#thumbnail26").on("click", function () {
+    changeSliderPhotos(26)
+});
+
+$("#thumbnail27").on("click", function () {
+    changeSliderPhotos(27)
 });
 
 
