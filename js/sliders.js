@@ -1,6 +1,7 @@
 var currentSliderNumber
 
 // TODO: Any time we change these photos, make sure to enter their dimensions properly in this array.
+// TODO: Also remember to edit the corresponding list in the SliderDemoVC of the PKC iOS app.
 var photosToDisplay = [
     // [original path, new path, width, height]
     ["img/slider-photos/0a.jpg", "img/slider-photos/0b.jpg", 1258, 1647],
