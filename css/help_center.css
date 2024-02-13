@@ -191,7 +191,7 @@ body {
 
 
 #product-grid {
-    max-width: 75%;
+    max-width: 60%;
     margin-top: 25px;
     margin: 25px auto 50px auto;
     display: flex;
@@ -226,8 +226,8 @@ body {
     margin-top: 8px;
     vertical-align: middle;
     width: 100%;
-    border: 1px #000000 solid;
-    border-radius: 5px;
+    border: 1px #000 solid;
+    border-radius: 8px;
     cursor: pointer;
 }
 
