@@ -59,58 +59,83 @@
 
 <div id="product-grid">
     <div class="column">
-        <img src="img/help-center/picture_keeper_connect.png" class="img-responsive product-grid-item"
+        <img src="img/help-center/picture_keeper_connect.png" class="img-responsive grid-item product-grid-item"
             data-product-name="Picture Keeper Connect">
     </div>
     <div class="column">
-        <img src="img/help-center/picture_keeper.png" class="img-responsive product-grid-item"
+        <img src="img/help-center/picture_keeper.png" class="img-responsive grid-item product-grid-item"
             data-product-name="Picture Keeper">
     </div>
     <div class="column">
-        <img src="img/help-center/picture_keeper_for_android.png" class="img-responsive product-grid-item"
+        <img src="img/help-center/picture_keeper_for_android.png" class="img-responsive grid-item product-grid-item"
             data-product-name="Picture Keeper for Android">
     </div>
     <div class="column">
-        <img src="img/help-center/picture_keeper_pro.png" class="img-responsive product-grid-item"
+        <img src="img/help-center/picture_keeper_pro.png" class="img-responsive grid-item product-grid-item"
             data-product-name="Picture Keeper Pro">
     </div>
     <div class="column">
-        <img src="img/help-center/picture_keeper_pro_ssd.png" class="img-responsive product-grid-item"
+        <img src="img/help-center/picture_keeper_pro_ssd.png" class="img-responsive grid-item product-grid-item"
             data-product-name="Picture Keeper Pro SSD">
     </div>
     <div class="column">
-        <img src="img/help-center/picture_keeper_pro_hdd.png" class="img-responsive product-grid-item"
+        <img src="img/help-center/picture_keeper_pro_hdd.png" class="img-responsive grid-item product-grid-item"
             data-product-name="Picture Keeper Pro HDD">
     </div>
 </div>
 
 
 
-<div class="modal fade" id="platform-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade" id="platform-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+            <div class="modal-header border-0">
                 <button type="button" id="modal-close-button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Recipient:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                <div id="modal-product-selected-container">
+                    <span id="modal-product-selected-label">Unknown</span>
+                    <a id="change-selected-product" href="www.google.com">(change selection)</a>
+                </div>
+                <div id="modal-title">Which platform do you need help with?</div>
+
+                <div id="platform-grid">
+                    <div class="column">
+                        <form action="https://picturekeeper.formstack.com/forms/pk_com_contact_form" method="get" class="grid-item platform-grid-item">
+                            <button class="icon-button platform-button">
+                                <img class="platform-button-image" src="img/help-center/ios.png">
+                                <div class="platform-button-label">iPhone & iPad</div>
+                            </button>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label for="message-text" class="col-form-label">Message:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
+                    <div class="column">
+                        <form action="https://picturekeeper.formstack.com/forms/pk_com_contact_form" method="get" class="grid-item platform-grid-item">
+                            <button class="icon-button platform-button">
+                                <img class="platform-button-image" src="img/help-center/android.png">
+                                <div class="platform-button-label">Android</div>
+                            </button>
+                        </form>
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Send message</button>
+                    <div class="column">
+                        <form action="https://picturekeeper.formstack.com/forms/pk_com_contact_form" method="get" class="grid-item platform-grid-item">
+                            <button class="icon-button platform-button">
+                                <img class="platform-button-image" src="img/help-center/windows.png">
+                                <div class="platform-button-label">Windows</div>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="column">
+                        <form action="https://picturekeeper.formstack.com/forms/pk_com_contact_form" method="get" class="grid-item platform-grid-item">
+                            <button class="icon-button platform-button">
+                                <img class="platform-button-image" src="img/help-center/mac.png">
+                                <div class="platform-button-label">Mac</div>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
