@@ -102,45 +102,48 @@ body {
 }
 
 
-.header {
+#hero {
     position: relative;
 }
 
-.inside-header-top {
+#inside-hero-container {
     position: absolute;
-    top: 50px;
     left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
 }
 
-.inside-header-top .title {
+#hero-img {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#hero-title {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 300;
     font-size: 70px;
     color: #22408b;
 }
 
-.inside-header-top .subtitle {
+#hero-subtitle {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 22px;
     color: #22408b;
 }
 
-.inside-header-bottom {
-    position: absolute;
-    bottom: 50px;
-    left: 10%;
-}
-
-.header img {
-    width: 100%;
-    height: auto;
-    max-inline-size: 100%;
-    block-size: auto;
+#hero-button-container {
+    margin-top: 40px;
 }
 
 
-
-.header-button {
+.hero-button {
     display: inline !important;
     width: 170px;
     margin-right: 4px;
@@ -149,17 +152,17 @@ body {
     background-color: #f6f6f6;
 }
 
-.header-button:active {
+.hero-button:active {
     background-color: #b0b0b0;
 }
 
-.header-button-image {
+.hero-button-image {
     width: 70px !important;
     height: 70px !important;
     margin: 12px 6px 6px 6px;
 }
 
-.header-button-label {
+.hero-button-label {
     color: #22408B;
     font-weight: 700;
     font-size: 18px;
@@ -179,7 +182,7 @@ body {
 
 
 
-#product-header {
+#product-grid-title {
     margin-top: 50px;
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -187,8 +190,6 @@ body {
     font-weight: 500;
     color: #000;
 }
-
-
 
 #product-grid {
     max-width: 60%;
