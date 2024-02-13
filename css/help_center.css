@@ -142,6 +142,9 @@ body {
     margin-top: 40px;
 }
 
+form {
+    display: inline !important;
+}
 
 .hero-button {
     display: inline !important;
@@ -232,6 +235,11 @@ body {
     cursor: pointer;
 }
 
+.product-grid-item:active {
+    background-color: #777;
+    opacity: 0.6;
+}
+
 
 
 
@@ -267,26 +275,17 @@ body {
     font-size: 19px;
 }
 
-a {
-    text-decoration: none;
-    font-weight: 700;
-    color: #444444;
+#close-button {
+    top: 0px;
+    right: 10px;
+    background: none;
+    border: none;
+    position: absolute;
+    font-size: 38px;
+    color: #999;
+    opacity: 1;
+    outline: none;
 }
-
-h2 {
-    width: 85%;
-    margin: 20px auto 15px;
-    color: #666;
-    font-weight: bold;
-    font-size: 34px;
-}
-
-@media (max-width: 1022px) {
-    h2 {
-        text-align: center;
-    }
-}
-
 
 
 
