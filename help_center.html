@@ -19,18 +19,30 @@
 </head>
 
 
-<!-- <img class="header" src="img/help-center/header.webp">
-
-<h2 class="title">
-    Help Center
-</h2> -->
 
 
 <div class="header">
     <img src="img/help-center/header.webp">
-    <div class="insideHeader">
+    <div class="inside-header-top">
         <div class="title">Help Center</div>
-        <div class="title">Help Center</div>
+        <div class="subtitle">We're here to help with all of your Picture Keeper questions!</div>
+    </div>
+
+    <div class="inside-header-bottom">
+        <button class="icon-button header-button">
+            <img class="header-button-image" src="img/help-center/contact-us.png">
+            <div class="header-button-label">Contact Support</div>
+        </button>
+
+        <button class="icon-button header-button">
+            <img class="header-button-image" src="img/help-center/rocket.png">
+            <div class="header-button-label">Getting Started</div>
+        </button>
+
+        <button class="icon-button header-button">
+            <img class="header-button-image" src="img/help-center/smartphone.png">
+            <div class="header-button-label">Get Our Apps</div>
+        </button>
 
     </div>
 
@@ -39,65 +51,64 @@
 
 
 
-<div>
 
-    <div class="productGrid">
+<div class="productGrid">
 
-        <div class="row">
-            <div class="clearfix visible-sm"></div>
-            <div class="col-xs-12 col-sm-6 col-md-4 all-projects android-projects project6">
-                <img src="img/project6/thumb.jpg" class="img-responsive">
+    <div class="row">
+        <div class="clearfix visible-sm"></div>
+        <div class="col-xs-12 col-sm-6 col-md-4 all-projects android-projects project6">
+            <img src="img/project6/thumb.jpg" class="img-responsive">
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 all-projects android-projects project7">
+            <img src="img/project7/thumb.jpg" class="img-responsive">
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 all-projects android-projects project1">
+            <img src="img/project1/thumb.jpg" class="img-responsive">
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 all-projects android-projects project2">
+            <img src="img/project2/thumb.jpg" class="img-responsive">
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 all-projects web-projects project3">
+            <img src="img/project3/thumb.jpg" class="img-responsive">
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 all-projects web-projects project4">
+            <img src="img/project4/thumb.jpg" class="img-responsive">
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 all-projects other-projects project5">
+            <img src="img/project5/thumb.jpg" class="img-responsive">
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 all-projects android-projects project7">
-                <img src="img/project7/thumb.jpg" class="img-responsive">
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 all-projects android-projects project1">
-                <img src="img/project1/thumb.jpg" class="img-responsive">
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 all-projects android-projects project2">
-                <img src="img/project2/thumb.jpg" class="img-responsive">
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 all-projects web-projects project3">
-                <img src="img/project3/thumb.jpg" class="img-responsive">
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 all-projects web-projects project4">
-                <img src="img/project4/thumb.jpg" class="img-responsive">
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 all-projects other-projects project5">
-                <img src="img/project5/thumb.jpg" class="img-responsive">
+            <div class="modal-footer">
+                <p class="project-description">This is the project description text</p>
             </div>
         </div>
     </div>
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <div class="modal-body">
-
-                </div>
-                <div class="modal-footer">
-                    <p class="project-description">This is the project description text</p>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
 
 
 
 
-    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/help_center.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+<script src="js/plugins.js"></script>
+<script src="js/help_center.js"></script>
 
-    </body>
+</body>
 
 </html>

@@ -106,63 +106,82 @@ body {
     position: relative;
 }
 
-.header .title {
-   position: absolute;
-   top: 20px;
-   left: 10%;
-   font-family:Georgia, 'Times New Roman', Times, serif;
-   font-weight: 300;
-   font-size: 70px;
-   padding: 10px 10px;
-   color: #22408b;
+.inside-header-top {
+    position: absolute;
+    top: 50px;
+    left: 10%;
 }
 
-.header .subtitle {
-    position: absolute;
-    top: 20px;
-    left: 10%;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+.inside-header-top .title {
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 300;
     font-size: 70px;
-    padding: 10px 10px;
     color: #22408b;
+}
+
+.inside-header-top .subtitle {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 22px;
+    color: #22408b;
+}
+
+.inside-header-bottom {
+    position: absolute;
+    bottom: 50px;
+    left: 10%;
 }
 
 .header img {
     width: 100%;
     height: auto;
     max-inline-size: 100%;
-    block-size: auto;  
+    block-size: auto;
 }
 
 
-.btn {
-    background-color: #c6c6c6;
-    margin: 9px 0 0 0;
-    color: #326e9e;
-    font-weight: 500;
+
+.header-button {
+    display: inline !important;
+    width: 170px;
+    margin-right: 4px;
+    border: 1px solid #555;
+    border-radius: 6px;
+    background-color: #f6f6f6;
+}
+
+.header-button:active {
+    background-color: #b0b0b0;
+}
+
+.header-button-image {
+    width: 70px !important;
+    height: 70px !important;
+    margin: 12px 6px 6px 6px;
+}
+
+.header-button-label {
+    color: #22408B;
+    font-weight: 700;
     font-size: 18px;
-    padding: 4px 12px;
-
+    margin: 0px 0px 5px 0px;
 }
 
-/*.btn:hover {
-    background-color: #eee;
-    }*/
-
-.activeBtn {
-    background-color: #eee;
-    color: #333;
-}
-
-.inactiveBtn {
-    background-color: #c6c6c6;
-    color: #326e9e;
-}
-
-.vertical-align {
+.icon-button {
     display: flex;
+    flex-direction: column;
     align-items: center;
+}
+
+.icon-button > * {
+    flex: none;
+}
+
+
+
+
+
+.productGrid {
+    margin-top: 50px;
 }
 
 /* Fixes problems for extra small devices (767px and down) */
