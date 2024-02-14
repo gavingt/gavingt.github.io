@@ -155,7 +155,7 @@ body {
     background-color: #f6f6f6;
 }
 
-.hero-button:active {
+.hero-button:active, .hero-button:hover {
     background-color: #b0b0b0;
 }
 
@@ -189,7 +189,7 @@ body {
     margin-top: 50px;
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 40px;
+    font-size: 38px;
     font-weight: 500;
     color: #000;
 }
@@ -233,17 +233,14 @@ body {
     cursor: pointer;
 }
 
-.grid-item:active {
-    background-color: #777;
-    opacity: 0.6;
-}
-
 .product-grid-item {
     border: 1px #000 solid;
     border-radius: 8px;
 }
 
-
+.product-grid-item:active, .product-grid-item:hover {
+    background-color: #b0b0b0;
+}
 
 
 
@@ -258,31 +255,46 @@ body {
 }
 
 .modal-body {
-    padding: 20px;
+    padding: 0px;
 }
 
 #modal-close-button {
     background: none;
     border: none;
     position: absolute;
-    font-size: 38px;
     z-index: 1;
-    top: 0px;
-    right: 10px;
+    top: 8px;
+    right: 8px;
     color: #777;
     outline: none;
 }
 
-#modal-product-selected-label {
+#modal-close-button img {
+    width: 35px;
+    height: 35px;
+}
+
+#modal-product-selected-container {
     text-align: center;
-    padding-bottom: 14px;
-    font-size: 12px;
+    padding-top: 12px;
+}
+
+#modal-product-selected-label {
+    font-size: 14px;
+}
+
+#modal-change-selected-product {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
 }
 
 #modal-title {
     text-align: center;
-    padding-bottom: 14px;
-    font-size: 25px;
+    padding-top: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 38px;
+    font-weight: 500;
 }
 
 #platform-grid {
@@ -301,7 +313,7 @@ body {
     background: none;
 }
 
-.platform-button:active {
+.platform-button:active, .platform-button:hover {
     background-color: #b0b0b0;
 }
 

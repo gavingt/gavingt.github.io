@@ -1,19 +1,23 @@
-$(".product-grid-item").click(function() {
-    $('#platform-modal').modal('toggle', $(this));
-});
+var selectedProductName = null
 
-$("#modal-close-button").click(function() {
-    $('#platform-modal').modal("hide");
-});
-
-
+$(".product-grid-item").click(function () {
+    // Fetch product name from data-product-name attribute set in help_center.html.
+    selectedProductName = $(this).data('product-name')
+    $('#platform-modal').modal('show')
+})
 
 
-$('#platform-modal').on('show.bs.modal', function (event) {
-    var clickedButton = $(event.relatedTarget)
-     // Extract info from data-product-name attribute
-    var selectedProductName = clickedButton.data('product-name')
-    // Update the modal's content.
+$("#modal-close-button").click(function () {
+    $('#platform-modal').modal("hide")
+})
+
+// When the platform modal is shown, set modal-product-selected-label text and the visible platforms.
+$('#platform-modal').on('show.bs.modal', function () {
     var modal = $(this)
-    modal.find('#modal-product-selected-label').text(selectedProductName)
-  })
+    modal.find('#modal-product-selected-label').text("You selected " + selectedProductName)
+    // TODO: Set visible platforms
+})
+
+$("#modal-change-selected-product").click(function () {
+
+})
