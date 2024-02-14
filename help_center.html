@@ -96,13 +96,13 @@
 
                 <div id="modal-product-selected-container">
                     <span id="modal-product-selected-label">Unknown</span>
-                    <a id="modal-change-selected-product" href="www.google.com">(change)</a>
+                    <span id="modal-change-selected-product">(change)</a>
                 </div>
                 <div id="modal-title">Which platform do you need help with?</div>
 
                 <div id="platform-grid">
                     <div class="column">
-                        <form action="https://picturekeeper.formstack.com/forms/pk_com_contact_form" method="get" class="grid-item platform-grid-item">
+                        <form action="https://picturekeeper.formstack.com/forms/pk_com_contact_form" method="get" class="grid-item platform-grid-item" id="platform-ios">
                             <button class="icon-button platform-button">
                                 <img class="platform-button-image" src="img/help-center/ios.png">
                                 <div class="platform-button-label">iPhone & iPad</div>
@@ -110,7 +110,7 @@
                         </form>
                     </div>
                     <div class="column">
-                        <form action="https://picturekeeper.formstack.com/forms/pk_com_contact_form" method="get" class="grid-item platform-grid-item">
+                        <form action="https://picturekeeper.formstack.com/forms/pk_com_contact_form" method="get" class="grid-item platform-grid-item" id="platform-android">
                             <button class="icon-button platform-button">
                                 <img class="platform-button-image" src="img/help-center/android.png">
                                 <div class="platform-button-label">Android</div>
@@ -118,7 +118,7 @@
                         </form>
                     </div>
                     <div class="column">
-                        <form action="https://picturekeeper.formstack.com/forms/pk_com_contact_form" method="get" class="grid-item platform-grid-item">
+                        <form action="https://picturekeeper.formstack.com/forms/pk_com_contact_form" method="get" class="grid-item platform-grid-item" id="platform-windows">
                             <button class="icon-button platform-button">
                                 <img class="platform-button-image" src="img/help-center/windows.png">
                                 <div class="platform-button-label">Windows</div>
@@ -126,7 +126,7 @@
                         </form>
                     </div>
                     <div class="column">
-                        <form action="https://picturekeeper.formstack.com/forms/pk_com_contact_form" method="get" class="grid-item platform-grid-item">
+                        <form action="https://picturekeeper.formstack.com/forms/pk_com_contact_form" method="get" class="grid-item platform-grid-item" id="platform-mac">
                             <button class="icon-button platform-button">
                                 <img class="platform-button-image" src="img/help-center/mac.png">
                                 <div class="platform-button-label">Mac</div>
@@ -142,6 +142,15 @@
 
 
 
+
+<div class="toast mt-3">
+    <div class="toast-header">
+      Toast Header
+    </div>
+    <div class="toast-body">
+      Some text inside the toast body
+    </div>
+  </div>
 
 
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
