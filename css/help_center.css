@@ -222,7 +222,7 @@ body {
 }
 
 
-.hero-button:active, .hero-button:hover {
+.hero-button:hover, .hero-button:active {
     background-color: #b0b0b0;
 }
 
@@ -355,7 +355,7 @@ body {
     border-radius: 8px;
 }
 
-.product-grid-item:active, .product-grid-item:hover {
+.product-grid-item:hover, .product-grid-item:active {
     background-color: #b0b0b0;
 }
 
@@ -443,7 +443,7 @@ body {
     background: none;
 }
 
-.platform-button:active, .platform-button:hover {
+.platform-button:hover, .platform-button:active {
     background-color: #b0b0b0;
 }
 
