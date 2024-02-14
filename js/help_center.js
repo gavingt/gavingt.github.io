@@ -19,7 +19,7 @@ $(".product-grid-item").click(function () {
 // When the platform modal is shown, set modal-product-selected-label text and the available platforms.
 $('#platform-modal').on('show.bs.modal', function () {
     var modal = $(this)
-    modal.find('#modal-product-selected-label').text("You selected " + selectedProductName)
+    modal.find('#modal-title').html("Which platform are you using with your " + '<span class="bold-product-name">' + selectedProductName + '</span>' + "?")
     setPlatformOpacitiesAndOrder()
 })
 
