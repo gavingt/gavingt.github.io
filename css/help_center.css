@@ -227,8 +227,8 @@ body {
 }
 
 .hero-button-image {
-    width: 55px !important;
-    height: 55px !important;
+    width: 45px !important;
+    height: 45px !important;
     margin: 12px 6px 6px 6px;
 }
 @media screen and (min-width: 800px) and (max-width: 1400px) {
@@ -247,7 +247,7 @@ body {
 .hero-button-label {
     color: #22408B;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 15px;
     margin: 0px 0px 5px 0px;
     text-overflow: ellipsis;
     overflow: hidden; 
@@ -290,10 +290,9 @@ body {
     overflow: hidden; 
     white-space: nowrap;
 }
-/* Use larger max-width for smaller screens */
 @media screen and (max-width: 800px) {
     #product-grid-title {
-        margin: 20px 10px 0px 15px;
+        margin: 30px 10px 0px 15px;
         font-size: 19px;
     }
 }
@@ -308,16 +307,23 @@ body {
     flex-wrap: wrap;
     padding: 0 4px;
 }
-@media screen and (min-width: 800px) and (max-width: 1400px) {
+@media screen and (min-width: 1000px) and (max-width: 1400px) {
     #product-grid {
       width: 90%;
       max-width: 1000px;
-      margin-top: 10px;
+      margin-top: 20px;
     }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
     #product-grid {
       width: 90%;
+      max-width: 450px;
+      margin-top: 20px;
+    }
+}
+@media screen and (max-width: 400px) {
+    #product-grid {
+      width: 97%;
       max-width: 450px;
       margin-top: 10px;
     }
@@ -331,7 +337,7 @@ body {
     padding: 10px;
 }
 /* Use two columns for a smaller screen */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
     .column {
       flex: 50%;
       max-width: 50%;
@@ -353,6 +359,9 @@ body {
     background-color: #b0b0b0;
 }
 
+.modal {
+    overflow: hidden;
+}
 
 .modal-dialog {
     width: 85%;
@@ -373,8 +382,8 @@ body {
     border: none;
     position: absolute;
     z-index: 1;
-    top: 8px;
-    right: 8px;
+    top: -35px;
+    right: 4px;
     color: #777;
     outline: none;
 }
@@ -405,9 +414,25 @@ body {
 #modal-title {
     text-align: center;
     padding-top: 14px;
+    margin: 0 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 38px;
     font-weight: 500;
+}
+@media screen and (min-width: 800px) and (max-width: 1000px) {
+    #modal-title {
+        font-size: 32px;
+    }
+}
+@media screen and (min-width: 450px) and (max-width: 800px) {
+    #modal-title {
+        font-size: 26px;
+    }
+}
+@media screen and (max-width: 460px) {
+    #modal-title {
+        font-size: 20px;
+    }
 }
 
 #platform-grid {
@@ -417,6 +442,11 @@ body {
     display: flex;
     flex-wrap: wrap;
     padding: 0 4px;
+}
+@media screen and (min-width: 400px) and (max-width: 1000px) {
+    #platform-grid {
+        max-width: 75%;
+    }
 }
 
 .platform-button {
@@ -435,6 +465,12 @@ body {
     height: 70px !important;
     margin: 12px 6px 6px 6px;
 }
+@media screen and (max-width: 550px) {
+    .platform-button-image {
+        width: 50px !important;
+        height: 50px !important;
+    }
+}
 
 .platform-button-label {
     color: #333;
@@ -442,7 +478,11 @@ body {
     font-size: 18px;
     margin: 0px 0px 5px 0px;
 }
-
+ @media screen and (max-width: 550px) {
+    .platform-button-label {
+        font-size: 13px;
+    }
+}
 
 
 
