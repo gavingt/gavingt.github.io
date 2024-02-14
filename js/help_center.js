@@ -1,4 +1,7 @@
+const COMPATIBILITY_CHART_URL = "https://picturekeeper.com/a/kb/articles/20240244266395-Compatibility-Chart"
+
 var selectedProductName = null
+var selectedPlatformName = null
 
 $(".product-grid-item").click(function () {
     // Fetch product name from data-product-name attribute set in help_center.html.
@@ -74,7 +77,6 @@ function setPlatformOpacitiesAndOrder() {
     platforms.forEach(element => {
         if (element.css('opacity') == 1) {
             element.appendTo(platformGrid)
-            //element.css('pointer-events','')
         }
     })
 
@@ -82,13 +84,76 @@ function setPlatformOpacitiesAndOrder() {
     platforms.forEach(element => {
         if (element.css('opacity') == 0.15) {
             element.appendTo(platformGrid)
-            //element.css('pointer-events','none')
         }
     })
+}
 
-    ios.click(function () {
-        $('.toast').toast('show')
-        //alert("adsf")
-    })
+
+
+$("#platform-grid").children().click(function () {
+    selectedPlatformName = $(this).data('platform-name')
+    window.location.href = fetchSupportUrl()
+})
+
+
+
+// Fetch URL for each product and platform pair.
+// If platform is unavailable for the selected product, fetch the compatibility chart URL instead.
+function fetchSupportUrl() {
+    switch (selectedProductName) {
+        case "Picture Keeper Connect": {
+            switch (selectedPlatformName) {
+                case "iPhone & iPad": return null
+                case "Android": return null
+                case "Windows": return null
+                case "Mac": return null
+            }
+        }
+
+        case "Picture Keeper": {
+            switch (selectedPlatformName) {
+                case "iPhone & iPad": return COMPATIBILITY_CHART_URL
+                case "Android": return COMPATIBILITY_CHART_URL
+                case "Windows": return null
+                case "Mac": return null
+            }
+        }
+
+        case "Picture Keeper For Android": {
+            switch (selectedPlatformName) {
+                case "iPhone & iPad": return COMPATIBILITY_CHART_URL
+                case "Android": return null
+                case "Windows": return null
+                case "Mac": return null
+            }
+        }
+
+        case "Picture Keeper Pro": {
+            switch (selectedPlatformName) {
+                case "iPhone & iPad": return COMPATIBILITY_CHART_URL
+                case "Android": return COMPATIBILITY_CHART_URL
+                case "Windows": return null
+                case "Mac": return null
+            }
+        }
+
+        case "Picture Keeper Pro SSD": {
+            switch (selectedPlatformName) {
+                case "iPhone & iPad": return COMPATIBILITY_CHART_URL
+                case "Android": return COMPATIBILITY_CHART_URL
+                case "Windows": return null
+                case "Mac": return null
+            }
+        }
+
+        case "Picture Keeper Pro HDD": {
+            switch (selectedPlatformName) {
+                case "iPhone & iPad": return COMPATIBILITY_CHART_URL
+                case "Android": return COMPATIBILITY_CHART_URL
+                case "Windows": return null
+                case "Mac": return null
+            }
+        }
+    }
 
 }

@@ -86,7 +86,8 @@
 
 
 
-<div class="modal fade" id="platform-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="platform-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-body">
@@ -101,40 +102,31 @@
                 <div id="modal-title">Which platform do you need help with?</div>
 
                 <div id="platform-grid">
-                    <div class="column">
-                        <form action="https://picturekeeper.formstack.com/forms/pk_com_contact_form" method="get" class="grid-item platform-grid-item" id="platform-ios">
-                            <button class="icon-button platform-button">
-                                <img class="platform-button-image" src="img/help-center/ios.png">
-                                <div class="platform-button-label">iPhone & iPad</div>
-                            </button>
-                        </form>
+                    <div class="column" data-platform-name="iPhone & iPad">
+                        <button class="icon-button platform-button grid-item platform-grid-item" id="platform-ios">
+                            <img class="platform-button-image" src="img/help-center/ios.png">
+                            <div class="platform-button-label">iPhone & iPad</div>
+                        </button>
                     </div>
-                    <div class="column">
-                        <form action="https://picturekeeper.formstack.com/forms/pk_com_contact_form" method="get" class="grid-item platform-grid-item" id="platform-android">
-                            <button class="icon-button platform-button">
-                                <img class="platform-button-image" src="img/help-center/android.png">
-                                <div class="platform-button-label">Android</div>
-                            </button>
-                        </form>
+                    <div class="column" data-platform-name="Android">
+                        <button class="icon-button platform-button grid-item platform-grid-item" id="platform-android">
+                            <img class="platform-button-image " src="img/help-center/android.png">
+                            <div class="platform-button-label">Android</div>
+                        </button>
                     </div>
-                    <div class="column">
-                        <form action="https://picturekeeper.formstack.com/forms/pk_com_contact_form" method="get" class="grid-item platform-grid-item" id="platform-windows">
-                            <button class="icon-button platform-button">
-                                <img class="platform-button-image" src="img/help-center/windows.png">
-                                <div class="platform-button-label">Windows</div>
-                            </button>
-                        </form>
+                    <div class="column" data-platform-name="Windows">
+                        <button class="icon-button platform-button grid-item platform-grid-item" id="platform-windows">
+                            <img class="platform-button-image" src="img/help-center/windows.png">
+                            <div class="platform-button-label">Windows</div>
+                        </button>
                     </div>
-                    <div class="column">
-                        <form action="https://picturekeeper.formstack.com/forms/pk_com_contact_form" method="get" class="grid-item platform-grid-item" id="platform-mac">
-                            <button class="icon-button platform-button">
-                                <img class="platform-button-image" src="img/help-center/mac.png">
-                                <div class="platform-button-label">Mac</div>
-                            </button>
-                        </form>
+                    <div class="column" data-platform-name="Mac">
+                        <button class="icon-button platform-button grid-item platform-grid-item" id="platform-mac">
+                            <img class="platform-button-image" src="img/help-center/mac.png">
+                            <div class="platform-button-label">Mac</div>
+                        </button>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -142,18 +134,9 @@
 
 
 
-
-<div class="toast mt-3">
-    <div class="toast-header">
-      Toast Header
-    </div>
-    <div class="toast-body">
-      Some text inside the toast body
-    </div>
-  </div>
-
-
-<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
