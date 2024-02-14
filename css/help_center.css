@@ -396,27 +396,22 @@ body {
 #modal-title {
     text-align: center;
     padding-top: 60px;
-    margin: 0 10px;
+    margin: 0 15px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 26px;
+    font-size: 25px;
     font-weight: 500;
 }
-@media screen and (min-width: 800px) and (max-width: 1000px) {
-    #modal-title {
-        font-size: 26px;
-    }
-}
-@media screen and (min-width: 450px) and (max-width: 800px) {
+@media screen and (min-width: 465px) and (max-width: 800px) {
     #modal-title {
         font-size: 24px;
     }
 }
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 465px) {
     #modal-title {
         font-size: 18px;
     }
 }
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 360px) {
     #modal-title {
         font-size: 16px;
     }
