@@ -3,15 +3,17 @@ const COMPATIBILITY_CHART_URL = "https://picturekeeper.com/a/kb/articles/2024024
 var selectedProductName = null
 var selectedPlatformName = null
 
+
+// Fit product-grid-title to the window, and also re-fit it any time the window resizes.
+$('#product-grid-title').quickfit({min: 16, max: window.innerWidth > 550 && window.innerWidth < 800 ? 28 : 38});
+window.onresize = function() {
+    $('#product-grid-title').quickfit({min: 16, max: window.innerWidth > 550 && window.innerWidth < 800 ? 28 : 38});
+};
+
 $(".product-grid-item").click(function () {
     // Fetch product name from data-product-name attribute set in help_center.html.
     selectedProductName = $(this).data('product-name')
     $('#platform-modal').modal('show')
-})
-
-
-$("#modal-close-button").click(function () {
-    $('#platform-modal').modal("hide")
 })
 
 // When the platform modal is shown, set modal-product-selected-label text and the available platforms.
@@ -21,11 +23,18 @@ $('#platform-modal').on('show.bs.modal', function () {
     setPlatformOpacitiesAndOrder()
 })
 
+$("#modal-close-button").click(function () {
+    $('#platform-modal').modal("hide")
+})
+
 $("#modal-change-selected-product").click(function () {
     $('#platform-modal').modal("hide")
 })
 
-
+$("#platform-grid").children().click(function () {
+    selectedPlatformName = $(this).data('platform-name')
+    window.location.href = fetchSupportUrl()
+})
 
 
 function setPlatformOpacitiesAndOrder() {
@@ -68,33 +77,25 @@ function setPlatformOpacitiesAndOrder() {
         mac.css('opacity', '1')
     }
 
-    // Detach all platforms.
+    // Detach all platform elements.
     platforms.forEach(element => {
         element.detach()
     })
 
-    // Attach only the platforms that are available first.
+    // Attach only the platform elements that are available first.
     platforms.forEach(element => {
         if (element.css('opacity') == 1) {
             element.appendTo(platformGrid)
         }
     })
 
-    // Attach the unavailable platforms last.
+    // Attach the unavailable platform elements last.
     platforms.forEach(element => {
         if (element.css('opacity') == 0.15) {
             element.appendTo(platformGrid)
         }
     })
 }
-
-
-
-$("#platform-grid").children().click(function () {
-    selectedPlatformName = $(this).data('platform-name')
-    window.location.href = fetchSupportUrl()
-})
-
 
 
 // Fetch URL for each product and platform pair.
@@ -155,5 +156,4 @@ function fetchSupportUrl() {
             }
         }
     }
-
 }

@@ -105,6 +105,14 @@ body {
 #hero {
     position: relative;
 }
+@media screen and (max-width: 800px) {
+    #hero {
+        height: 160px;
+        background-color: #F0ECE4;
+    }
+}
+
+
 
 #inside-hero-container {
     position: absolute;
@@ -116,6 +124,18 @@ body {
     -webkit-transform: translateY(-50%);
     -o-transform: translateY(-50%);
 }
+@media screen and (max-width: 800px) {
+    #inside-hero-container {
+        left: 50%;
+        top: 0%;
+        text-align: center;
+        transform: translate(-50%);
+        -ms-transform: translate(-50%);
+        -moz-transform: translate(-50%);
+        -webkit-transform: translate(-50%);
+        -o-transform: translate(-50%);
+    }
+}
 
 #hero-img {
     width: 100%;
@@ -124,6 +144,11 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
+@media screen and (max-width: 800px) {
+    #hero-img {
+        display: none;
+    }
+}
 
 #hero-title {
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -131,15 +156,35 @@ body {
     font-size: 70px;
     color: #22408b;
 }
+@media screen and (max-width: 800px) {
+    #hero-title {
+        font-size: 30px;
+    }
+}
 
 #hero-subtitle {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 22px;
     color: #22408b;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    white-space: nowrap;
+}
+@media screen and (max-width: 800px) {
+    #hero-subtitle {
+        font-size: 12px;
+    }
 }
 
 #hero-button-container {
     margin-top: 40px;
+}
+@media screen and (max-width: 800px) {
+    #hero-button-container {
+        display: inline-flex;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
 }
 
 #hero-button-container form {
@@ -148,11 +193,16 @@ body {
 
 .hero-button {
     display: inline !important;
-    width: 170px;
-    margin-right: 4px;
+    width: 150px;
+    margin: 0 2px;
     border: 1px solid #555;
     border-radius: 6px;
     background-color: #f6f6f6;
+}
+@media screen and (max-width: 800px) {
+    .hero-button {
+      width: 100px;
+    }
 }
 
 .hero-button:active, .hero-button:hover {
@@ -160,16 +210,31 @@ body {
 }
 
 .hero-button-image {
-    width: 70px !important;
-    height: 70px !important;
+    width: 60px !important;
+    height: 60px !important;
     margin: 12px 6px 6px 6px;
+}
+@media screen and (max-width: 800px) {
+    .hero-button-image {
+        width: 30px !important;
+        height: 30px !important;
+    }
 }
 
 .hero-button-label {
     color: #22408B;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 16px;
     margin: 0px 0px 5px 0px;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    white-space: nowrap;
+}
+@media screen and (max-width: 800px) {
+    .hero-button-label {
+        font-weight: 600;
+        font-size: 11px;
+    }
 }
 
 .icon-button {
@@ -192,21 +257,33 @@ body {
     font-size: 38px;
     font-weight: 500;
     color: #000;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    white-space: nowrap;
+}
+/* Use larger max-width for smaller screens */
+@media screen and (max-width: 800px) {
+    #product-grid-title {
+        margin: 20px 10px 0px 15px;
+        font-size: 19px;
+    }
 }
 
+
 #product-grid {
-    max-width: 60%;
+    width: 60%;
     margin-top: 25px;
     margin: 25px auto 50px auto;
     display: flex;
     flex-wrap: wrap;
     padding: 0 4px;
 }
-
-/* Use larger max-width for smaller screens1 */
+/* Use larger max-width for smaller screens */
 @media screen and (max-width: 800px) {
     #product-grid {
-      max-width: 90%;
+      width: 90%;
+      max-width: 400px;
+      margin-top: 10px;
     }
 }
 
@@ -215,9 +292,8 @@ body {
 .column {
     flex: 25%;
     max-width: 25%;
-    padding: 6px 12px;
+    padding: 10px;
 }
-
 /* Use two columns for a smaller screen */
 @media screen and (max-width: 800px) {
     .column {
@@ -227,7 +303,6 @@ body {
 }
 
 .grid-item {
-    margin-top: 8px;
     vertical-align: middle;
     width: 100%;
     cursor: pointer;
