@@ -286,13 +286,13 @@ body {
     font-size: 38px;
     font-weight: 500;
     color: #000;
-    text-overflow: ellipsis;
-    overflow: hidden; 
+    text-overflow: none;
+    overflow: visible; 
     white-space: nowrap;
 }
 @media screen and (max-width: 800px) {
     #product-grid-title {
-        margin: 30px 10px 0px 15px;
+        margin: 30px 15px 0px 15px;
         font-size: 19px;
     }
 }
