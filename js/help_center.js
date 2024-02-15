@@ -8,7 +8,11 @@ var selectedPlatformName = null
 $('#product-grid-title').quickfit({min: 16, max: window.innerWidth > 550 && window.innerWidth < 800 ? 28 : 38});
 window.onresize = function() {
     $('#product-grid-title').quickfit({min: 16, max: window.innerWidth > 550 && window.innerWidth < 800 ? 28 : 38});
-};
+}
+
+window.onbeforeunload = function(){
+    $('#platform-modal').modal("hide")
+}
 
 $(".product-grid-item").click(function () {
     // Fetch product name from data-product-name attribute set in help_center.html.

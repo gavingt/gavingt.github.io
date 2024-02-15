@@ -208,7 +208,7 @@ body {
     margin: 0 3px;
     border: 1px solid #555;
     border-radius: 6px;
-    background-color: #f6f6f6;
+    background-color: white;
 }
 @media screen and (min-width: 800px) and (max-width: 1400px) {
     .hero-button {
