@@ -108,7 +108,7 @@ body {
 @media screen and (max-width: 800px) {
     #hero {
         height: 160px;
-        background-color: #F0ECE4;
+        background-color: #C6DAEA;
     }
 }
 
@@ -116,13 +116,18 @@ body {
 
 #inside-hero-container {
     position: absolute;
-    left: 8%;
+    left: 7%;
     top: 50%;
     transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
     -o-transform: translateY(-50%);
+}
+@media screen and (min-width: 800px) and (max-width: 1000px) {
+    #inside-hero-container {
+        left: 3%;
+    }
 }
 @media screen and (max-width: 800px) {
     #inside-hero-container {
@@ -171,12 +176,12 @@ body {
     overflow: hidden; 
     white-space: nowrap;
 }
-@media screen and (min-width: 800px) and (max-width: 1400px) {
+@media screen and (min-width: 1000px) and (max-width: 1400px) {
     #hero-subtitle {
         font-size: 16px;
     }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
     #hero-subtitle {
         font-size: 12px;
     }
@@ -210,12 +215,12 @@ body {
     border-radius: 6px;
     background-color: white;
 }
-@media screen and (min-width: 800px) and (max-width: 1400px) {
+@media screen and (min-width: 1000px) and (max-width: 1400px) {
     .hero-button {
       width: 115px;
     }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
     .hero-button {
       width: 100px;
     }
@@ -231,13 +236,13 @@ body {
     height: 45px !important;
     margin: 12px 6px 6px 6px;
 }
-@media screen and (min-width: 800px) and (max-width: 1400px) {
+@media screen and (min-width: 1000px) and (max-width: 1400px) {
     .hero-button-image {
         width: 35px !important;
         height: 35px !important;
     }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
     .hero-button-image {
         width: 30px !important;
         height: 30px !important;
@@ -253,13 +258,13 @@ body {
     overflow: hidden; 
     white-space: nowrap;
 }
-@media screen and (min-width: 800px) and (max-width: 1400px) {
+@media screen and (min-width: 1000px) and (max-width: 1400px) {
     .hero-button-label {
         font-weight: 600;
         font-size: 13px;
     }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
     .hero-button-label {
         font-weight: 600;
         font-size: 11px;

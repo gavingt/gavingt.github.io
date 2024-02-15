@@ -10,6 +10,7 @@ window.onresize = function() {
     $('#product-grid-title').quickfit({min: 16, max: window.innerWidth > 550 && window.innerWidth < 800 ? 28 : 38});
 }
 
+// Ensure modal gets dismissed before leaving page.
 window.onbeforeunload = function(){
     $('#platform-modal').modal("hide")
 }
