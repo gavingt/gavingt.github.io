@@ -142,8 +142,8 @@ function fetchSupportUrl() {
             switch (selectedPlatformName) {
                 case "iPhone & iPad": return COMPATIBILITY_CHART_URL
                 case "Android": return COMPATIBILITY_CHART_URL
-                case "Windows": return "https://picturekeeper.com/a/kb/categories/22951186089755"
-                case "Mac": return "https://picturekeeper.com/a/kb/categories/22951201027867"
+                case "Windows": return "https://picturekeeper.com/a/kb/categories/22951183916187"
+                case "Mac": return "https://picturekeeper.com/a/kb/categories/22951198744859"
             }
         }
 
@@ -151,8 +151,8 @@ function fetchSupportUrl() {
             switch (selectedPlatformName) {
                 case "iPhone & iPad": return COMPATIBILITY_CHART_URL
                 case "Android": return COMPATIBILITY_CHART_URL
-                case "Windows": return null
-                case "Mac": return null
+                case "Windows": return "https://picturekeeper.com/a/kb/categories/22951186089755"
+                case "Mac": return "https://picturekeeper.com/a/kb/categories/22951201027867"
             }
         }
     }
