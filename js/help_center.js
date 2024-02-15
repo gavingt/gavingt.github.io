@@ -104,10 +104,10 @@ function fetchSupportUrl() {
     switch (selectedProductName) {
         case "Picture Keeper Connect": {
             switch (selectedPlatformName) {
-                case "iPhone & iPad": return null
-                case "Android": return null
-                case "Windows": return null
-                case "Mac": return null
+                case "iPhone & iPad": return "https://picturekeeper.com/a/kb/categories/22950717176475"
+                case "Android": return "https://picturekeeper.com/a/kb/categories/22950754010139"
+                case "Windows": return "https://picturekeeper.com/a/kb/categories/22950741094555"
+                case "Mac": return "https://picturekeeper.com/a/kb/categories/22950747714075"
             }
         }
 
@@ -115,17 +115,17 @@ function fetchSupportUrl() {
             switch (selectedPlatformName) {
                 case "iPhone & iPad": return COMPATIBILITY_CHART_URL
                 case "Android": return COMPATIBILITY_CHART_URL
-                case "Windows": return null
-                case "Mac": return null
+                case "Windows": return "https://picturekeeper.com/a/kb/categories/22951102386843"
+                case "Mac": return "https://picturekeeper.com/a/kb/categories/22951108861211"
             }
         }
 
         case "Picture Keeper For Android": {
             switch (selectedPlatformName) {
                 case "iPhone & iPad": return COMPATIBILITY_CHART_URL
-                case "Android": return null
-                case "Windows": return null
-                case "Mac": return null
+                case "Android": return "https://picturekeeper.com/a/kb/categories/22951113921691"
+                case "Windows": return "https://picturekeeper.com/a/kb/categories/22951116584219"
+                case "Mac": return "https://picturekeeper.com/a/kb/categories/22951128887963"
             }
         }
 
@@ -133,8 +133,8 @@ function fetchSupportUrl() {
             switch (selectedPlatformName) {
                 case "iPhone & iPad": return COMPATIBILITY_CHART_URL
                 case "Android": return COMPATIBILITY_CHART_URL
-                case "Windows": return null
-                case "Mac": return null
+                case "Windows": return "https://picturekeeper.com/a/kb/categories/22951150572571"
+                case "Mac": return "https://picturekeeper.com/a/kb/categories/22951164815131"
             }
         }
 
@@ -142,8 +142,8 @@ function fetchSupportUrl() {
             switch (selectedPlatformName) {
                 case "iPhone & iPad": return COMPATIBILITY_CHART_URL
                 case "Android": return COMPATIBILITY_CHART_URL
-                case "Windows": return null
-                case "Mac": return null
+                case "Windows": return "https://picturekeeper.com/a/kb/categories/22951186089755"
+                case "Mac": return "https://picturekeeper.com/a/kb/categories/22951201027867"
             }
         }
 
