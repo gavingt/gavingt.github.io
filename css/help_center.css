@@ -337,29 +337,23 @@ body {
     }
 }
 
-#copyright {
-    margin: 0px 15px 5px 15px;
-    font-size: 11px;
-    text-align: center;
-}
-
 
 /* Create six equal columns that sit next to each other */
-.column {
+.product-column {
     flex: 16.66%;
     max-width: 16.66%;
     padding: 10px;
 }
 /* Use three columns for a smaller screen */
 @media screen and (min-width: 800px) and (max-width: 1900px) {
-    .column {
+    .product-column {
       flex: 33.3%;
       max-width: 33.3%;
     }
 }
 /* Use two columns for a smaller screen */
 @media screen and (max-width: 800px) {
-    .column {
+    .product-column {
       flex: 50%;
       max-width: 50%;
     }
@@ -378,6 +372,19 @@ body {
     background-color: #b0b0b0;
 }
 
+
+#copyright {
+    margin: 0px 15px 5px 15px;
+    font-size: 11px;
+    text-align: center;
+}
+
+/* Reduce modal-xl width only when screen width is above 1200px */
+@media screen and (min-width: 1200px) {
+    .modal-xl {
+        --bs-modal-width: 1000px;
+    }
+}
 
 .modal-body {
     padding: 0px;
@@ -443,6 +450,20 @@ body {
 @media screen and (max-width: 400px) {
     #platform-grid {
         max-width: 300px;
+    }
+}
+
+/* Create four equal columns that sit next to each other */
+.platform-column {
+    flex: 25%;
+    max-width: 25%;
+    padding: 10px;
+}
+/* Use two columns for a smaller screen */
+@media screen and (max-width: 1000px) {
+    .platform-column {
+      flex: 50%;
+      max-width: 50%;
     }
 }
 
