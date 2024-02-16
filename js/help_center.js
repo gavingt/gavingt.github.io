@@ -10,10 +10,10 @@ window.onresize = function() {
     $('#product-grid-title').quickfit({min: 16, max: window.innerWidth > 550 && window.innerWidth < 800 ? 28 : 38});
 }
 
-// Ensure modal gets dismissed before leaving page. Also remove focus from active element.
+// Ensure modal gets dismissed before leaving page. Also set the background color of all hero buttons back to white.
 window.onbeforeunload = function(){
     $('#platform-modal').modal("hide")
-    document.activeElement.blur()
+    $('.hero-button').css('background-color', 'white')
 }
 
 $(".product-grid-item").click(function () {
