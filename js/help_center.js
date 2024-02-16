@@ -5,9 +5,9 @@ var selectedPlatformName = null
 
 
 // Fit product-grid-title to the window, and also re-fit it any time the window resizes.
-$('#product-grid-title').quickfit({min: 16, max: window.innerWidth > 550 && window.innerWidth < 800 ? 28 : 38});
+$('#product-grid-title').quickfit({min: 16, max: window.innerWidth > 500 && window.innerWidth < 800 ? 32 : 38});
 window.onresize = function() {
-    $('#product-grid-title').quickfit({min: 16, max: window.innerWidth > 550 && window.innerWidth < 800 ? 28 : 38});
+    $('#product-grid-title').quickfit({min: 16, max: window.innerWidth > 500 && window.innerWidth < 800 ? 32 : 38});
 }
 
 // Ensure modal gets dismissed before leaving page. Also set the background color of all hero buttons back to white.
