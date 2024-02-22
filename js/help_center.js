@@ -39,7 +39,7 @@ $("#modal-change-selected-product").click(function () {
 
 $("#platform-grid").children().click(function () {
     selectedPlatformName = $(this).data('platform-name')
-    window.open(fetchSupportUrl())
+    window.location.href = fetchSupportUrl()
 })
 
 
