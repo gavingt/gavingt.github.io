@@ -104,7 +104,7 @@ body {
 /* Hide top toolbar on picturekeeper.com that offers free shipping */
 #shopify-section-toolbar {
     background-color: #f00;
-    color: #0f0
+    color: #0f0;
     visibility: hidden;
 }
 
