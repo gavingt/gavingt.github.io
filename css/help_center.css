@@ -102,7 +102,7 @@ body {
 }
 
 /* Hide top toolbar on picturekeeper.com that offers free shipping */
-.toolbar {
+#shopify-section-toolbar {
     visibility: hidden;
 }
 
