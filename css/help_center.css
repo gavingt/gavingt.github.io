@@ -103,7 +103,7 @@ body {
 
 /* Hide top toolbar on picturekeeper.com that offers free shipping */
 .site-header__logo-link {
-    padding-top: 10px;
+    padding-top: 10px !important;
 }
 
 
