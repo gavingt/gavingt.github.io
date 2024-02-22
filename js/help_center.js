@@ -10,12 +10,11 @@ window.onresize = function() {
     $('#product-grid-title').quickfit({min: 16, max: window.innerWidth > 500 && window.innerWidth < 800 ? 32 : 38});
 }
 
-// TODO: I've commented this out because I'm now opening pages in new tabs (a limitation of using iframe).
 // Ensure modal gets dismissed before leaving page. Also set the background color of all hero buttons back to white.
-// window.onbeforeunload = function(){
-//     $('#platform-modal').modal("hide")
-//     $('.hero-button').css('background-color', 'white')
-// }
+window.onbeforeunload = function(){
+    $('#platform-modal').modal("hide")
+    $('.hero-button').css('background-color', 'white')
+}
 
 $(".product-grid-item").click(function () {
     // Fetch product name from data-product-name attribute set in help_center.html.
@@ -41,10 +40,6 @@ $("#modal-change-selected-product").click(function () {
 $("#platform-grid").children().click(function () {
     selectedPlatformName = $(this).data('platform-name')
     window.open(fetchSupportUrl())
-
-    // TODO: I've added these to work with iframe.
-    $('#platform-modal').modal("hide")
-    $('.hero-button').css('background-color', 'white')
 })
 
 

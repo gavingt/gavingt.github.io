@@ -374,7 +374,7 @@ body {
 
 
 #copyright {
-    margin: 0px 15px 5px 15px;
+    margin: 0px 15px 70px 15px;
     font-size: 11px;
     text-align: center;
 }
@@ -412,6 +412,7 @@ body {
     margin: 0 15px;
     font-size: 30px;
     font-weight: 500;
+    color: #000;
 }
 @media screen and (min-width: 465px) and (max-width: 1200px) {
     #modal-title {
