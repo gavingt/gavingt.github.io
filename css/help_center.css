@@ -415,7 +415,7 @@ ul {
 @media screen and (max-width: 500px) {
     .product-column {
       flex: 100%;
-      max-width: 260px;
+      max-width: 275px;
     }
 }
 
