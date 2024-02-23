@@ -386,10 +386,6 @@ body {
     text-align: center;
 }
 
-.modal {
-    z-index: 30 !important;
-}
-
 /* Reduce modal-xl width only when screen width is above 1200px */
 @media screen and (min-width: 1200px) {
     .modal-xl {
