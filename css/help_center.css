@@ -101,10 +101,12 @@ body {
     background-color: white;
 }
 
-/* Hide top toolbar on picturekeeper.com that offers free shipping */
+/* Hide top header logo padding for picturekeeper.com */
 .site-header__logo-link {
     padding-top: 10px;
 }
+
+
 
 
 #hero {
@@ -382,6 +384,10 @@ body {
     margin: 0px 15px 70px 15px;
     font-size: 11px;
     text-align: center;
+}
+
+.modal {
+    z-index: 30 !important;
 }
 
 /* Reduce modal-xl width only when screen width is above 1200px */
