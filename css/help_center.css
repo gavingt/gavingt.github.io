@@ -120,7 +120,6 @@ a {
 
 
 
-
 #hero {
     position: relative;
 }
@@ -322,7 +321,7 @@ a {
     width: 96%;
     max-width: 1650px;
     margin-top: 25px;
-    margin: 25px auto 50px auto;
+    margin: 25px auto 100px auto;
     display: flex;
     flex-wrap: wrap;
     padding: 0 4px;
