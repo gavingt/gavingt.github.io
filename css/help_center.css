@@ -97,7 +97,8 @@ textarea {
    ========================================================================== */
 
 body {
-    font-size: 20px;
+    font-family: var(--typeBasePrimary),var(--typeBaseFallback);
+    font-size: inherit;
     background-color: white;
 }
 
@@ -113,9 +114,17 @@ body {
 }
 
 /* Ensure picturekeeper.com top menu text looks as expected */
-a {
-    text-decoration: inherit;
-    color: inherit;
+.site-nav__dropdown-link {
+    text-decoration: inherit !important;
+    color: inherit !important;
+}
+
+.site-nav__dropdown-link:hover {
+    text-decoration: underline !important;
+}
+
+ul {
+    padding-left: inherit !important;
 }
 
 
@@ -400,7 +409,7 @@ a {
 /* Reduce modal-xl width only when screen width is above 1200px */
 @media screen and (min-width: 1200px) {
     .modal-xl {
-        --bs-modal-width: 1000px;
+        --bs-modal-width: 1000px !important;
     }
 }
 
