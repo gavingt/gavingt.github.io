@@ -114,12 +114,12 @@ body {
 }
 
 /* Ensure picturekeeper.com top menu text looks as expected */
-a {
+.site-nav__dropdown-link, .slide-nav__link {
     text-decoration: inherit !important;
     color: inherit !important;
 }
 
-a:hover {
+.site-nav__dropdown-link:hover, .slide-nav__link:hover {
     text-decoration: underline !important;
 }
 
