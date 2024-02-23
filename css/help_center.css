@@ -101,6 +101,8 @@ body {
     background-color: white;
 }
 
+
+/* Ensure Bootstrap modal background color gets used. */
 :root {
     --colorModalBg: inherit;
 }
@@ -108,6 +110,10 @@ body {
 /* Hide top header logo padding for picturekeeper.com */
 .site-header__logo-link {
     padding-top: 10px;
+}
+
+.a {
+    text-decoration: inherit;
 }
 
 
