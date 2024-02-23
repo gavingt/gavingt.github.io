@@ -405,17 +405,17 @@ ul {
     }
 }
 /* Use two columns for a smaller screen */
-@media screen and (min-width: 450px) and (max-width: 800px) {
+@media screen and (min-width: 500px) and (max-width: 800px) {
     .product-column {
       flex: 50%;
       max-width: 50%;
     }
 }
 /* Use one column for a smaller screen */
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 500px) {
     .product-column {
       flex: 100%;
-      max-width: 80%;
+      max-width: 260px;
     }
 }
 
