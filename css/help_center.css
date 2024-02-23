@@ -101,6 +101,10 @@ body {
     background-color: white;
 }
 
+:root {
+    --colorModalBg: inherit;
+}
+
 /* Hide top header logo padding for picturekeeper.com */
 .site-header__logo-link {
     padding-top: 10px;
