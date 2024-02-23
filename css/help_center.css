@@ -309,6 +309,7 @@ ul {
 
 
 #product-grid-title {
+    font-family: Arial, Helvetica, sans-serif;
     margin-top: 50px;
     text-align: center;
     font-size: 38px;
@@ -318,10 +319,34 @@ ul {
     overflow: visible; 
     white-space: nowrap;
 }
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 800px) and (max-width: 1200px) {
     #product-grid-title {
         margin: 30px 15px 0px 15px;
-        font-size: 19px;
+        font-size: 34px;
+    }
+}
+@media screen and (min-width: 500px) and (max-width: 800px) {
+    #product-grid-title {
+        margin: 30px 15px 0px 15px;
+        font-size: 30px;
+    }
+}
+@media screen and (min-width: 400px) and (max-width: 500px) {
+    #product-grid-title {
+        margin: 30px 15px 0px 15px;
+        font-size: 28px;
+    }
+}
+@media screen and (min-width: 360px) and (max-width: 400px) {
+    #product-grid-title {
+        margin: 30px 15px 0px 15px;
+        font-size: 24px;
+    }
+}
+@media screen and (max-width: 360px) {
+    #product-grid-title {
+        margin: 30px 15px 0px 15px;
+        font-size: 22px;
     }
 }
 
@@ -414,7 +439,7 @@ ul {
 }
 
 .modal-body {
-    padding: 0px;
+    padding: 0px !important;
 }
 
 #modal-close-button {
@@ -434,6 +459,7 @@ ul {
 }
 
 #modal-title {
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     padding-top: 70px;
     margin: 0 15px;
@@ -446,7 +472,12 @@ ul {
         font-size: 24px;
     }
 }
-@media screen and (max-width: 465px) {
+@media screen and (min-width: 380px) and (max-width: 465px) {
+    #modal-title {
+        font-size: 21px;
+    }
+}
+@media screen and (max-width: 380px) {
     #modal-title {
         font-size: 18px;
     }
