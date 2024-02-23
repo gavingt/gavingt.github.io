@@ -112,8 +112,9 @@ body {
     padding-top: 10px;
 }
 
-.a {
+a {
     text-decoration: inherit;
+    color: inherit;
 }
 
 
