@@ -20,6 +20,7 @@ var photosToDisplay = [
     ["img/slider-photos-hsn/12a.jpg", "img/slider-photos-hsn/12b.jpg", 2000, 1333],
     ["img/slider-photos-hsn/13a.jpg", "img/slider-photos-hsn/13b.jpg", 2000, 1331],
     ["img/slider-photos-hsn/14a.jpg", "img/slider-photos-hsn/14b.jpg", 2000, 1334],
+    ["img/slider-photos-hsn/15a.jpg", "img/slider-photos-hsn/15b.jpg", 819, 1299],
 ]
 
 // Preload images so they're hopefully ready when the user wants to see them.
@@ -109,6 +110,10 @@ $("#thumbnail13").on("click", function () {
 
 $("#thumbnail14").on("click", function () {
     changeSliderPhotos(14)
+});
+
+$("#thumbnail15").on("click", function () {
+    changeSliderPhotos(15)
 });
 
 
