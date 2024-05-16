@@ -221,7 +221,7 @@ ul {
 }
 
 #hero-button-container {
-    margin-top: 40px;
+    margin-top: 60px;
     margin-bottom: 10px;
     display: inline-flex;
 }
@@ -242,7 +242,8 @@ ul {
 
 .hero-button {
     display: inline !important;
-    width: 150px;
+    width: 140px;
+    height: 94px;
     margin: 0 3px;
     border: 1px solid #555;
     border-radius: 6px;
@@ -251,11 +252,13 @@ ul {
 @media screen and (min-width: 1200px) and (max-width: 1400px) {
     .hero-button {
       width: 115px;
+      height: 77px;
     }
 }
 @media screen and (max-width: 1200px) {
     .hero-button {
       width: 100px;
+      height: 67px;
     }
 }
 
@@ -497,6 +500,7 @@ ul {
     border: 1px #000 solid;
     border-radius: 8px;
     background: none;
+    display: inline;
 }
 
 .platform-button:hover, .platform-button:active {
