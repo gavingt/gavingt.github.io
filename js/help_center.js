@@ -1,4 +1,4 @@
-const COMPATIBILITY_CHART_URL = "https://picturekeeper.com/a/kb/articles/20240244266395-Compatibility-Chart"
+const COMPATIBILITY_CHART_URL = "https://picturekeeper.zendesk.com/hc/en-us/articles/20240244266395-Compatibility-Chart"
 
 var selectedProductName = null
 var selectedPlatformName = null
@@ -103,10 +103,10 @@ function fetchSupportUrl() {
     switch (selectedProductName) {
         case "Picture Keeper Connect": {
             switch (selectedPlatformName) {
-                case "iPhone & iPad": return "https://picturekeeper.com/a/kb/categories/22950717176475"
-                case "Android": return "https://picturekeeper.com/a/kb/categories/22950754010139"
-                case "Windows": return "https://picturekeeper.com/a/kb/categories/22950741094555"
-                case "Mac": return "https://picturekeeper.com/a/kb/categories/22950747714075"
+                case "iPhone & iPad": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22950717176475-Picture-Keeper-Connect-iPhone-and-iPad"
+                case "Android": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22950754010139-Picture-Keeper-Connect-Android"
+                case "Windows": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22950741094555-Picture-Keeper-Connect-Windows"
+                case "Mac": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22950747714075-Picture-Keeper-Connect-Mac"
             }
         }
 
@@ -114,17 +114,17 @@ function fetchSupportUrl() {
             switch (selectedPlatformName) {
                 case "iPhone & iPad": return COMPATIBILITY_CHART_URL
                 case "Android": return COMPATIBILITY_CHART_URL
-                case "Windows": return "https://picturekeeper.com/a/kb/categories/22951102386843"
-                case "Mac": return "https://picturekeeper.com/a/kb/categories/22951108861211"
+                case "Windows": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22951102386843-Picture-Keeper-Windows"
+                case "Mac": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22951108861211-Picture-Keeper-Mac"
             }
         }
 
         case "Picture Keeper For Android": {
             switch (selectedPlatformName) {
                 case "iPhone & iPad": return COMPATIBILITY_CHART_URL
-                case "Android": return "https://picturekeeper.com/a/kb/categories/22951113921691"
-                case "Windows": return "https://picturekeeper.com/a/kb/categories/22951116584219"
-                case "Mac": return "https://picturekeeper.com/a/kb/categories/22951128887963"
+                case "Android": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22951113921691-Picture-Keeper-for-Android-Android"
+                case "Windows": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22951116584219-Picture-Keeper-for-Android-Windows"
+                case "Mac": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22951128887963-Picture-Keeper-for-Android-Mac"
             }
         }
 
@@ -141,8 +141,8 @@ function fetchSupportUrl() {
             switch (selectedPlatformName) {
                 case "iPhone & iPad": return COMPATIBILITY_CHART_URL
                 case "Android": return COMPATIBILITY_CHART_URL
-                case "Windows": return "https://picturekeeper.com/a/kb/categories/22951183916187"
-                case "Mac": return "https://picturekeeper.com/a/kb/categories/22951198744859"
+                case "Windows": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22951150572571-Picture-Keeper-Pro-Windows"
+                case "Mac": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22951164815131-Picture-Keeper-Pro-Mac"
             }
         }
 
@@ -150,8 +150,8 @@ function fetchSupportUrl() {
             switch (selectedPlatformName) {
                 case "iPhone & iPad": return COMPATIBILITY_CHART_URL
                 case "Android": return COMPATIBILITY_CHART_URL
-                case "Windows": return "https://picturekeeper.com/a/kb/categories/22951186089755"
-                case "Mac": return "https://picturekeeper.com/a/kb/categories/22951201027867"
+                case "Windows": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22951186089755-Picture-Keeper-Pro-HDD-Windows"
+                case "Mac": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22951201027867-Picture-Keeper-Pro-HDD-Mac"
             }
         }
     }
