@@ -127,6 +127,11 @@ ul {
     padding-left: inherit !important;
 }
 
+/* This overrides an attribute in Shopify's theme.css that sets max-width: 100% */
+img {
+    max-width: fit-content !important;
+}
+
 
 
 #hero {
@@ -234,10 +239,6 @@ ul {
     #hero-button-container {
         margin-top: 10px;
     }
-}
-
-#hero-button-container img {
-    display: inline !important;
 }
 
 .hero-button {

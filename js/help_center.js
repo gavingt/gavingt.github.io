@@ -1,5 +1,12 @@
 const COMPATIBILITY_CHART_URL = "https://picturekeeper.zendesk.com/hc/en-us/articles/20240244266395-Compatibility-Chart"
 
+const PKC_IOS_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22950717176475-Picture-Keeper-Connect-iPhone-and-iPad"
+const PKC_ANDROID_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22950754010139-Picture-Keeper-Connect-Android"
+const PK_WINDOWS_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22951102386843-Picture-Keeper-Windows"
+const PK_MAC_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22951108861211-Picture-Keeper-Mac"
+const PK_PRO_WINDOWS_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22951150572571-Picture-Keeper-Pro-Windows"
+const PK_PRO_MAC_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22951164815131-Picture-Keeper-Pro-Mac"
+
 var selectedProductName = null
 var selectedPlatformName = null
 
@@ -32,7 +39,9 @@ $("#modal-change-selected-product").click(function () {
 
 $("#platform-grid").children().click(function () {
     selectedPlatformName = $(this).data('platform-name')
-    window.location.href = fetchSupportUrl()
+    // Add alias name to the fetchSupportUrl() value. This allows the Help Center to display the product and platform name selected by the user, even when displaying another category.
+    // This enables us to reuse the same category multiple times without the user noticing.
+    window.location.href = fetchSupportUrl() + "?alias=" + selectedProductName + " (" + selectedPlatformName + ")"
 })
 
 
@@ -97,16 +106,17 @@ function setPlatformOpacitiesAndOrder() {
 }
 
 
+
 // Fetch URL for each product and platform pair.
 // If platform is unavailable for the selected product, fetch the compatibility chart URL instead.
 function fetchSupportUrl() {
     switch (selectedProductName) {
         case "Picture Keeper Connect": {
             switch (selectedPlatformName) {
-                case "iPhone & iPad": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22950717176475-Picture-Keeper-Connect-iPhone-and-iPad"
-                case "Android": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22950754010139-Picture-Keeper-Connect-Android"
-                case "Windows": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22950741094555-Picture-Keeper-Connect-Windows"
-                case "Mac": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22950747714075-Picture-Keeper-Connect-Mac"
+                case "iPhone & iPad": return PKC_IOS_URL
+                case "Android": return PKC_ANDROID_URL
+                case "Windows": return PK_WINDOWS_URL
+                case "Mac": return PK_MAC_URL
             }
         }
 
@@ -114,17 +124,17 @@ function fetchSupportUrl() {
             switch (selectedPlatformName) {
                 case "iPhone & iPad": return COMPATIBILITY_CHART_URL
                 case "Android": return COMPATIBILITY_CHART_URL
-                case "Windows": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22951102386843-Picture-Keeper-Windows"
-                case "Mac": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22951108861211-Picture-Keeper-Mac"
+                case "Windows": return PK_WINDOWS_URL
+                case "Mac": return PK_MAC_URL
             }
         }
 
         case "Picture Keeper For Android": {
             switch (selectedPlatformName) {
                 case "iPhone & iPad": return COMPATIBILITY_CHART_URL
-                case "Android": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22951113921691-Picture-Keeper-for-Android-Android"
-                case "Windows": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22951116584219-Picture-Keeper-for-Android-Windows"
-                case "Mac": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22951128887963-Picture-Keeper-for-Android-Mac"
+                case "Android": return PKC_ANDROID_URL
+                case "Windows": return PK_WINDOWS_URL
+                case "Mac": return PK_MAC_URL
             }
         }
 
@@ -132,8 +142,8 @@ function fetchSupportUrl() {
             switch (selectedPlatformName) {
                 case "iPhone & iPad": return COMPATIBILITY_CHART_URL
                 case "Android": return COMPATIBILITY_CHART_URL
-                case "Windows": return "https://picturekeeper.com/a/kb/categories/22951150572571"
-                case "Mac": return "https://picturekeeper.com/a/kb/categories/22951164815131"
+                case "Windows": return PK_PRO_WINDOWS_URL
+                case "Mac": return PK_PRO_MAC_URL
             }
         }
 
@@ -141,8 +151,8 @@ function fetchSupportUrl() {
             switch (selectedPlatformName) {
                 case "iPhone & iPad": return COMPATIBILITY_CHART_URL
                 case "Android": return COMPATIBILITY_CHART_URL
-                case "Windows": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22951150572571-Picture-Keeper-Pro-Windows"
-                case "Mac": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22951164815131-Picture-Keeper-Pro-Mac"
+                case "Windows": return PK_PRO_WINDOWS_URL
+                case "Mac": return PK_PRO_MAC_URL
             }
         }
 
@@ -150,8 +160,8 @@ function fetchSupportUrl() {
             switch (selectedPlatformName) {
                 case "iPhone & iPad": return COMPATIBILITY_CHART_URL
                 case "Android": return COMPATIBILITY_CHART_URL
-                case "Windows": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22951186089755-Picture-Keeper-Pro-HDD-Windows"
-                case "Mac": return "https://picturekeeper.zendesk.com/hc/en-us/categories/22951201027867-Picture-Keeper-Pro-HDD-Mac"
+                case "Windows": return PK_PRO_WINDOWS_URL
+                case "Mac": return PK_PRO_MAC_URL
             }
         }
     }
