@@ -41,7 +41,10 @@ $("#platform-grid").children().click(function () {
     selectedPlatformName = $(this).data('platform-name')
     // Add alias name to the fetchSupportUrl() value. This allows the Help Center to display the product and platform name selected by the user, even when displaying another category.
     // This enables us to reuse the same category multiple times without the user noticing.
-    window.location.href = fetchSupportUrl() + "?alias=" + selectedProductName + " (" + selectedPlatformName + ")"
+    // We percent-encode the alias name so it can be properly retrieved on the other end.
+    var aliasUrlComponent = "?alias=" + encodeURIComponent(selectedProductName + " (" + selectedPlatformName + ")")
+
+    window.location.href = fetchSupportUrl() + aliasUrlComponent
 })
 
 
