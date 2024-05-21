@@ -1,11 +1,14 @@
 const COMPATIBILITY_CHART_URL = "https://picturekeeper.zendesk.com/hc/en-us/articles/20240244266395-Compatibility-Chart"
 
-const PKC_IOS_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22950717176475-Picture-Keeper-Connect-iPhone-and-iPad"
-const PKC_ANDROID_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22950754010139-Picture-Keeper-Connect-Android"
-const PK_WINDOWS_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22951102386843-Picture-Keeper-Windows"
-const PK_MAC_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22951108861211-Picture-Keeper-Mac"
-const PK_PRO_WINDOWS_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22951150572571-Picture-Keeper-Pro-Windows"
-const PK_PRO_MAC_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22951164815131-Picture-Keeper-Pro-Mac"
+const PKC_IOS_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22950717176475"
+const PKC_ANDROID_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22950754010139"
+const PKC_WINDOWS_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22950741094555"
+const PKC_MAC_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22950747714075"
+
+const PK_PRO_IOS_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22951186089755"
+const PK_PRO_ANDROID_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22951201027867"
+const PK_PRO_WINDOWS_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22951183916187"
+const PK_PRO_MAC_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22951198744859"
 
 var selectedProductName = null
 var selectedPlatformName = null
@@ -42,7 +45,13 @@ $("#platform-grid").children().click(function () {
     // Add alias name to the fetchSupportUrl() value. This allows the Help Center to display the product and platform name selected by the user, even when displaying another category.
     // This enables us to reuse the same category multiple times without the user noticing.
     // We percent-encode the alias name so it can be properly retrieved on the other end.
-    var aliasUrlComponent = "?alias=" + encodeURIComponent(selectedProductName + " (" + selectedPlatformName + ")")
+    // When user selects "Picture Keeper For Android" and "Android", treat this case differently so the title becomes just "Using Picture Keeper For Android".
+    var aliasUrlComponent = null
+    if (selectedProductName == "Picture Keeper For Android" && selectedPlatformName == "Android") {
+        aliasUrlComponent = "?alias=" + encodeURIComponent("Using " + selectedProductName)
+    } else {
+        aliasUrlComponent = "?alias=" + encodeURIComponent("Using " + selectedProductName + " with " + selectedPlatformName)
+    }
 
     window.location.href = fetchSupportUrl() + aliasUrlComponent
 })
@@ -116,34 +125,34 @@ function fetchSupportUrl() {
     switch (selectedProductName) {
         case "Picture Keeper Connect": {
             switch (selectedPlatformName) {
-                case "iPhone & iPad": return PKC_IOS_URL
+                case "iPhone or iPad": return PKC_IOS_URL
                 case "Android": return PKC_ANDROID_URL
-                case "Windows": return PK_WINDOWS_URL
-                case "Mac": return PK_MAC_URL
+                case "Windows": return PKC_WINDOWS_URL
+                case "Mac": return PKC_MAC_URL
             }
         }
 
         case "Picture Keeper": {
             switch (selectedPlatformName) {
-                case "iPhone & iPad": return COMPATIBILITY_CHART_URL
+                case "iPhone or iPad": return COMPATIBILITY_CHART_URL
                 case "Android": return COMPATIBILITY_CHART_URL
-                case "Windows": return PK_WINDOWS_URL
-                case "Mac": return PK_MAC_URL
+                case "Windows": return PKC_WINDOWS_URL
+                case "Mac": return PKC_MAC_URL
             }
         }
 
         case "Picture Keeper For Android": {
             switch (selectedPlatformName) {
-                case "iPhone & iPad": return COMPATIBILITY_CHART_URL
+                case "iPhone or iPad": return COMPATIBILITY_CHART_URL
                 case "Android": return PKC_ANDROID_URL
-                case "Windows": return PK_WINDOWS_URL
-                case "Mac": return PK_MAC_URL
+                case "Windows": return PKC_WINDOWS_URL
+                case "Mac": return PKC_MAC_URL
             }
         }
 
         case "Picture Keeper Pro": {
             switch (selectedPlatformName) {
-                case "iPhone & iPad": return COMPATIBILITY_CHART_URL
+                case "iPhone or iPad": return COMPATIBILITY_CHART_URL
                 case "Android": return COMPATIBILITY_CHART_URL
                 case "Windows": return PK_PRO_WINDOWS_URL
                 case "Mac": return PK_PRO_MAC_URL
@@ -152,7 +161,7 @@ function fetchSupportUrl() {
 
         case "Picture Keeper Pro SSD": {
             switch (selectedPlatformName) {
-                case "iPhone & iPad": return COMPATIBILITY_CHART_URL
+                case "iPhone or iPad": return COMPATIBILITY_CHART_URL
                 case "Android": return COMPATIBILITY_CHART_URL
                 case "Windows": return PK_PRO_WINDOWS_URL
                 case "Mac": return PK_PRO_MAC_URL
@@ -161,7 +170,7 @@ function fetchSupportUrl() {
 
         case "Picture Keeper Pro HDD": {
             switch (selectedPlatformName) {
-                case "iPhone & iPad": return COMPATIBILITY_CHART_URL
+                case "iPhone or iPad": return COMPATIBILITY_CHART_URL
                 case "Android": return COMPATIBILITY_CHART_URL
                 case "Windows": return PK_PRO_WINDOWS_URL
                 case "Mac": return PK_PRO_MAC_URL
