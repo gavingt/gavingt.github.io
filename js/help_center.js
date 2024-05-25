@@ -1,14 +1,14 @@
-const COMPATIBILITY_CHART_URL = "https://picturekeeper.zendesk.com/hc/en-us/articles/20240244266395-Compatibility-Chart"
+const COMPATIBILITY_CHART_URL = "https://support.picturekeeper.com/hc/en-us/articles/20240244266395-Compatibility-Chart"
 
-const PKC_IOS_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22950717176475"
-const PKC_ANDROID_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22950754010139"
-const PKC_WINDOWS_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22950741094555"
-const PKC_MAC_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22950747714075"
+const PKC_IOS_URL = "https://support.picturekeeper.com/hc/en-us/categories/22950717176475"
+const PKC_ANDROID_URL = "https://support.picturekeeper.com/hc/en-us/categories/22950754010139"
+const PKC_WINDOWS_URL = "https://support.picturekeeper.com/hc/en-us/categories/22950741094555"
+const PKC_MAC_URL = "https://support.picturekeeper.com/hc/en-us/categories/22950747714075"
 
-const PK_PRO_IOS_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22951186089755"
-const PK_PRO_ANDROID_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22951201027867"
-const PK_PRO_WINDOWS_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22951183916187"
-const PK_PRO_MAC_URL = "https://picturekeeper.zendesk.com/hc/en-us/categories/22951198744859"
+const PK_PRO_IOS_URL = "https://support.picturekeeper.com/hc/en-us/categories/22951186089755"
+const PK_PRO_ANDROID_URL = "https://support.picturekeeper.com/hc/en-us/categories/22951201027867"
+const PK_PRO_WINDOWS_URL = "https://support.picturekeeper.com/hc/en-us/categories/22951183916187"
+const PK_PRO_MAC_URL = "https://support.picturekeeper.com/hc/en-us/categories/22951198744859"
 
 var selectedProductName = null
 var selectedPlatformName = null
