@@ -86,8 +86,8 @@ function setPlatformOpacitiesAndOrder() {
         windows.css('opacity', '1')
         mac.css('opacity', '1')
     } else if (selectedProductName == "Picture Keeper Pro SSD") {
-        ios.css('opacity', '0.15')
-        android.css('opacity', '0.15')
+        ios.css('opacity', '1')
+        android.css('opacity', '1')
         windows.css('opacity', '1')
         mac.css('opacity', '1')
     } else if (selectedProductName == "Picture Keeper Pro HDD") {
@@ -161,8 +161,8 @@ function fetchSupportUrl() {
 
         case "Picture Keeper Pro SSD": {
             switch (selectedPlatformName) {
-                case "iPhone or iPad": return COMPATIBILITY_CHART_URL
-                case "Android": return COMPATIBILITY_CHART_URL
+                case "iPhone or iPad": return PK_PRO_IOS_URL
+                case "Android": return PK_PRO_ANDROID_URL
                 case "Windows": return PK_PRO_WINDOWS_URL
                 case "Mac": return PK_PRO_MAC_URL
             }
