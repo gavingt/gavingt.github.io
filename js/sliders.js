@@ -4,34 +4,34 @@ var currentSliderNumber
 // TODO: Also remember to edit the corresponding list in the SliderDemoVC of the PKC iOS app.
 var photosToDisplay = [
     // [original path, new path, width, height]
-    ["img/slider-photos/0a.jpg", "img/slider-photos/0b.jpg", 1258, 1647],
-    ["img/slider-photos/1a.jpg", "img/slider-photos/1b.jpg", 1180, 1753],
-    ["img/slider-photos/2a.jpg", "img/slider-photos/2b.jpg", 1266, 1233],
-    ["img/slider-photos/3a.jpg", "img/slider-photos/3b.jpg", 1261, 1550],
-    ["img/slider-photos/4a.jpg", "img/slider-photos/4b.jpg", 1290, 1590],
-    ["img/slider-photos/5a.jpg", "img/slider-photos/5b.jpg", 1296, 2000],
-    ["img/slider-photos/6a.jpg", "img/slider-photos/6b.jpg", 1312, 2176],
-    ["img/slider-photos/7a.jpg", "img/slider-photos/7b.jpg", 1600, 1695],
-    ["img/slider-photos/8a.jpg", "img/slider-photos/8b.jpg", 1979, 1518],
-    ["img/slider-photos/9a.jpg", "img/slider-photos/9b.jpg", 1740, 1173],
-    ["img/slider-photos/10a.jpg", "img/slider-photos/10b.jpg", 1480, 1490],
-    ["img/slider-photos/11a.jpg", "img/slider-photos/11b.jpg", 2016, 1536],
-    ["img/slider-photos/12a.jpg", "img/slider-photos/12b.jpg", 1688, 1664],
-    ["img/slider-photos/13a.jpg", "img/slider-photos/13b.jpg", 1960, 1955],
-    ["img/slider-photos/14a.jpg", "img/slider-photos/14b.jpg", 1309, 1164],
-    ["img/slider-photos/15a.jpg", "img/slider-photos/15b.jpg", 1140, 1800],
-    ["img/slider-photos/16a.jpg", "img/slider-photos/16b.jpg", 1772, 1423],
-    ["img/slider-photos/17a.jpg", "img/slider-photos/17b.jpg", 1500, 2000],
-    ["img/slider-photos/18a.jpg", "img/slider-photos/18b.jpg", 1250, 1600],
-    ["img/slider-photos/19a.jpg", "img/slider-photos/19b.jpg", 2000, 1484],
-    ["img/slider-photos/20a.jpg", "img/slider-photos/20b.jpg", 2000, 1500],
-    ["img/slider-photos/21a.jpg", "img/slider-photos/21b.jpg", 2000, 1333],
-    ["img/slider-photos/22a.jpg", "img/slider-photos/22b.jpg", 2000, 1230],
-    ["img/slider-photos/23a.jpg", "img/slider-photos/23b.jpg", 2000, 1333],
-    ["img/slider-photos/24a.jpg", "img/slider-photos/24b.jpg", 2000, 1333],
-    ["img/slider-photos/25a.jpg", "img/slider-photos/25b.jpg", 2000, 1333],
-    ["img/slider-photos/26a.jpg", "img/slider-photos/26b.jpg", 2000, 1331],
-    ["img/slider-photos/27a.jpg", "img/slider-photos/27b.jpg", 2000, 1334],
+    ["img/slider-photos-qvc/0a.jpg", "img/slider-photos-qvc/0b.jpg", 1273, 1583],
+    ["img/slider-photos-qvc/1a.jpg", "img/slider-photos-qvc/1b.jpg", 1210, 1584],
+    ["img/slider-photos-qvc/2a.jpg", "img/slider-photos-qvc/2b.jpg", 1675, 1200],
+    ["img/slider-photos-qvc/3a.jpg", "img/slider-photos-qvc/3b.jpg", 1200, 1606],
+    ["img/slider-photos-qvc/4a.jpg", "img/slider-photos-qvc/4b.jpg", 1200, 1482],
+    ["img/slider-photos-qvc/5a.jpg", "img/slider-photos-qvc/5b.jpg", 1200, 1652],
+    ["img/slider-photos-qvc/6a.jpg", "img/slider-photos-qvc/6b.jpg", 1168, 1606],
+    ["img/slider-photos-qvc/7a.jpg", "img/slider-photos-qvc/7b.jpg", 1074, 1448],
+    ["img/slider-photos-qvc/8a.jpg", "img/slider-photos-qvc/8b.jpg", 1200, 1504],
+    ["img/slider-photos-qvc/9a.jpg", "img/slider-photos-qvc/9b.jpg", 1548, 1500],
+    ["img/slider-photos-qvc/10a.jpg", "img/slider-photos-qvc/10b.jpg", 1200, 1591],
+    ["img/slider-photos-qvc/11a.jpg", "img/slider-photos-qvc/11b.jpg", 1600, 1200],
+    ["img/slider-photos-qvc/12a.jpg", "img/slider-photos-qvc/12b.jpg", 1200, 1534],
+    ["img/slider-photos-qvc/13a.jpg", "img/slider-photos-qvc/13b.jpg", 1520, 1024],
+    ["img/slider-photos-qvc/14a.jpg", "img/slider-photos-qvc/14b.jpg", 1200, 1654],
+    ["img/slider-photos-qvc/15a.jpg", "img/slider-photos-qvc/15b.jpg", 1444, 1200],
+    ["img/slider-photos-qvc/16a.jpg", "img/slider-photos-qvc/16b.jpg", 1788, 1200],
+    ["img/slider-photos-qvc/17a.jpg", "img/slider-photos-qvc/17b.jpg", 1200, 1600],
+    ["img/slider-photos-qvc/18a.jpg", "img/slider-photos-qvc/18b.jpg", 1112, 1480],
+    ["img/slider-photos-qvc/19a.jpg", "img/slider-photos-qvc/19b.jpg", 1200, 1200],
+    ["img/slider-photos-qvc/20a.jpg", "img/slider-photos-qvc/20b.jpg", 2000, 1104],
+    ["img/slider-photos-qvc/21a.jpg", "img/slider-photos-qvc/21b.jpg", 1200, 1263],
+    ["img/slider-photos-qvc/22a.jpg", "img/slider-photos-qvc/22b.jpg", 1200, 1852],
+    ["img/slider-photos-qvc/23a.jpg", "img/slider-photos-qvc/23b.jpg", 1617, 1200],
+    ["img/slider-photos-qvc/24a.jpg", "img/slider-photos-qvc/24b.jpg", 1800, 1200],
+    ["img/slider-photos-qvc/25a.jpg", "img/slider-photos-qvc/25b.jpg", 1600, 1200],
+    ["img/slider-photos-qvc/26a.jpg", "img/slider-photos-qvc/26b.jpg", 1600, 1200],
+    ["img/slider-photos-qvc/27a.jpg", "img/slider-photos-qvc/27b.jpg", 1200, 1200],
 ]
 
 // Preload images so they're hopefully ready when the user wants to see them.
@@ -205,10 +205,10 @@ function changeSliderPhotos(sliderNumber) {
     new juxtapose.JXSlider('#slider_container',
         [
             {
-                src: "img/slider-photos/" + sliderNumber + "b.jpg"
+                src: "img/slider-photos-qvc/" + sliderNumber + "b.jpg"
             },
             {
-                src: "img/slider-photos/" + sliderNumber + "a.jpg"
+                src: "img/slider-photos-qvc/" + sliderNumber + "a.jpg"
             }
         ],
         {
