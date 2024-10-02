@@ -136,11 +136,12 @@ img {
 
 #hero {
     position: relative;
+    background-color: #C6DAEA;
+    max-width:100%;
 }
 @media screen and (max-width: 800px) {
     #hero {
         height: 160px;
-        background-color: #C6DAEA;
     }
 }
 
