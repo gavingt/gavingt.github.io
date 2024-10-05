@@ -5,22 +5,34 @@ var currentSliderNumber
 // TODO: Also remember to edit the corresponding list in the SliderDemoVC of the PKC iOS app.
 var photosToDisplay = [
     // [original path, new path, width, height]
-    ["img/slider-photos-hsn/0a.jpg", "img/slider-photos-hsn/0b.jpg", 2000, 1329],
-    ["img/slider-photos-hsn/1a.jpg", "img/slider-photos-hsn/1b.jpg", 2000, 1332],
+    ["img/slider-photos-hsn/0a.jpg", "img/slider-photos-hsn/0b.jpg", 1806, 1200],
+    ["img/slider-photos-hsn/1a.jpg", "img/slider-photos-hsn/1b.jpg", 1802, 1200],
     ["img/slider-photos-hsn/2a.jpg", "img/slider-photos-hsn/2b.jpg", 2000, 927],
-    ["img/slider-photos-hsn/3a.jpg", "img/slider-photos-hsn/3b.jpg", 2000, 1334],
+    ["img/slider-photos-hsn/3a.jpg", "img/slider-photos-hsn/3b.jpg", 1799, 1200],
     ["img/slider-photos-hsn/4a.jpg", "img/slider-photos-hsn/4b.jpg", 1366, 1024],
     ["img/slider-photos-hsn/5a.jpg", "img/slider-photos-hsn/5b.jpg", 1024, 1648],
-    ["img/slider-photos-hsn/6a.jpg", "img/slider-photos-hsn/6b.jpg", 2000, 1484],
-    ["img/slider-photos-hsn/7a.jpg", "img/slider-photos-hsn/7b.jpg", 2000, 1290],
-    ["img/slider-photos-hsn/8a.jpg", "img/slider-photos-hsn/8b.jpg", 2000, 1393],
-    ["img/slider-photos-hsn/9a.jpg", "img/slider-photos-hsn/9b.jpg", 2000, 1230],
-    ["img/slider-photos-hsn/10a.jpg", "img/slider-photos-hsn/10b.jpg", 2000, 1333],
-    ["img/slider-photos-hsn/11a.jpg", "img/slider-photos-hsn/11b.jpg", 2000, 1333],
-    ["img/slider-photos-hsn/12a.jpg", "img/slider-photos-hsn/12b.jpg", 2000, 1333],
-    ["img/slider-photos-hsn/13a.jpg", "img/slider-photos-hsn/13b.jpg", 2000, 1331],
-    ["img/slider-photos-hsn/14a.jpg", "img/slider-photos-hsn/14b.jpg", 2000, 1334],
-    ["img/slider-photos-hsn/15a.jpg", "img/slider-photos-hsn/15b.jpg", 819, 1299],
+    ["img/slider-photos-hsn/6a.jpg", "img/slider-photos-hsn/6b.jpg", 819, 1299],
+    ["img/slider-photos-hsn/7a.jpg", "img/slider-photos-hsn/7b.jpg", 2000, 1104],
+    ["img/slider-photos-hsn/8a.jpg", "img/slider-photos-hsn/8b.jpg", 2174, 1200],
+    ["img/slider-photos-hsn/9a.jpg", "img/slider-photos-hsn/9b.jpg", 1200, 1578],
+    ["img/slider-photos-hsn/10a.jpg", "img/slider-photos-hsn/10b.jpg", 2000, 1290],
+    ["img/slider-photos-hsn/11a.jpg", "img/slider-photos-hsn/11b.jpg", 2000, 1484],
+    ["img/slider-photos-hsn/12a.jpg", "img/slider-photos-hsn/12b.jpg", 1200, 1948],
+    ["img/slider-photos-hsn/13a.jpg", "img/slider-photos-hsn/13b.jpg", 1786, 1200],
+    ["img/slider-photos-hsn/14a.jpg", "img/slider-photos-hsn/14b.jpg", 1200, 1563],
+    ["img/slider-photos-hsn/15a.jpg", "img/slider-photos-hsn/15b.jpg", 1788, 1200],
+    ["img/slider-photos-hsn/16a.jpg", "img/slider-photos-hsn/16b.jpg", 2000, 1134],
+    ["img/slider-photos-hsn/17a.jpg", "img/slider-photos-hsn/17b.jpg", 1765, 1200],
+    ["img/slider-photos-hsn/18a.jpg", "img/slider-photos-hsn/18b.jpg", 1444, 1200],
+    ["img/slider-photos-hsn/19a.jpg", "img/slider-photos-hsn/19b.jpg", 2000, 1393],
+    ["img/slider-photos-hsn/20a.jpg", "img/slider-photos-hsn/20b.jpg", 1200, 1654],
+    ["img/slider-photos-hsn/21a.jpg", "img/slider-photos-hsn/21b.jpg", 1200, 1263],
+    ["img/slider-photos-hsn/22a.jpg", "img/slider-photos-hsn/22b.jpg", 1600, 1200],
+    ["img/slider-photos-hsn/23a.jpg", "img/slider-photos-hsn/23b.jpg", 1789, 1200],
+    ["img/slider-photos-hsn/24a.jpg", "img/slider-photos-hsn/24b.jpg", 1600, 1200],
+    ["img/slider-photos-hsn/25a.jpg", "img/slider-photos-hsn/25b.jpg", 1600, 1200],
+    ["img/slider-photos-hsn/26a.jpg", "img/slider-photos-hsn/26b.jpg", 1800, 1200],
+    ["img/slider-photos-hsn/27a.jpg", "img/slider-photos-hsn/27b.jpg", 2000, 1334],
 ]
 
 // Preload images so they're hopefully ready when the user wants to see them.
@@ -116,6 +128,53 @@ $("#thumbnail15").on("click", function () {
     changeSliderPhotos(15)
 });
 
+$("#thumbnail16").on("click", function () {
+    changeSliderPhotos(16)
+});
+
+$("#thumbnail17").on("click", function () {
+    changeSliderPhotos(17)
+});
+
+$("#thumbnail18").on("click", function () {
+    changeSliderPhotos(18)
+});
+
+$("#thumbnail19").on("click", function () {
+    changeSliderPhotos(19)
+});
+
+$("#thumbnail20").on("click", function () {
+    changeSliderPhotos(20)
+});
+
+$("#thumbnail21").on("click", function () {
+    changeSliderPhotos(21)
+});
+
+$("#thumbnail22").on("click", function () {
+    changeSliderPhotos(22)
+});
+
+$("#thumbnail23").on("click", function () {
+    changeSliderPhotos(23)
+});
+
+$("#thumbnail24").on("click", function () {
+    changeSliderPhotos(24)
+});
+
+$("#thumbnail25").on("click", function () {
+    changeSliderPhotos(25)
+});
+
+$("#thumbnail26").on("click", function () {
+    changeSliderPhotos(26)
+});
+
+$("#thumbnail27").on("click", function () {
+    changeSliderPhotos(27)
+});
 
 function changeSliderPhotos(sliderNumber) {
     // Prevent the currently selected slider from being selected again.
