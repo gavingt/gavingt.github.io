@@ -1,14 +1,13 @@
-const COMPATIBILITY_CHART_URL = "https://support.picturekeeper.com/hc/en-us/articles/20240244266395-Compatibility-Chart"
 
-const PKC_IOS_URL = "https://support.picturekeeper.com/hc/en-us/categories/22950717176475"
-const PKC_ANDROID_URL = "https://support.picturekeeper.com/hc/en-us/categories/22950754010139"
-const PKC_WINDOWS_URL = "https://support.picturekeeper.com/hc/en-us/categories/22950741094555"
-const PKC_MAC_URL = "https://support.picturekeeper.com/hc/en-us/categories/22950747714075"
+const UB_SSD_IOS_URL = "https://support.picturekeeper.com/hc/en-us/categories/22950717176475"
+const UB_SSD_ANDROID_URL = "https://support.picturekeeper.com/hc/en-us/categories/22950754010139"
+const UB_SSD_WINDOWS_URL = "https://support.picturekeeper.com/hc/en-us/categories/22950741094555"
+const UB_SSD_MAC_URL = "https://support.picturekeeper.com/hc/en-us/categories/22950747714075"
 
-const PK_PRO_IOS_URL = "https://support.picturekeeper.com/hc/en-us/categories/22951186089755"
-const PK_PRO_ANDROID_URL = "https://support.picturekeeper.com/hc/en-us/categories/22951201027867"
-const PK_PRO_WINDOWS_URL = "https://support.picturekeeper.com/hc/en-us/categories/22951183916187"
-const PK_PRO_MAC_URL = "https://support.picturekeeper.com/hc/en-us/categories/22951198744859"
+const UB_4IN1_IOS_URL = "https://support.picturekeeper.com/hc/en-us/categories/22951186089755"
+const UB_4IN1_ANDROID_URL = "https://support.picturekeeper.com/hc/en-us/categories/22951201027867"
+const UB_4IN1_WINDOWS_URL = "https://support.picturekeeper.com/hc/en-us/categories/22951183916187"
+const UB_4IN1_MAC_URL = "https://support.picturekeeper.com/hc/en-us/categories/22951198744859"
 
 var selectedProductName = null
 var selectedPlatformName = null
