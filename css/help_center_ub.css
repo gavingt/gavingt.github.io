@@ -1,0 +1,711 @@
+/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+   html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body {
+    font-family: var(--typeBasePrimary),var(--typeBaseFallback);
+    font-size: inherit;
+    background-color: white;
+}
+
+
+/* Ensure Bootstrap modal background color gets used. */
+:root {
+    --colorModalBg: inherit;
+}
+
+/* Hide top header logo padding for picturekeeper.com */
+.site-header__logo-link {
+    padding-top: 10px;
+}
+
+/* Ensure picturekeeper.com top menu text looks as expected */
+.site-nav__dropdown-link, .slide-nav__link {
+    text-decoration: inherit !important;
+    color: inherit !important;
+}
+
+.site-nav__dropdown-link:hover, .slide-nav__link:hover {
+    text-decoration: underline !important;
+}
+
+ul {
+    padding-left: inherit !important;
+}
+
+/* This overrides an attribute in Shopify's theme.css that sets max-width: 100% */
+img {
+    max-width: fit-content !important;
+}
+
+
+
+#hero {
+    position: relative;
+    background-color: #C6DAEA;
+    max-width:100%;
+}
+@media screen and (max-width: 800px) {
+    #hero {
+        height: 160px;
+    }
+}
+
+
+
+#inside-hero-container {
+    position: absolute;
+    left: 7%;
+    top: 50%;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+    #inside-hero-container {
+        left: 3%;
+    }
+}
+@media screen and (max-width: 800px) {
+    #inside-hero-container {
+        left: 50%;
+        top: 0%;
+        text-align: center;
+        transform: translate(-50%);
+        -ms-transform: translate(-50%);
+        -moz-transform: translate(-50%);
+        -webkit-transform: translate(-50%);
+        -o-transform: translate(-50%);
+    }
+}
+
+#hero-img {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+@media screen and (max-width: 800px) {
+    #hero-img {
+        display: none;
+    }
+}
+
+#hero-title {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 55px;
+    color: #22408b;
+}
+@media screen and (max-width: 1400px) {
+    #hero-title {
+        font-size: 30px;
+    }
+}
+@media screen and (max-width: 800px) {
+    #hero-title {
+        font-size: 30px;
+        margin-top: 3px;
+    }
+}
+
+
+#hero-subtitle {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 22px;
+    color: #22408b;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    white-space: nowrap;
+}
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+    #hero-subtitle {
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    #hero-subtitle {
+        font-size: 12px;
+    }
+}
+
+#hero-button-container {
+    margin-top: 60px;
+    margin-bottom: 10px;
+    display: inline-flex;
+}
+@media screen and (min-width: 800px) and (max-width: 1400px) {
+    #hero-button-container {
+        margin-top: 20px;
+    }
+}
+@media screen and (max-width: 800px) {
+    #hero-button-container {
+        margin-top: 10px;
+    }
+}
+
+.hero-button {
+    display: inline !important;
+    width: 140px;
+    height: 94px;
+    margin: 0 3px;
+    border: 1px solid #555;
+    border-radius: 6px;
+    background-color: white;
+}
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+    .hero-button {
+      width: 115px;
+      height: 77px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .hero-button {
+      width: 100px;
+      height: 67px;
+    }
+}
+
+
+.hero-button:hover, .hero-button:active {
+    background-color: #b0b0b0;
+}
+
+
+
+#product-grid-title {
+    font-family: Arial, Helvetica, sans-serif !important;
+    margin-top: 50px;
+    text-align: center;
+    font-size: 38px;
+    font-weight: 500;
+    color: #000;
+    text-overflow: none;
+    overflow: visible; 
+    white-space: nowrap;
+}
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+    #product-grid-title {
+        margin: 30px 15px 0px 15px;
+        font-size: 34px;
+    }
+}
+@media screen and (min-width: 500px) and (max-width: 800px) {
+    #product-grid-title {
+        margin: 30px 15px 0px 15px;
+        font-size: 30px;
+    }
+}
+@media screen and (min-width: 400px) and (max-width: 500px) {
+    #product-grid-title {
+        margin: 30px 15px 0px 15px;
+        font-size: 28px;
+    }
+}
+@media screen and (min-width: 360px) and (max-width: 400px) {
+    #product-grid-title {
+        margin: 30px 15px 0px 15px;
+        font-size: 24px;
+    }
+}
+@media screen and (max-width: 360px) {
+    #product-grid-title {
+        margin: 30px 15px 0px 15px;
+        font-size: 22px;
+    }
+}
+
+
+#product-grid {
+    width: 96%;
+    max-width: 1650px;
+    margin-top: 25px;
+    margin: 25px auto 100px auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+@media screen and (min-width: 1000px) and (max-width: 1900px) {
+    #product-grid {
+      width: 90%;
+      max-width: 800px;
+      margin-top: 20px;
+    }
+}
+@media screen and (min-width: 800px) and (max-width: 1000px) {
+    #product-grid {
+      width: 90%;
+      max-width: 800px;
+      margin-top: 20px;
+    }
+}
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    #product-grid {
+      width: 90%;
+      max-width: 500px;
+      margin-top: 20px;
+    }
+}
+@media screen and (max-width: 400px) {
+    #product-grid {
+      width: 97%;
+      max-width: 375px;
+      margin-top: 10px;
+    }
+}
+
+
+/* Create two equal columns that sit next to each other */
+.product-column {
+    flex: 16.66%;
+    max-width: 16.66%;
+    padding: 10px;
+    margin: 0 auto;
+}
+/* Use three columns for a smaller screen */
+@media screen and (min-width: 800px) and (max-width: 1900px) {
+    .product-column {
+      flex: 33.3%;
+      max-width: 33.3%;
+    }
+}
+/* Use two columns for a smaller screen */
+@media screen and (min-width: 500px) and (max-width: 800px) {
+    .product-column {
+      flex: 50%;
+      max-width: 50%;
+    }
+}
+/* Use one column for a smaller screen */
+@media screen and (max-width: 500px) {
+    .product-column {
+      flex: 100%;
+      max-width: 275px;
+    }
+}
+
+.grid-item {
+    vertical-align: middle;
+    width: 100%;
+    cursor: pointer;
+    border: 1px #000 solid;
+    border-radius: 8px;
+    background: none;
+}
+
+.grid-item:hover, .grid-item:active {
+    background-color: #b0b0b0;
+}
+
+
+#copyright {
+    margin: 0px 15px 5px 15px;
+    font-size: 11px;
+    text-align: center;
+}
+
+/* Reduce modal-xl width only when screen width is above 1200px */
+@media screen and (min-width: 1200px) {
+    .modal-xl {
+        --bs-modal-width: 1000px !important;
+    }
+}
+
+.modal-body {
+    padding: 0px !important;
+}
+
+#modal-close-button {
+    background: none;
+    border: none;
+    position: absolute;
+    z-index: 1;
+    top: 8px;
+    right: 8px;
+    color: #777;
+    outline: none;
+}
+
+#modal-close-button img {
+    width: 27px;
+    height: 27px;
+}
+
+#modal-title {
+    font-family: Arial, Helvetica, sans-serif !important;
+    text-align: center;
+    padding-top: 70px;
+    margin: 0 15px;
+    font-size: 30px;
+    font-weight: 500;
+    color: #000;
+}
+@media screen and (min-width: 465px) and (max-width: 1200px) {
+    #modal-title {
+        font-size: 24px;
+    }
+}
+@media screen and (min-width: 380px) and (max-width: 465px) {
+    #modal-title {
+        font-size: 21px;
+    }
+}
+@media screen and (max-width: 380px) {
+    #modal-title {
+        font-size: 18px;
+    }
+}
+
+.bold-product-name {
+    font-weight: 700;
+    color: #000000;
+}
+
+#platform-grid {
+    max-width: 730px;
+    margin-top: 25px;
+    margin: 25px auto 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+@media screen and (min-width: 550px) and (max-width: 1000px) {
+    #platform-grid {
+        max-width: 350px;
+    }
+}
+@media screen and (min-width: 400px) and (max-width: 550px) {
+    #platform-grid {
+        max-width: 300px;
+    }
+}
+@media screen and (max-width: 400px) {
+    #platform-grid {
+        max-width: 300px;
+    }
+}
+
+/* Create four equal columns that sit next to each other */
+.platform-column {
+    flex: 25%;
+    max-width: 25%;
+    padding: 10px;
+}
+/* Use two columns for a smaller screen */
+@media screen and (max-width: 1000px) {
+    .platform-column {
+      flex: 50%;
+      max-width: 50%;
+    }
+}
+
+.platform-button {
+    width: 100%;
+    border: 1px #000 solid;
+    border-radius: 8px;
+    background: none;
+    display: inline;
+}
+
+.platform-button:hover, .platform-button:active {
+    background-color: #b0b0b0;
+}
+
+.platform-button-image {
+    width: 70px !important;
+    height: 70px !important;
+    margin: 12px 6px 6px 6px;
+}
+@media screen and (max-width: 550px) {
+    .platform-button-image {
+        width: 50px !important;
+        height: 50px !important;
+    }
+}
+
+.platform-button-label {
+    color: #333;
+    font-weight: 700;
+    font-size: 18px;
+    margin: 0px 0px 5px 0px;
+}
+ @media screen and (max-width: 550px) {
+    .platform-button-label {
+        font-size: 13px;
+    }
+}
+
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden {
+    display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   http://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+
+    *,
+    *:before,
+    *:after,
+    *:first-letter,
+    *:first-line {
+        background: transparent !important;
+        color: #000 !important;
+        /* Black prints faster:
+        http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
