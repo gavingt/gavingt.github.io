@@ -112,6 +112,13 @@ body {
 #SiteNav a {
     text-decoration: none;
     color: #3a3a3a;
+    font-size: 19px;
+}
+
+#SiteNav li {
+    text-decoration: none;
+    color: #3a3a3a;
+    font-size: 19px;
 }
 
 #SiteNav a:not([disabled]):hover, a:focus {
