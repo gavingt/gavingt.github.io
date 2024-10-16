@@ -108,19 +108,33 @@ body {
     --colorModalBg: inherit;
 }
 
-/* Hide top header logo padding for picturekeeper.com */
-.site-header__logo-link {
-    padding-top: 10px;
+/* Ensure ultimatebackup.com top menu looks as expected. */
+#SiteNav a {
+    text-decoration: none;
+    color: #3a3a3a;
 }
 
-/* Ensure picturekeeper.com top menu text looks as expected */
-.site-nav__dropdown-link, .slide-nav__link {
-    text-decoration: inherit !important;
-    color: inherit !important;
+#SiteNav a:not([disabled]):hover, a:focus {
+    color: #606060;
 }
 
-.site-nav__dropdown-link:hover, .slide-nav__link:hover {
-    text-decoration: underline !important;
+.site-header__icon {
+    text-decoration: none;
+    color: #3a3a3a;
+}
+
+.site-header__icon a:not([disabled]):hover, a:focus {
+    color: #606060;
+}
+
+.site-nav__link:focus .site-nav__label, .site-nav__link:not([disabled]):hover .site-nav__label {
+    border-bottom-color: #3a3a3a;
+}
+  
+/* Add padding to top logo */
+    .site-header__logo img {
+    display: block;
+    margin: 15px 0;
 }
 
 ul {
@@ -136,7 +150,7 @@ img {
 
 #hero {
     position: relative;
-    background-color: #ead5c5;
+    background-color: #f2e5df;
     max-width:100%;
 }
 @media screen and (max-width: 800px) {
@@ -360,12 +374,20 @@ img {
     max-width: 275px;
     padding: 8px 16px 8px 16px;
 }
+
+/* Use less padding for medium-size screen */
+@media screen and (min-width: 370px) and (max-width: 470px) {
+    .product-column {
+      padding: 8px;
+    }
+}
+
 /* Use one column for a smaller screen */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 370px) {
     .product-column {
       flex: 100%;
-      max-width: 275px;
-      padding: 16px 0px 16px 0px;
+      max-width: 180px;
+      padding: 8px 0px 8px 0px;
     }
 }
 

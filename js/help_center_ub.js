@@ -18,6 +18,11 @@ window.onbeforeunload = function(){
     $('.hero-button').css('background-color', 'white')
 }
 
+// Make "Shop Products" button work without theme.js (as theme.js causes conflicts with Bootstrap modals).
+$("span:contains('Shop Products')").click(function() {
+    window.open("https://ultimatebackup.com/collections/frontpage", "_self")
+})
+
 $(".product-grid-item").click(function () {
     // Fetch product name from data-product-name attribute set in help_center.html.
     selectedProductName = $(this).data('product-name')
