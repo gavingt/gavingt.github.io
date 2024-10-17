@@ -382,18 +382,11 @@ img {
     padding: 8px 16px 8px 16px;
 }
 
-/* Use less padding for medium-size screen */
-@media screen and (min-width: 370px) and (max-width: 470px) {
-    .product-column {
-      padding: 8px;
-    }
-}
-
 /* Use one column for a smaller screen */
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 450px) {
     .product-column {
       flex: 100%;
-      max-width: 180px;
+      max-width: 225px;
       padding: 8px 0px 8px 0px;
     }
 }
