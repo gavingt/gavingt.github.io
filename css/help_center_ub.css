@@ -125,13 +125,9 @@ body {
     color: #606060;
 }
 
-.site-header__icon {
-    text-decoration: none;
-    color: #3a3a3a;
-}
-
-.site-header__icon a:not([disabled]):hover, a:focus {
-    color: #606060;
+/* Hide the top buttons, as they don't all work properly without theme.js */
+.site-header__icons-wrapper {
+    display: none;
 }
 
 .site-nav__link:focus .site-nav__label, .site-nav__link:not([disabled]):hover .site-nav__label {
@@ -142,6 +138,23 @@ body {
     .site-header__logo img {
     display: block;
     margin: 15px 0;
+}
+
+.site-header__logo-image img {
+    width: 100%; 
+    max-width: 110px !important;
+}
+
+/* Reduce size of logo for smaller screens. */
+@media only screen and (min-width: 500px) and (max-width: 600px) {
+    .site-header__logo-image img {
+       max-width: 80px !important;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .site-header__logo-image img {
+       max-width: 60px !important;
+    }
 }
 
 ul {
