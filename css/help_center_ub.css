@@ -130,6 +130,12 @@ body {
     display: none;
 }
 
+/* Remove down chevron from "Shop Products", since it doesn't work without theme.js */
+button.site-nav__link > :nth-child(2) {
+  display: none;
+  color: red;
+}
+
 .site-nav__link:focus .site-nav__label, .site-nav__link:not([disabled]):hover .site-nav__label {
     border-bottom-color: #3a3a3a;
 }
