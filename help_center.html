@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link rel="shortcut icon" href="https://www.picturekeeper.com/cdn/shop/files/PK_initials_64x64.png" type="image/png" />
+    <link rel="shortcut icon" href="https://www.picturekeeper.com/cdn/shop/files/PK_initials_64x64.png"
+        type="image/png" />
     <title>Help Center for Picture Keeper</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,22 +23,26 @@
 
 
 <div id="hero">
-    <img src="https://cdn.shopify.com/s/files/1/1811/1215/files/help_center_header.jpg?v=1727844807" id="hero-img" class="img-responsive">
+    <img src="https://cdn.shopify.com/s/files/1/1811/1215/files/help_center_header.jpg?v=1727844807" id="hero-img"
+        class="img-responsive">
     <div id="inside-hero-container">
         <div id="hero-title">Help Center</div>
         <div id="hero-subtitle">Get answers to all your Picture Keeper questions</div>
 
         <div id="hero-button-container">
             <a href="https://picturekeeper.com/pages/contact-our-support-team">
-                <img src="https://cdn.shopify.com/s/files/1/1811/1215/files/contact_support.png?v=1715889686" class="hero-button">
+                <img src="https://cdn.shopify.com/s/files/1/1811/1215/files/contact_support.png?v=1715889686"
+                    class="hero-button">
             </a>
 
             <a href="https://support.picturekeeper.com/hc/en-us/categories/4408997793691-Getting-Started">
-                <img src="https://cdn.shopify.com/s/files/1/1811/1215/files/getting_started.png?v=1715848034" class="hero-button">
+                <img src="https://cdn.shopify.com/s/files/1/1811/1215/files/getting_started.png?v=1715848034"
+                    class="hero-button">
             </a>
 
             <a href="https://support.picturekeeper.com/hc/en-us/categories/27528472184091">
-                <img src="https://cdn.shopify.com/s/files/1/1811/1215/files/quick_answers.webp?v=1721354026" class="hero-button">
+                <img src="https://cdn.shopify.com/s/files/1/1811/1215/files/quick_answers.webp?v=1721354026"
+                    class="hero-button">
             </a>
         </div>
     </div>
@@ -141,9 +146,41 @@
 
 
 <!-- Start of picturekeeper Zendesk Widget script -->
-<script id="ze-snippet"
-    src="https://static.zdassets.com/ekr/snippet.js?key=d43b8fd6-2491-42fa-9efa-be9729220d47"> </script>
+<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=d43b8fd6-2491-42fa-9efa-be9729220d47">
+</script>
 <!-- End of picturekeeper Zendesk Widget script -->
+
+
+<script>
+
+    // Cache the value that the user types into the "Phone Number" input.
+    var phoneNumberInputString = ""
+
+    zE('webWidget:on', 'userEvent', function (event) {
+
+        // Access the web widget once it's shown, and create a listener that caches phoneNumberInputString
+        // as the user types in a phone number.
+        if (event.action == 'Contact Form Shown') {
+            const webWidgetIframe = document.querySelector('iframe#webWidget');
+            const iframeInnerDoc = webWidgetIframe.contentDocument || webWidgetIframe.contentWindow.document;
+
+            const allInputs = iframeInnerDoc.querySelectorAll('input');  // Select all input elements in web widget.
+            const phoneNumberInput = allInputs[2];  // "Phone Number" input is the third input in the document.
+
+            phoneNumberInput.addEventListener('input', function(e) {
+                phoneNumberInputString = e.target.value
+                console.log('Captured user input:', e.target.value);
+            });
+        } 
+        
+        // Once the form has been submitted, call Zendesk API to add the phone number into the customer's profile.
+        else if (event.action == "Contact Form Submitted") {
+            // TODO: Call Zendesk API to add the phone number that's cached in phoneNumberInputString.
+            //       We can grab the email address from the 2nd user input if needed (similar to what we did above).
+        }
+    }) 
+
+</script>
 
 
 </body>
