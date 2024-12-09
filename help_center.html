@@ -150,39 +150,6 @@
 </script>
 <!-- End of picturekeeper Zendesk Widget script -->
 
-
-<script>
-
-    // Cache the value that the user types into the "Phone Number" input.
-    var phoneNumberInputString = ""
-
-    zE('webWidget:on', 'userEvent', function (event) {
-
-        // Access the web widget once it's shown, and create a listener that caches phoneNumberInputString
-        // as the user types in a phone number.
-        if (event.action == 'Contact Form Shown') {
-            const webWidgetIframe = document.querySelector('iframe#webWidget');
-            const iframeInnerDoc = webWidgetIframe.contentDocument || webWidgetIframe.contentWindow.document;
-
-            const allInputs = iframeInnerDoc.querySelectorAll('input');  // Select all input elements in web widget.
-            const phoneNumberInput = allInputs[2];  // "Phone Number" input is the third input in the document.
-
-            phoneNumberInput.addEventListener('input', function(e) {
-                phoneNumberInputString = e.target.value
-                console.log('Captured user input:', e.target.value);
-            });
-        } 
-        
-        // Once the form has been submitted, call Zendesk API to add the phone number into the customer's profile.
-        else if (event.action == "Contact Form Submitted") {
-            // TODO: Call Zendesk API to add the phone number that's cached in phoneNumberInputString.
-            //       We can grab the email address from the 2nd user input if needed (similar to what we did above).
-        }
-    }) 
-
-</script>
-
-
 </body>
 
 </html>
