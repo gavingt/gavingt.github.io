@@ -5,10 +5,10 @@ var currentSliderNumber
 // TODO: Also remember to edit the corresponding list in the SliderDemoVC of the PKC iOS app.
 var photosToDisplay = [
     // [original path, new path, width, height]
-    ["img/slider-photos-hsn/0a.jpg", "img/slider-photos-hsn/0b.jpg", 1806, 1200],
-    ["img/slider-photos-hsn/1a.jpg", "img/slider-photos-hsn/1b.jpg", 1802, 1200],
-    ["img/slider-photos-hsn/2a.jpg", "img/slider-photos-hsn/2b.jpg", 2000, 927],
-    ["img/slider-photos-hsn/3a.jpg", "img/slider-photos-hsn/3b.jpg", 1799, 1200],
+    ["img/slider-photos-hsn/0a.jpg", "img/slider-photos-hsn/0b.jpg", 2048, 1365],
+    ["img/slider-photos-hsn/1a.jpg", "img/slider-photos-hsn/1b.jpg", 2048, 1152],
+    ["img/slider-photos-hsn/2a.jpg", "img/slider-photos-hsn/2b.jpg", 1000, 1499],
+    ["img/slider-photos-hsn/3a.jpg", "img/slider-photos-hsn/3b.jpg", 2000, 1500],
     ["img/slider-photos-hsn/4a.jpg", "img/slider-photos-hsn/4b.jpg", 1366, 1024],
     ["img/slider-photos-hsn/5a.jpg", "img/slider-photos-hsn/5b.jpg", 1024, 1648],
     ["img/slider-photos-hsn/6a.jpg", "img/slider-photos-hsn/6b.jpg", 819, 1299],
