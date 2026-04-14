@@ -9,6 +9,11 @@ const UB_4IN1_ANDROID_URL = "https://support.ultimatebackup.com/hc/en-us/categor
 const UB_4IN1_WINDOWS_URL = "https://support.ultimatebackup.com/hc/en-us/categories/30110063644955"
 const UB_4IN1_MAC_URL = "https://support.ultimatebackup.com/hc/en-us/categories/30110092489115"
 
+const UB_MAX_IOS_URL = "https://support.ultimatebackup.com/hc/en-us/categories/49134330209691"
+const UB_MAX_ANDROID_URL = "https://support.ultimatebackup.com/hc/en-us/categories/49134379695387"
+const UB_MAX_WINDOWS_URL = "https://support.ultimatebackup.com/hc/en-us/categories/49134387786395"
+const UB_MAX_MAC_URL = "https://support.ultimatebackup.com/hc/en-us/categories/49134408099099"
+
 var selectedProductName = null
 var selectedPlatformName = null
 
@@ -73,6 +78,15 @@ function fetchSupportUrl() {
                 case "Android": return UB_4IN1_ANDROID_URL
                 case "Windows": return UB_4IN1_WINDOWS_URL
                 case "Mac": return UB_4IN1_MAC_URL
+            }
+        }
+
+        case "Ultimate Backup MAX": {
+            switch (selectedPlatformName) {
+                case "iPhone or iPad": return UB_MAX_IOS_URL
+                case "Android": return UB_MAX_ANDROID_URL
+                case "Windows": return UB_MAX_WINDOWS_URL
+                case "Mac": return UB_MAX_MAC_URL
             }
         }
     }

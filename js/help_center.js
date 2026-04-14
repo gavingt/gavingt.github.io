@@ -10,6 +10,11 @@ const PK_PRO_ANDROID_URL = "https://support.picturekeeper.com/hc/en-us/categorie
 const PK_PRO_WINDOWS_URL = "https://support.picturekeeper.com/hc/en-us/categories/22951183916187"
 const PK_PRO_MAC_URL = "https://support.picturekeeper.com/hc/en-us/categories/22951198744859"
 
+const PK_MAX_IOS_URL = "https://support.picturekeeper.com/hc/en-us/categories/49135488968475"
+const PK_MAX_ANDROID_URL = "https://support.picturekeeper.com/hc/en-us/categories/49135490917275"
+const PK_MAX_WINDOWS_URL = "https://support.picturekeeper.com/hc/en-us/categories/49135503568283"
+const PK_MAX_MAC_URL = "https://support.picturekeeper.com/hc/en-us/categories/49135527558299"
+
 var selectedProductName = null
 var selectedPlatformName = null
 
@@ -45,13 +50,7 @@ $("#platform-grid").children().click(function () {
     // Add alias name to the fetchSupportUrl() value. This allows the Help Center to display the product and platform name selected by the user, even when displaying another category.
     // This enables us to reuse the same category multiple times without the user noticing.
     // We percent-encode the alias name so it can be properly retrieved on the other end.
-    // When user selects "Picture Keeper For Android" and "Android", treat this case differently so the title becomes just "Using Picture Keeper For Android".
-    var aliasUrlComponent = null
-    if (selectedProductName == "Picture Keeper For Android" && selectedPlatformName == "Android") {
-        aliasUrlComponent = "?alias=" + encodeURIComponent("Using " + selectedProductName)
-    } else {
-        aliasUrlComponent = "?alias=" + encodeURIComponent("Using " + selectedProductName + " with " + selectedPlatformName)
-    }
+    var aliasUrlComponent = "?alias=" + encodeURIComponent("Using " + selectedProductName + " with " + selectedPlatformName)
 
     window.location.href = fetchSupportUrl() + aliasUrlComponent
 })
@@ -75,8 +74,8 @@ function setPlatformOpacitiesAndOrder() {
         android.css('opacity', '0.15')
         windows.css('opacity', '1')
         mac.css('opacity', '1')
-    } else if (selectedProductName == "Picture Keeper For Android") {
-        ios.css('opacity', '0.15')
+    } else if (selectedProductName == "Picture Keeper MAX") {
+        ios.css('opacity', '1')
         android.css('opacity', '1')
         windows.css('opacity', '1')
         mac.css('opacity', '1')
@@ -141,12 +140,12 @@ function fetchSupportUrl() {
             }
         }
 
-        case "Picture Keeper For Android": {
+        case "Picture Keeper MAX": {
             switch (selectedPlatformName) {
-                case "iPhone or iPad": return COMPATIBILITY_CHART_URL
-                case "Android": return PKC_ANDROID_URL
-                case "Windows": return PKC_WINDOWS_URL
-                case "Mac": return PKC_MAC_URL
+                case "iPhone or iPad": return PK_MAX_IOS_URL
+                case "Android": return PK_MAX_ANDROID_URL
+                case "Windows": return PK_MAX_WINDOWS_URL
+                case "Mac": return PK_MAX_MAC_URL
             }
         }
 
