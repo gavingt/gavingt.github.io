@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Your Connection</title>
+    <style>
+        :root {
+            --apple-blue: #0071e3;
+            --bg-color: #f5f5f7;
+            --card-bg: #ffffff;
+            --text-main: #1d1d1f;
+            --text-sub: #86868b;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        p.subtitle {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            margin-bottom: 40px;
+        }
+
+        .selection-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px 20px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card.selected {
+            border-color: var(--apple-blue);
+        }
+
+        .icon-box {
+            width: 80px;
+            height: 40px;
+            border: 3px solid #d2d2d7;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Styling for USB-C Visual */
+        .usbc-inner {
+            width: 40px;
+            height: 12px;
+            background: #d2d2d7;
+            border-radius: 6px;
+        }
+
+        /* Styling for Lightning Visual */
+        .lightning-inner {
+            width: 35px;
+            height: 4px;
+            background: #d2d2d7;
+            border-radius: 2px;
+            box-shadow: 0 8px 0 #d2d2d7, 0 -8px 0 #d2d2d7;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            margin: 10px 0;
+        }
+
+        .desc {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            line-height: 1.4;
+        }
+
+        button#continue-btn {
+            margin-top: 40px;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            background-color: var(--apple-blue);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            opacity: 0.5;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        button#continue-btn.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        @media (max-width: 480px) {
+            .selection-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Identify your port.</h1>
+    <p class="subtitle">Select the connection type on the bottom of your device.</p>
+
+    <div class="selection-grid">
+        <div class="card" onclick="selectPort('usb-c', this)">
+            <div class="icon-box">
+                <div class="usbc-inner"></div>
+            </div>
+            <h2>USB-C</h2>
+            <p class="desc">Found on iPhone 15 series and newer models.</p>
+        </div>
+
+        <div class="card" onclick="selectPort('lightning', this)">
+            <div class="icon-box">
+                <div class="lightning-inner"></div>
+            </div>
+            <h2>Lightning</h2>
+            <p class="desc">Found on iPhone 14 and all earlier models.</p>
+        </div>
+    </div>
+
+    <button id="continue-btn" onclick="handleSubmit()">Continue</button>
+</div>
+
+<script>
+    let selectedType = null;
+
+    function selectPort(type, element) {
+        selectedType = type;
+        
+        // Reset all cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.classList.remove('selected');
+        });
+
+        // Highlight selected
+        element.classList.add('selected');
+
+        // Enable button
+        const btn = document.getElementById('continue-btn');
+        btn.classList.add('active');
+    }
+
+    function handleSubmit() {
+        if (selectedType === 'usb-c') {
+            alert("Modern choice! You're using the universal standard (USB-C).");
+        } else {
+            alert("A classic. You're using the Lightning port.");
+        }
+        // Replace the alerts above with your actual logic (e.g., window.location.href = '...')
+    }
+</script>
+
+</body>
+</html>
