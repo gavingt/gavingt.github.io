@@ -336,6 +336,36 @@
     justify-content: space-between;
   }
 
+  /* ---------- Sticky CTA bar ---------- */
+  body { padding-bottom: 80px; }
+  .sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid #ECEAE3;
+    padding: 14px 0;
+    z-index: 100;
+    box-shadow: 0 -2px 16px rgba(0,0,0,0.05);
+  }
+  .sticky-cta__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .sticky-cta__text {
+    font-size: 15px;
+    color: #444;
+  }
+  .sticky-cta__text strong {
+    color: #22408b;
+    font-weight: 600;
+  }
+
   /* ---------- Responsive ---------- */
   @media (max-width: 880px) {
     h1 { font-size: 34px; }
@@ -349,6 +379,12 @@
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
     .footer__copy { flex-direction: column; gap: 8px; }
     .nav-links { display: none; }
+  }
+  @media (max-width: 600px) {
+    body { padding-bottom: 110px; }
+    .sticky-cta__inner { flex-direction: column; gap: 10px; }
+    .sticky-cta { padding: 12px 0; }
+    .sticky-cta__text { font-size: 13.5px; text-align: center; }
   }
 </style>
 </head>
@@ -378,7 +414,6 @@
         <span class="tag">New · KeepSafe</span>
         <h1>When life happens, your memories stay protected — forever.</h1>
         <p class="lead">Automatic second backup, lifetime replacement, and a Digital Beneficiary — the extra layer of protection for the moments life throws at you.</p>
-        <a href="#cta" class="btn btn--primary btn--large">Add KeepSafe protection</a>
       </div>
       <div class="img-ph">
         <span class="img-ph__tag">Hero image</span>
@@ -595,7 +630,7 @@
       <div class="offer__label">Exclusive launch offer</div>
       <div class="offer__price">$34.99<span class="offer__price-unit"> / year</span></div>
       <p class="offer__terms">65% off the $99.99 regular price<br>Includes 1 free month · Renews at $34.99/year</p>
-      <a href="#" class="btn btn--primary btn--large">Activate KeepSafe now</a>
+      <a href="#" class="btn btn--primary btn--large">Get Started for Free</a>
     </div>
     <p class="note--inline" style="margin-top: 32px;">Consider closing the page with a different image than the hero — a "moment preserved" shot (grandparent showing photos to grandchild) so the page closes on the emotional payoff, not the product.</p>
   </div>
@@ -641,6 +676,16 @@
     </div>
   </div>
 </footer>
+
+<!-- ========== STICKY CTA ========== -->
+<div class="sticky-cta">
+  <div class="container sticky-cta__inner">
+    <div class="sticky-cta__text">
+      <strong>$34.99/year</strong> · 1 month free · 65% off launch offer
+    </div>
+    <a href="#cta" class="btn btn--primary">Get Started for Free</a>
+  </div>
+</div>
 
 </body>
 </html>
