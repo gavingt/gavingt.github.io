@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KeepSafe Landing Page — Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ---------- Reset & base ---------- */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Source Sans 3', -apple-system, system-ui, sans-serif;
+    color: #1a1a1a;
+    background: white;
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #1a1a1a;
+  }
+  h1 { font-size: 44px; }
+  h2 { font-size: 34px; }
+  p { margin-bottom: 1rem; }
+
+  /* ---------- Brand bits ---------- */
+  .keep { color: #DC2626; font-weight: 500; }
+  .safe { color: #555; font-weight: 500; }
+
+  /* ---------- Layout ---------- */
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+  .section { padding: 80px 0; }
+  .section--alt { background: #F5F4EF; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .text-center { text-align: center; }
+  .text-center .h2-line:after { margin-left: auto; margin-right: auto; }
+
+  /* ---------- Mockup notice ---------- */
+  .notice {
+    background: #FFF8E1;
+    border-bottom: 1px solid #F0D58A;
+    padding: 10px 0;
+    font-size: 13px;
+    color: #6B5118;
+    text-align: center;
+  }
+
+  /* ---------- Nav ---------- */
+  .nav { padding: 20px 0; border-bottom: 1px solid #ECEAE3; background: white; }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 28px; font-size: 14px; }
+  .nav-links a { color: #555; text-decoration: none; transition: color 0.15s; }
+  .nav-links a:hover { color: #1a1a1a; }
+
+  /* ---------- Typography helpers ---------- */
+  .h2-line:after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #22408b;
+    margin: 16px 0 24px;
+  }
+  .lead { font-size: 19px; color: #333; line-height: 1.6; margin-bottom: 1.5rem; }
+  .body { font-size: 16px; color: #333; }
+  .mute { color: #666; }
+  .strong { font-weight: 600; }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 500;
+    border: 1.5px solid #1a1a1a;
+    background: white;
+    color: #1a1a1a;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+  }
+  .btn:hover { background: #1a1a1a; color: white; }
+  .btn--primary { background: #22408b; border-color: #22408b; color: white; }
+  .btn--primary:hover { background: #16306a; border-color: #16306a; color: white; }
+  .btn--large { padding: 16px 40px; font-size: 16px; }
+
+  /* ---------- Tags ---------- */
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 5px 12px;
+    background: #FCEBEB;
+    color: #A32D2D;
+    border-radius: 4px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  /* ---------- Image placeholder ---------- */
+  .img-ph {
+    background: #E8E6DD;
+    border: 1.5px dashed #C9C5B5;
+    border-radius: 12px;
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 360px;
+  }
+  .img-ph__tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: #8A6F1F;
+    background: #FAEEDA;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .img-ph__desc {
+    font-size: 14.5px;
+    color: #5F5E5A;
+    line-height: 1.55;
+    max-width: 360px;
+  }
+
+  /* ---------- Feature list ---------- */
+  .feature-list { list-style: none; font-size: 16.5px; }
+  .feature-list li {
+    padding: 8px 0 8px 32px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .feature-list li:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 16px;
+    height: 9px;
+    border-left: 2.5px solid #22408b;
+    border-bottom: 2.5px solid #22408b;
+    transform: rotate(-45deg);
+  }
+  .feature-list strong { font-weight: 600; color: #1a1a1a; }
+
+  /* ---------- How it works ---------- */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    margin-top: 56px;
+  }
+  .step { text-align: center; }
+  .step__num {
+    display: inline-flex;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #22408b;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 22px;
+  }
+  .step__title { font-size: 19px; font-weight: 600; margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+  .step__desc { font-size: 15.5px; color: #555; line-height: 1.55; max-width: 260px; margin: 0 auto; }
+
+  /* ---------- What's at stake ---------- */
+  .stakes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+  .stake {
+    background: white;
+    border-radius: 12px;
+    padding: 32px 28px;
+    text-align: center;
+    border: 1px solid #ECEAE3;
+  }
+  .stake__icon {
+    color: #999;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: center;
+  }
+  .stake__title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+  .stake__text { font-size: 14.5px; color: #666; line-height: 1.5; }
+
+  /* ---------- Trust signals ---------- */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 56px;
+  }
+  .stat { text-align: center; }
+  .stat__num {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 500;
+    color: #22408b;
+    line-height: 1;
+  }
+  .stat__label {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+    letter-spacing: 0.3px;
+  }
+  .quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .quote {
+    background: #F5F4EF;
+    padding: 28px;
+    border-radius: 12px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    border-left: 3px solid #22408b;
+  }
+  .quote__name { font-size: 13.5px; color: #666; margin-top: 14px; font-weight: 500; }
+
+  /* ---------- Offer card ---------- */
+  .offer {
+    background: white;
+    border: 1px solid #ECEAE3;
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 440px;
+    margin: 40px auto 0;
+    text-align: center;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.04);
+  }
+  .offer__label {
+    font-size: 11px;
+    color: #DC2626;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .offer__price {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 500;
+    color: #22408b;
+    line-height: 1;
+  }
+  .offer__price-unit { font-size: 18px; color: #666; font-weight: 400; }
+  .offer__terms { font-size: 14px; color: #666; margin: 10px 0 24px; line-height: 1.5; }
+
+  /* ---------- Mockup notes ---------- */
+  .note {
+    background: #FFF8E1;
+    border: 1px solid #F0D58A;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    color: #6B5118;
+    margin-top: 24px;
+    line-height: 1.5;
+  }
+  .note--inline {
+    background: transparent;
+    border: none;
+    padding: 16px 0 0;
+    color: #999;
+    font-style: italic;
+    text-align: center;
+    font-size: 13px;
+  }
+
+  /* ---------- Footer ---------- */
+  .footer {
+    background: #1a1a1a;
+    color: #999;
+    padding: 60px 0 32px;
+    font-size: 14px;
+  }
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+  }
+  .footer h4 {
+    color: white;
+    font-size: 13px;
+    font-family: inherit;
+    font-weight: 600;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .footer ul { list-style: none; }
+  .footer li { margin-bottom: 10px; }
+  .footer a { color: #999; text-decoration: none; transition: color 0.15s; }
+  .footer a:hover { color: white; }
+  .footer__brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: white;
+    margin-bottom: 14px;
+  }
+  .footer__tagline { line-height: 1.6; max-width: 280px; font-size: 13.5px; }
+  .footer__copy {
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid #333;
+    font-size: 12.5px;
+    color: #666;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 880px) {
+    h1 { font-size: 34px; }
+    h2 { font-size: 28px; }
+    .section { padding: 60px 0; }
+    .container { padding: 0 20px; }
+    .two-col { grid-template-columns: 1fr; gap: 40px; }
+    .two-col--img-first > div:nth-child(2) { order: 1; }
+    .two-col--img-first > div:nth-child(1) { order: 2; }
+    .steps, .stakes, .stats, .quotes { grid-template-columns: 1fr; gap: 24px; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .footer__copy { flex-direction: column; gap: 8px; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="notice">
+  Design mockup — image placeholders describe shot direction. Real layout would use the brand's photography in those slots.
+</div>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo"><span class="keep">Picture</span><span class="safe">Keeper</span></a>
+    <div class="nav-links">
+      <a href="#">Shop</a>
+      <a href="#">How It Works</a>
+      <a href="#">What is KeepSafe?</a>
+      <a href="#">Help Center</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="section">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <span class="tag">New · KeepSafe</span>
+        <h1>When life happens, your memories stay protected — forever.</h1>
+        <p class="lead">Automatic second backup, lifetime replacement, and a Digital Beneficiary — the extra layer of protection for the moments life throws at you.</p>
+        <a href="#cta" class="btn btn--primary btn--large">Add KeepSafe protection</a>
+      </div>
+      <div class="img-ph">
+        <span class="img-ph__tag">Hero image</span>
+        <p class="img-ph__desc">Older woman, profile, holding her phone with the Picture Keeper drive plugged in. Calm, at home, clearly the user. (Currently sits in the last section of the live page — promote it here.)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PHOTOS AREN'T JUST FILES ========== -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="two-col two-col--img-first">
+      <div class="img-ph">
+        <span class="img-ph__tag">Photo collage</span>
+        <p class="img-ph__desc">A tactile mix of real photos on a table — faded 70s prints, Polaroids, baby photos, phone screenshots overlapping. The photos themselves are the subject. No phone, no UI in the frame.</p>
+      </div>
+      <div>
+        <h2>Photos aren't just files</h2>
+        <div class="h2-line"></div>
+        <p class="body">Photos hold the moments that can never be recreated. Family milestones, holidays together, growing grandchildren, everyday memories worth keeping forever.</p>
+        <p class="body">You already use Picture Keeper to protect those moments. <span class="keep">Keep</span><span class="safe">Safe</span> adds three more layers of protection, designed for real life.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== HOW IT WORKS ========== -->
+<section class="section">
+  <div class="container text-center">
+    <h2>How it works</h2>
+    <div class="h2-line"></div>
+    <div class="steps">
+      <div class="step">
+        <div class="step__num">1</div>
+        <div class="step__title">Plug in</div>
+        <p class="step__desc">Connect your Picture Keeper to your phone, just like always.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">2</div>
+        <div class="step__title">Activate KeepSafe</div>
+        <p class="step__desc">Tap once to turn on automatic extra backup. We handle the rest.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">3</div>
+        <div class="step__title">Assign a Beneficiary</div>
+        <p class="step__desc">Choose a trusted loved one who'll inherit your memories.</p>
+      </div>
+    </div>
+    <p class="note--inline">Numbered circles are placeholders — final version uses warm illustrated SVG icons in the existing Beneficiary Program style.</p>
+  </div>
+</section>
+
+<!-- ========== WHAT IS KEEPSAFE ========== -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <h2>What is KeepSafe?</h2>
+        <div class="h2-line"></div>
+        <p class="body"><span class="keep">Keep</span><span class="safe">Safe</span> works alongside your Picture Keeper — never replacing it, just adding more layers of protection for your precious memories.</p>
+        <ul class="feature-list" style="margin: 24px 0;">
+          <li><strong>Unlimited extra backup</strong> — automatic, secure, continuous</li>
+          <li><strong>Lifetime replacement</strong> — a new drive with your photos, just pay shipping</li>
+          <li><strong>Digital Beneficiary</strong> — your memories live on with someone you trust</li>
+        </ul>
+        <p class="body strong">Peace of mind for $34.99/year.</p>
+      </div>
+      <div class="img-ph">
+        <span class="img-ph__tag">User + product</span>
+        <p class="img-ph__desc">Older user clearly in their 60s+, holding drive and phone. Phone visible but lowered, not held up to camera. Their face and the photo on screen both readable. The human is the subject.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== UNLIMITED EXTRA BACKUP ========== -->
+<section class="section">
+  <div class="container">
+    <div class="two-col two-col--img-first">
+      <div class="img-ph">
+        <span class="img-ph__tag">Family, unobscured</span>
+        <p class="img-ph__desc">Grandparents and grandkids enjoying a photo album or tablet together — the moment fully visible. Product appears as a small inset or off to the side, not blocking faces.</p>
+      </div>
+      <div>
+        <h2>Unlimited extra backup</h2>
+        <div class="h2-line"></div>
+        <p class="body">KeepSafe automatically creates a private, secure, continuous backup of your photos and videos — so even if something happens to your device, your memories are always protected.</p>
+        <p class="body mute">No limits. No extra effort. Only you have access. Just peace of mind.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== LIFETIME REPLACEMENT ========== -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <h2>Lifetime replacement</h2>
+        <div class="h2-line"></div>
+        <p class="body">Life is unpredictable. If your Picture Keeper is ever lost, damaged, or stolen, we'll replace it with a new one — already filled with your saved photos.</p>
+        <p class="body mute">Just cover shipping. We take care of the rest.</p>
+      </div>
+      <div class="img-ph">
+        <span class="img-ph__tag">Life happens</span>
+        <p class="img-ph__desc">A single evocative image: drive at the bottom of a swimming pool (the pool shot from your current collage is the strongest of the four). No app overlay — let the image carry the story alone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== DIGITAL BENEFICIARY ========== -->
+<section class="section">
+  <div class="container">
+    <div class="two-col two-col--img-first">
+      <div class="img-ph">
+        <span class="img-ph__tag">Two generations</span>
+        <p class="img-ph__desc">An older parent and adult child looking at photos together — at a kitchen table, on a couch, anywhere warm. Real connection. No product visible. The strongest emotional image on the page.</p>
+      </div>
+      <div>
+        <h2>Digital Beneficiary</h2>
+        <div class="h2-line"></div>
+        <p class="body">Your memories are part of your legacy. With KeepSafe, you can assign a trusted loved one to access your photos when the time comes.</p>
+        <p class="body mute">Your stories, moments, and milestones — cherished for generations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== WHAT'S AT STAKE ========== -->
+<section class="section section--alt">
+  <div class="container text-center">
+    <h2>What's at stake</h2>
+    <div class="h2-line"></div>
+    <div class="stakes">
+      <div class="stake">
+        <div class="stake__icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="2" width="12" height="20" rx="2"/>
+            <path d="M8 7l3 4-2 3 4 3"/>
+            <line x1="11" y1="18" x2="13" y2="18"/>
+          </svg>
+        </div>
+        <div class="stake__title">A dropped phone</div>
+        <p class="stake__text">One slip on the kitchen floor and a decade of photos is gone.</p>
+      </div>
+      <div class="stake">
+        <div class="stake__icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="12" cy="6" rx="8" ry="3"/>
+            <path d="M4 6v12c0 1.5 3.5 3 8 3s8-1.5 8-3V6"/>
+            <path d="M4 12c0 1.5 3.5 3 8 3s8-1.5 8-3"/>
+          </svg>
+        </div>
+        <div class="stake__title">"Storage full"</div>
+        <p class="stake__text">The moment you couldn't capture because there was no room left.</p>
+      </div>
+      <div class="stake">
+        <div class="stake__icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="5" width="18" height="14" rx="2"/>
+            <circle cx="9" cy="11" r="1.5"/>
+            <path d="M21 16l-5-5-7 7"/>
+            <line x1="3" y1="3" x2="21" y2="21"/>
+          </svg>
+        </div>
+        <div class="stake__title">A lost drive</div>
+        <p class="stake__text">Misplaced in a move, a hotel, a drawer you can't remember.</p>
+      </div>
+    </div>
+    <p class="note--inline">Acknowledge fear once, briefly, then move on. A single photo (e.g. cracked screen) could replace these three icon cards if you'd rather lean photographic.</p>
+  </div>
+</section>
+
+<!-- ========== TRUST SIGNALS ========== -->
+<section class="section">
+  <div class="container">
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__num">500K+</div>
+        <div class="stat__label">Families protected</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">12M</div>
+        <div class="stat__label">Photos backed up</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">4.8★</div>
+        <div class="stat__label">Average rating</div>
+      </div>
+    </div>
+    <div class="quotes">
+      <div class="quote">
+        "I finally stopped worrying about losing the photos of my grandkids. Set it up in five minutes — even I could do it."
+        <div class="quote__name">— Carol, 68 · Phoenix, AZ</div>
+      </div>
+      <div class="quote">
+        "When my phone died, they sent me a new drive with all my pictures already on it. Worth every penny."
+        <div class="quote__name">— Bill, 71 · Tampa, FL</div>
+      </div>
+    </div>
+    <p class="note--inline">Swap in real numbers and real quotes. Customer first names and locations beat stock headshots every time.</p>
+  </div>
+</section>
+
+<!-- ========== ADD KEEPSAFE TODAY ========== -->
+<section class="section section--alt text-center" id="cta">
+  <div class="container">
+    <h2>Add KeepSafe today</h2>
+    <div class="h2-line"></div>
+    <p class="lead" style="max-width: 580px; margin: 0 auto 1rem;">You've already made the smart choice with Picture Keeper. KeepSafe is the next thoughtful step — built for life's surprises.</p>
+    <div class="offer">
+      <div class="offer__label">Exclusive launch offer</div>
+      <div class="offer__price">$34.99<span class="offer__price-unit"> / year</span></div>
+      <p class="offer__terms">65% off the $99.99 regular price<br>Includes 1 free month · Renews at $34.99/year</p>
+      <a href="#" class="btn btn--primary btn--large">Activate KeepSafe now</a>
+    </div>
+    <p class="note--inline" style="margin-top: 32px;">Consider closing the page with a different image than the hero — a "moment preserved" shot (grandparent showing photos to grandchild) so the page closes on the emotional payoff, not the product.</p>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer__brand"><span style="color: #DC2626;">Picture</span>Keeper</div>
+        <p class="footer__tagline">Protecting the memories that matter most, for families everywhere.</p>
+      </div>
+      <div>
+        <h4>Our Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Get Support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Policies</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Warranty</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__copy">
+      <div>© 2026 PictureKeeper.com</div>
+      <div>Mockup file — not for production use</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
