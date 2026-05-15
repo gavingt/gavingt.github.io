@@ -619,8 +619,6 @@
     -webkit-backdrop-filter: blur(10px);
     border-top: 1px solid #d8d4c8;
     padding: 14px 0 calc(14px + env(safe-area-inset-bottom));
-    transform: translateZ(0);
-    will-change: transform;
     z-index: 100;
     box-shadow: 0 -8px 28px rgba(0,0,0,0.10);
   }
@@ -892,7 +890,7 @@
       0 20px 52px rgba(0, 0, 0, 0.28),
       0 6px 14px rgba(185, 28, 28, 0.22);
   }
-  body[data-sticky="gradient"] .sticky-cta__text { color: rgba(255,255,255,0.9); }
+  body[data-sticky="gradient"] .sticky-cta__text { color: #fff; }
   body[data-sticky="gradient"] .sticky-cta__text strong { color: #fff; font-weight: 600; }
   body[data-sticky="gradient"] .sticky-cta .btn--primary {
     background: #FACC15; border-color: #FACC15; color: #1a1a1a;
