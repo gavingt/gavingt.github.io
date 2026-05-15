@@ -579,11 +579,13 @@
     border-radius: 12px;
     overflow: hidden;
     width: 100%;
+    aspect-ratio: 16 / 10;
   }
   .img-photo img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
   }
 
   /* ---------- Illustration container ---------- */
@@ -592,15 +594,17 @@
     align-items: center;
     justify-content: center;
     padding: 32px;
-    min-height: 360px;
+    aspect-ratio: 16 / 10;
     background: #fff;
     border-radius: 12px;
   }
   .section--alt .img-illust { background: #fff; }
   .img-illust img {
     max-width: 100%;
+    max-height: 100%;
+    width: auto;
     height: auto;
-    max-height: 380px;
+    object-fit: contain;
   }
 
   /* ---------- Sticky CTA bar ---------- */
@@ -899,7 +903,7 @@
     body[data-sticky="gradient"] { padding-bottom: 80px; }
     body[data-sticky="gradient"] .sticky-cta {
       background: linear-gradient(90deg, #22408b 0%, #B91C1C 100%);
-      border-top: 3px solid #ECEAE3;
+      border-top: 1px solid #ECEAE3;
       box-shadow: 0 -6px 24px rgba(34, 64, 139, 0.18);
       padding: 14px 0;
     }
@@ -1012,8 +1016,10 @@
 
   /* ---------- Responsive ---------- */
   @media (max-width: 880px) {
-    h1 { font-size: 34px; }
+    h1 { font-size: 30px; }
     h2 { font-size: 28px; }
+    .lead { font-size: 17px; }
+    .btn--large { padding: 12px 30px; font-size: 16px; }
     .section { padding: 60px 0; }
     .container { padding: 0 20px; }
     .two-col { grid-template-columns: 1fr; gap: 40px; }
@@ -1219,7 +1225,7 @@
         <div class="quote__name">— Carol, 68 · Phoenix, AZ</div>
       </div>
       <div class="quote">
-        "When my phone died, they sent me a new drive with all my pictures already on it. Worth every penny."
+        "I lost my Picture Keeper on a trip and thought my photos were gone. A new one showed up a week later with everything still on it."
         <div class="quote__name">— Bill, 71 · Tampa, FL</div>
       </div>
     </div>
