@@ -1380,6 +1380,23 @@
   </div>
 </div>
 
+<script>
+(function() {
+  var vv = window.visualViewport;
+  if (!vv) return;
+  var bar = document.querySelector('.sticky-cta');
+  if (!bar) return;
+  function update() {
+    var gap = document.documentElement.clientHeight - (vv.offsetTop + vv.height);
+    bar.style.transform = gap > 0 ? 'translateY(' + (-gap) + 'px)' : '';
+  }
+  vv.addEventListener('resize', update);
+  vv.addEventListener('scroll', update);
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+</script>
+
 </body>
 </html>
 
