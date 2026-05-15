@@ -622,16 +622,14 @@
     z-index: 100;
     box-shadow: 0 -8px 28px rgba(0,0,0,0.10);
   }
-  /* Firefox returns non-zero env(safe-area-inset-bottom) where it shouldn't — override */
-  @-moz-document url-prefix() {
-    body { padding-bottom: 80px; }
-    .sticky-cta { padding: 14px 0; }
-    body[data-sticky="gradient"] { padding-bottom: 110px; }
-    body[data-sticky="gradient"] .sticky-cta { padding: 0 0 22px; }
-    @media (max-width: 880px) {
-      body[data-sticky="gradient"] { padding-bottom: 80px; }
-      body[data-sticky="gradient"] .sticky-cta { padding: 14px 0; }
-    }
+  /* Firefox returns non-zero env(safe-area-inset-bottom) where it shouldn't — JS adds .is-firefox to <html> */
+  .is-firefox body { padding-bottom: 80px; }
+  .is-firefox .sticky-cta { padding: 14px 0; }
+  .is-firefox body[data-sticky="gradient"] { padding-bottom: 110px; }
+  .is-firefox body[data-sticky="gradient"] .sticky-cta { padding: 0 0 22px; }
+  @media (max-width: 880px) {
+    .is-firefox body[data-sticky="gradient"] { padding-bottom: 80px; }
+    .is-firefox body[data-sticky="gradient"] .sticky-cta { padding: 14px 0; }
   }
   .sticky-cta__inner {
     display: flex;
@@ -1382,6 +1380,9 @@
 
 <script>
 (function() {
+  if (/firefox/i.test(navigator.userAgent)) {
+    document.documentElement.classList.add('is-firefox');
+  }
   var vv = window.visualViewport;
   if (!vv) return;
   var bar = document.querySelector('.sticky-cta');
