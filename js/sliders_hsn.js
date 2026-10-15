@@ -61,6 +61,12 @@ const callback = (mutationList) => {
 // Start observing slider_container for changes.
 new MutationObserver(callback).observe(document.getElementById("slider_container"), { attributes: true, childList: true, subtree: true })
 
+// Two rows of thumbnails at the bottom of the page (see #thumbnail_container in sliders.css).
+document.getElementById("thumbnail_container").style.setProperty("--thumbnail-columns", Math.ceil(photosToDisplay.length / 2))
+
+// Refit the slider whenever the window changes size. This is added before juxtapose's own resize listener, so it runs first.
+window.addEventListener("resize", sizeSlider)
+
 // Initialize slider to first photo.
 changeSliderPhotos(0)
 
@@ -183,23 +189,9 @@ function changeSliderPhotos(sliderNumber) {
 
     setBorderForSelectedThumbnail(sliderNumber)
 
-    var actualPhotoWidth = photosToDisplay[sliderNumber][2]
-    var actualPhotoHeight = photosToDisplay[sliderNumber][3]
-
-    var adjustedWidth = actualPhotoWidth
-    var adjustedHeight = actualPhotoHeight
-
-    // Calculate new slider dimensions based on photo. Prevent the slider height from exceeding 850px.
-    if (actualPhotoHeight > 850) {
-        adjustedHeight = 850
-        var scaleFactor = adjustedHeight / actualPhotoHeight
-        adjustedWidth = actualPhotoWidth * scaleFactor
-    }
-
     // Prepare slider_container for new photo.
     $('#slider_container').empty()
-    $("#slider_container").css('width', adjustedWidth)
-    $("#slider_container").css('height', adjustedHeight)
+    sizeSlider()
 
     // Slider documentation is here: https://github.com/NUKnightLab/juxtapose
     new juxtapose.JXSlider('#slider_container',
@@ -218,6 +210,19 @@ function changeSliderPhotos(sliderNumber) {
             startingPosition: "2%",
             makeResponsive: true
         });
+}
+
+
+// Make the slider as large as the current photo can be within the space above the thumbnails. Juxtapose sets the
+// slider's height from its width, on load and on every resize, so the width is what has to fit.
+function sizeSlider() {
+    var actualPhotoWidth = photosToDisplay[currentSliderNumber][2]
+    var actualPhotoHeight = photosToDisplay[currentSliderNumber][3]
+    var area = document.getElementById("slider_area")
+    var scaleFactor = Math.min(area.clientWidth / actualPhotoWidth, area.clientHeight / actualPhotoHeight)
+
+    $("#slider_container").css('width', Math.floor(actualPhotoWidth * scaleFactor))
+    $("#slider_container").css('height', Math.floor(actualPhotoHeight * scaleFactor))
 }
 
 

@@ -9,20 +9,33 @@ html, body {
     -moz-user-select: none; /* Old versions of Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+    /* The page always fits the window, so it never scrolls */
+    overflow: hidden;
 }
 
+/* Fill the window: the slider takes whatever height the thumbnails at the bottom leave */
 #overall_container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 20px;
 }
 
-/* Define the position of the slider container */
+/* The space for the slider, which centers it. The slider script (sliders.js, sliders_hsn.js) sizes the
+   slider to fit inside it. */
+#slider_area {
+    flex: 1 1 0;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Sized by the slider script */
 #slider_container {
-    margin-left: auto;
-    margin-right: auto;
-    height: 850px !important;
+    flex: none;
 }
 
 /* Add rounded corners to slider container */
@@ -57,24 +70,23 @@ a.jx-knightlab {
     display: none !important;
 }
 
-/* Define the dimensions of the bottom row of thumbnails */
+/* The thumbnails, anchored to the bottom in two rows (the slider script sets --thumbnail-columns to half the
+   photos). Each is 112px with its border, and they shrink together when the window is too narrow. */
 #thumbnail_container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 1568px;
-    margin-left: auto;
-    margin-right: auto;
+    flex: none;
+    display: grid;
+    grid-template-columns: repeat(var(--thumbnail-columns, 14), minmax(0, 112px));
+    justify-content: center;
     padding-top: 20px;
-    align-items: center;
-    justify-content: left;
 }
 
-/* Define the dimensions of each thumbnail item in the bottom row */
+/* Define the dimensions of each thumbnail item */
 #thumbnail_container img {
-    flex: 0 0 auto;
-    width: 100px;
-    height: 100px;
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    box-sizing: border-box;
     object-fit: cover;
     border-radius: 12px;
 }
