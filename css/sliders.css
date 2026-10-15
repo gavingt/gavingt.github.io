@@ -19,7 +19,7 @@ html, body {
     flex-direction: column;
     height: 100%;
     box-sizing: border-box;
-    padding: 20px;
+    padding: 20px 20px 10px;
 }
 
 /* The space for the slider, which centers it. The slider script (sliders.js, sliders_hsn.js) sizes the
