@@ -7,10 +7,10 @@ var photosToDisplay = [
     // [original path, new path, width, height]
     ["img/slider-photos-hsn/0a.jpg", "img/slider-photos-hsn/0b.jpg", 1400, 1400],
     ["img/slider-photos-hsn/1a.jpg", "img/slider-photos-hsn/1b.jpg", 1400, 1400],
-    ["img/slider-photos-hsn/2a.jpg", "img/slider-photos-hsn/2b.jpg", 1400, 1400],
     ["img/slider-photos-hsn/3a.jpg", "img/slider-photos-hsn/3b.jpg", 1400, 1400],
-    ["img/slider-photos-hsn/4a.jpg", "img/slider-photos-hsn/4b.jpg", 1280, 969],
     ["img/slider-photos-hsn/5a.jpg", "img/slider-photos-hsn/5b.jpg", 1400, 1093],
+    ["img/slider-photos-hsn/2a.jpg", "img/slider-photos-hsn/2b.jpg", 1400, 1400],
+    ["img/slider-photos-hsn/4a.jpg", "img/slider-photos-hsn/4b.jpg", 1280, 969],
     ["img/slider-photos-hsn/6a.jpg", "img/slider-photos-hsn/6b.jpg", 1366, 1024],
     ["img/slider-photos-hsn/7a.jpg", "img/slider-photos-hsn/7b.jpg", 2000, 1104],
     ["img/slider-photos-hsn/8a.jpg", "img/slider-photos-hsn/8b.jpg", 2174, 1200],
@@ -197,10 +197,10 @@ function changeSliderPhotos(sliderNumber) {
     new juxtapose.JXSlider('#slider_container',
         [
             {
-                src: "img/slider-photos-hsn/" + sliderNumber + "b.jpg"
+                src: photosToDisplay[sliderNumber][1]
             },
             {
-                src: "img/slider-photos-hsn/" + sliderNumber + "a.jpg"
+                src: photosToDisplay[sliderNumber][0]
             }
         ],
         {
