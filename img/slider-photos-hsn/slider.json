@@ -1,12 +1,12 @@
 {
   "format": 1,
   "pairs": [
-    {"before": "0a.jpg", "after": "0b.jpg", "width": 1400, "height": 1400},
-    {"before": "1a.jpg", "after": "1b.jpg", "width": 1400, "height": 1400},
-    {"before": "3a.jpg", "after": "3b.jpg", "width": 1400, "height": 1400},
-    {"before": "5a.jpg", "after": "5b.jpg", "width": 1400, "height": 1093},
-    {"before": "web_1a.jpg", "after": "web_1b.jpg", "width": 1006, "height": 1563},
-    {"before": "web_3a.jpg", "after": "web_3b.jpg", "width": 1600, "height": 1314},
+    {"before": "0a.jpg", "after": "0b.jpg", "width": 1400, "height": 1400, "description": "Stephanie McKee Zielinski"},
+    {"before": "1a.jpg", "after": "1b.jpg", "width": 1400, "height": 1400, "description": "Stephanie McKee Zielinski"},
+    {"before": "3a.jpg", "after": "3b.jpg", "width": 1400, "height": 1400, "description": "Stephanie McKee Zielinski"},
+    {"before": "5a.jpg", "after": "5b.jpg", "width": 1400, "height": 1093, "description": "Stephanie McKee Zielinski"},
+    {"before": "web_1a.jpg", "after": "web_1b.jpg", "width": 1006, "height": 1563, "description": "Brynne Edwards - grandmother - circa 1957"},
+    {"before": "web_3a.jpg", "after": "web_3b.jpg", "width": 1600, "height": 1314, "description": "Brynne Edward - grandmother and great uncles - circa 1949"},
     {"before": "6a.jpg", "after": "6b.jpg", "width": 1366, "height": 1024},
     {"before": "7a.jpg", "after": "7b.jpg", "width": 2000, "height": 1104},
     {"before": "8a.jpg", "after": "8b.jpg", "width": 2174, "height": 1200},

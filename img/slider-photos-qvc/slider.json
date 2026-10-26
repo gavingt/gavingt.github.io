@@ -18,7 +18,7 @@
     {"before": "14a.jpg", "after": "14b.jpg", "width": 1200, "height": 1654},
     {"before": "15a.jpg", "after": "15b.jpg", "width": 1444, "height": 1200},
     {"before": "16a.jpg", "after": "16b.jpg", "width": 1788, "height": 1200},
-    {"before": "17a.jpg", "after": "17b.jpg", "width": 1200, "height": 1600},
+    {"before": "17a.jpg", "after": "17b.jpg", "width": 1200, "height": 1600, "description": "Matt Stanchie"},
     {"before": "18a.jpg", "after": "18b.jpg", "width": 1112, "height": 1480},
     {"before": "19a.jpg", "after": "19b.jpg", "width": 1200, "height": 1200},
     {"before": "20a.jpg", "after": "20b.jpg", "width": 2000, "height": 1104},
@@ -27,7 +27,7 @@
     {"before": "23a.jpg", "after": "23b.jpg", "width": 1617, "height": 1200},
     {"before": "24a.jpg", "after": "24b.jpg", "width": 1800, "height": 1200},
     {"before": "25a.jpg", "after": "25b.jpg", "width": 1600, "height": 1200},
-    {"before": "26a.jpg", "after": "26b.jpg", "width": 1600, "height": 1200},
+    {"before": "26a.jpg", "after": "26b.jpg", "width": 1600, "height": 1200, "description": "Sarah Cotellese"},
     {"before": "27a.jpg", "after": "27b.jpg", "width": 1200, "height": 1200}
   ]
 }
