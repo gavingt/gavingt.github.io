@@ -10,7 +10,7 @@ var photosToDisplay = [
     ["img/slider-photos-hsn/3a.jpg", "img/slider-photos-hsn/3b.jpg", 1400, 1400],
     ["img/slider-photos-hsn/5a.jpg", "img/slider-photos-hsn/5b.jpg", 1400, 1093],
     ["img/slider-photos-hsn/web_1a.jpg", "img/slider-photos-hsn/web_1b.jpg", 1006, 1563],
-    ["img/slider-photos-hsn/web_2a.jpg", "img/slider-photos-hsn/web_2b.jpg", 1385, 1136],
+    ["img/slider-photos-hsn/web_3a.jpg", "img/slider-photos-hsn/web_3b.jpg", 1600, 1314],
     ["img/slider-photos-hsn/6a.jpg", "img/slider-photos-hsn/6b.jpg", 1366, 1024],
     ["img/slider-photos-hsn/7a.jpg", "img/slider-photos-hsn/7b.jpg", 2000, 1104],
     ["img/slider-photos-hsn/8a.jpg", "img/slider-photos-hsn/8b.jpg", 2174, 1200],
