@@ -1,0 +1,33 @@
+{
+  "format": 1,
+  "pairs": [
+    {"before": "0a.jpg", "after": "0b.jpg", "width": 1273, "height": 1583},
+    {"before": "1a.jpg", "after": "1b.jpg", "width": 1210, "height": 1584},
+    {"before": "2a.jpg", "after": "2b.jpg", "width": 1675, "height": 1200},
+    {"before": "3a.jpg", "after": "3b.jpg", "width": 1200, "height": 1606},
+    {"before": "4a.jpg", "after": "4b.jpg", "width": 1200, "height": 1482},
+    {"before": "5a.jpg", "after": "5b.jpg", "width": 1200, "height": 1652},
+    {"before": "6a.jpg", "after": "6b.jpg", "width": 1168, "height": 1606},
+    {"before": "7a.jpg", "after": "7b.jpg", "width": 1074, "height": 1448},
+    {"before": "8a.jpg", "after": "8b.jpg", "width": 1200, "height": 1504},
+    {"before": "9a.jpg", "after": "9b.jpg", "width": 1548, "height": 1500},
+    {"before": "10a.jpg", "after": "10b.jpg", "width": 1200, "height": 1591},
+    {"before": "11a.jpg", "after": "11b.jpg", "width": 1600, "height": 1200},
+    {"before": "12a.jpg", "after": "12b.jpg", "width": 1200, "height": 1534},
+    {"before": "13a.jpg", "after": "13b.jpg", "width": 1520, "height": 1024},
+    {"before": "14a.jpg", "after": "14b.jpg", "width": 1200, "height": 1654},
+    {"before": "15a.jpg", "after": "15b.jpg", "width": 1444, "height": 1200},
+    {"before": "16a.jpg", "after": "16b.jpg", "width": 1788, "height": 1200},
+    {"before": "17a.jpg", "after": "17b.jpg", "width": 1200, "height": 1600},
+    {"before": "18a.jpg", "after": "18b.jpg", "width": 1112, "height": 1480},
+    {"before": "19a.jpg", "after": "19b.jpg", "width": 1200, "height": 1200},
+    {"before": "20a.jpg", "after": "20b.jpg", "width": 2000, "height": 1104},
+    {"before": "21a.jpg", "after": "21b.jpg", "width": 1200, "height": 1263},
+    {"before": "22a.jpg", "after": "22b.jpg", "width": 1200, "height": 1852},
+    {"before": "23a.jpg", "after": "23b.jpg", "width": 1617, "height": 1200},
+    {"before": "24a.jpg", "after": "24b.jpg", "width": 1800, "height": 1200},
+    {"before": "25a.jpg", "after": "25b.jpg", "width": 1600, "height": 1200},
+    {"before": "26a.jpg", "after": "26b.jpg", "width": 1600, "height": 1200},
+    {"before": "27a.jpg", "after": "27b.jpg", "width": 1200, "height": 1200}
+  ]
+}

@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>Slider Photos Admin</title>
+    <style>
+        :root {
+            --bg: #f4f6f8;
+            --surface: #ffffff;
+            --surface-2: #eef1f4;
+            --text: #15181d;
+            --muted: #5d6570;
+            --border: #dbe0e6;
+            --accent: #0a9fae;
+            --accent-text: #ffffff;
+            --danger: #c93636;
+            --warn: #9a6400;
+            --shadow: 0 6px 24px rgba(20, 30, 40, 0.18);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #101216;
+                --surface: #1a1d23;
+                --surface-2: #23272e;
+                --text: #eceff3;
+                --muted: #9aa2ad;
+                --border: #2e333b;
+                --accent: #29e4f2;
+                --accent-text: #06292c;
+                --danger: #ff6b6b;
+                --warn: #f0b44c;
+                --shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --bg: #101216;
+            --surface: #1a1d23;
+            --surface-2: #23272e;
+            --text: #eceff3;
+            --muted: #9aa2ad;
+            --border: #2e333b;
+            --accent: #29e4f2;
+            --accent-text: #06292c;
+            --danger: #ff6b6b;
+            --warn: #f0b44c;
+            --shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font: 15px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            padding-bottom: 110px;
+        }
+
+        button {
+            font: inherit;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .page { max-width: 1200px; margin: 0 auto; padding: 20px 16px; }
+
+        header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        h1 { margin: 0; font-size: 22px; }
+
+        .connection { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 14px; }
+
+        .button {
+            border: 1px solid var(--border);
+            background: var(--surface);
+            border-radius: 8px;
+            padding: 7px 14px;
+        }
+
+        .button.primary { background: var(--accent); color: var(--accent-text); border-color: var(--accent); font-weight: 600; }
+        .button.danger { color: var(--danger); }
+        .button:disabled { opacity: 0.5; cursor: default; }
+
+        .tabs { display: flex; gap: 6px; margin: 20px 0 8px; border-bottom: 1px solid var(--border); }
+
+        .tab {
+            border: none;
+            background: none;
+            padding: 10px 14px;
+            border-bottom: 3px solid transparent;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .tab[aria-selected="true"] { color: var(--text); border-bottom-color: var(--accent); }
+        .tab .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--warn); margin-left: 6px; vertical-align: middle; }
+
+        .hint { color: var(--muted); font-size: 14px; margin: 10px 0 16px; }
+
+        .notice { padding: 12px 14px; border-radius: 8px; background: var(--surface-2); margin: 12px 0; }
+        .notice.error { color: var(--danger); }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
+
+        .card {
+            position: relative;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 8px;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+            cursor: grab;
+        }
+
+        .card.placeholder { opacity: 0.25; }
+        .card.ghost { position: fixed; z-index: 50; pointer-events: none; box-shadow: var(--shadow); cursor: grabbing; }
+
+        .card-top { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; min-height: 26px; }
+        .num { font-weight: 700; font-size: 14px; min-width: 22px; }
+        .badge { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--warn); }
+        .spacer { flex: 1; }
+
+        .grip {
+            touch-action: none;
+            padding: 2px 6px;
+            color: var(--muted);
+            font-size: 18px;
+            line-height: 1;
+            cursor: grab;
+        }
+
+        .icon-button {
+            border: none;
+            background: none;
+            color: var(--muted);
+            font-size: 20px;
+            line-height: 1;
+            padding: 2px 6px;
+            border-radius: 6px;
+        }
+
+        .icon-button:hover { color: var(--danger); background: var(--surface-2); }
+
+        .halves { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+
+        .half {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--surface-2);
+        }
+
+        .half img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+
+        .half .label {
+            position: absolute;
+            left: 4px;
+            bottom: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 1px 6px;
+            border-radius: 4px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+        }
+
+        .half.drop-target, .slot.drop-target, .add-card.drop-target { outline: 3px solid var(--accent); outline-offset: -3px; }
+
+        .meta { font-size: 12px; color: var(--muted); margin-top: 6px; }
+        .meta.warn { color: var(--warn); }
+
+        .desc {
+            font-size: 13px;
+            margin-top: 6px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow-wrap: anywhere;
+        }
+
+        .desc.empty { color: var(--muted); font-style: italic; }
+
+        .description-field { margin-top: 12px; }
+        .description-field label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+        .description-field input { width: 100%; padding: 9px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font: inherit; }
+
+        .add-card { border-style: dashed; cursor: default; display: flex; flex-direction: column; }
+
+        .slot {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: 1px dashed var(--border);
+            background: var(--surface-2);
+            border-radius: 8px;
+            aspect-ratio: 1;
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 600;
+            overflow: hidden;
+            position: relative;
+            padding: 0;
+        }
+
+        .slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+        .add-card .meta { line-height: 1.35; }
+
+        .bar {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            padding: 12px 16px;
+            z-index: 40;
+        }
+
+        .bar-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+        .bar-text { flex: 1; min-width: 220px; font-size: 14px; }
+        .bar-text .sub { color: var(--muted); }
+
+        dialog {
+            border: none;
+            border-radius: 14px;
+            padding: 0;
+            background: var(--surface);
+            color: var(--text);
+            box-shadow: var(--shadow);
+            width: min(920px, calc(100vw - 32px));
+            max-height: calc(100vh - 32px);
+        }
+
+        dialog::backdrop { background: rgba(0, 0, 0, 0.6); }
+        .dialog-body { padding: 16px; }
+        .dialog-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+        .dialog-head h2 { margin: 0; font-size: 18px; }
+        .dialog-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+
+        .compare {
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            border: 4px solid #29e4f2;
+            touch-action: none;
+            cursor: ew-resize;
+            background: #000;
+        }
+
+        .compare img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; user-select: none; }
+        .compare .divider { position: absolute; top: 0; bottom: 0; width: 4px; margin-left: -2px; background: #29e4f2; pointer-events: none; }
+
+        .token-form label { display: block; font-weight: 600; margin: 12px 0 6px; }
+        .token-form input { width: 100%; padding: 9px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font: inherit; }
+        .token-form ol { padding-left: 20px; margin: 8px 0; }
+        .token-form a { color: var(--accent); }
+
+        @media (max-width: 520px) {
+            .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <header>
+            <h1>Slider Demo photos</h1>
+            <div class="connection" id="connection"></div>
+        </header>
+
+        <div class="tabs" role="tablist" id="tabs"></div>
+        <p class="hint">Drag cards to change the order. Drop a photo on either half of a card to replace it, or click a card to preview it and edit its description (shown only on this page). Changes stay on this page until you publish them. The iOS and Android apps and sliders.html all read this list, and hosts see a published change within about 10 minutes.</p>
+        <div id="notice"></div>
+        <div class="grid" id="grid"></div>
+    </div>
+
+    <div class="bar" id="bar" hidden>
+        <div class="bar-inner">
+            <div class="bar-text" id="bar-text"></div>
+            <button class="button" id="discard-button">Discard changes</button>
+            <button class="button primary" id="publish-button">Publish</button>
+        </div>
+    </div>
+
+    <dialog id="preview-dialog">
+        <div class="dialog-body">
+            <div class="dialog-head">
+                <h2 id="preview-title"></h2>
+                <button class="icon-button" id="preview-close" aria-label="Close">×</button>
+            </div>
+            <div class="compare" id="compare">
+                <img id="compare-before" alt="Before">
+                <img id="compare-after" alt="After">
+                <div class="divider" id="compare-divider"></div>
+            </div>
+            <div class="meta" id="preview-meta"></div>
+            <div class="description-field">
+                <label for="preview-description">Description</label>
+                <input id="preview-description" type="text" maxlength="200" autocomplete="off" placeholder="e.g. Wedding photo, 1950s, torn corner">
+            </div>
+            <div class="dialog-actions">
+                <button class="button" id="replace-before-button">Replace before photo…</button>
+                <button class="button" id="replace-after-button">Replace after photo…</button>
+                <span class="spacer"></span>
+                <button class="button danger" id="remove-pair-button">Remove pair</button>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog id="token-dialog">
+        <form class="dialog-body token-form" method="dialog" id="token-form">
+            <div class="dialog-head">
+                <h2>Connect to GitHub</h2>
+                <button class="icon-button" type="button" id="token-close" aria-label="Close">×</button>
+            </div>
+            <p>Publishing commits to the gavingt.github.io repo, so this page needs a GitHub token. It's saved only in this browser.</p>
+            <ol>
+                <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">New fine-grained token</a>.</li>
+                <li>Under Repository access, choose Only select repositories and pick gavingt.github.io.</li>
+                <li>Under Permissions, set Contents to Read and write, and Pages to Read-only (used to tell you when a change is live).</li>
+                <li>Generate the token and paste it below.</li>
+            </ol>
+            <label for="token-input">Token</label>
+            <input id="token-input" type="password" autocomplete="off" spellcheck="false" placeholder="github_pat_…">
+            <div class="dialog-actions">
+                <button class="button primary" type="submit" id="token-save">Save token</button>
+            </div>
+        </form>
+    </dialog>
+
+    <input type="file" id="file-input" accept="image/*" hidden>
+
+    <script>
+        var OWNER = "gavingt"
+        var REPO = "gavingt.github.io"
+        var BRANCH = "master"
+        var TOKEN_KEY = "slidersAdminToken"
+
+        // Photos are scaled down to this many pixels on their long edge and saved as JPEG, which also drops their metadata
+        // (GPS included) before they land in a public repo.
+        var MAX_EDGE = 2000
+        var JPEG_QUALITY = 0.85
+
+        var SETS = [
+            { key: "qvc", label: "Picture Keeper (QVC)", short: "QVC", folder: "img/slider-photos-qvc/" },
+            { key: "hsn", label: "Ultimate Backup (HSN)", short: "HSN", folder: "img/slider-photos-hsn/" },
+        ]
+
+        var token = readToken()
+        var login = null
+        var loadedCommit = null
+        var activeKey = "qvc"
+        var nextId = 1
+        var previewPairId = null
+        var replaceTarget = null
+        var publishing = false
+
+        // For each set: `pairs` is the list as edited here, `loaded` the list last read from or published to GitHub, and
+        // `blobSha` the slider.json blob that list came from. A pair is { id, before, after, description }, and a half is
+        // { name, width, height, url, bytes? }; pairs and halves are never changed in place, so `loaded` keeps the originals.
+        // The description is only for this page: the apps and the web sliders ignore it.
+        SETS.forEach(function (set) {
+            set.pairs = []
+            set.loaded = []
+            set.blobSha = null
+        })
+
+
+        function readToken() {
+            try {
+                return localStorage.getItem(TOKEN_KEY)
+            } catch (e) {
+                return null
+            }
+        }
+
+
+        function saveToken(value) {
+            token = value
+            try {
+                if (value) localStorage.setItem(TOKEN_KEY, value)
+                else localStorage.removeItem(TOKEN_KEY)
+            } catch (e) { }
+        }
+
+
+        function activeSet() {
+            return SETS.find(function (set) { return set.key === activeKey })
+        }
+
+
+        // GitHub REST API call. Reads work without a token (the repo is public), at 60 requests an hour.
+        async function gh(path, options) {
+            options = options || {}
+            var headers = { "Accept": "application/vnd.github+json" }
+            if (token) headers["Authorization"] = "Bearer " + token
+            if (options.body) headers["Content-Type"] = "application/json"
+            var response = await fetch("https://api.github.com" + path, {
+                method: options.method || "GET",
+                headers: headers,
+                body: options.body ? JSON.stringify(options.body) : undefined,
+                cache: "no-store",
+            })
+            if (!response.ok) {
+                var detail = ""
+                try { detail = (await response.json()).message || "" } catch (e) { }
+                var error = new Error("GitHub said " + response.status + (detail ? ": " + detail : ""))
+                error.status = response.status
+                throw error
+            }
+            return response.status === 204 ? null : response.json()
+        }
+
+
+        function rawUrl(commit, path) {
+            return "https://raw.githubusercontent.com/" + OWNER + "/" + REPO + "/" + commit + "/" + path
+        }
+
+
+        function decodeBase64Text(base64) {
+            var binary = atob(base64.replace(/\n/g, ""))
+            var bytes = new Uint8Array(binary.length)
+            for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i)
+            return new TextDecoder().decode(bytes)
+        }
+
+
+        function toBase64(buffer) {
+            var bytes = new Uint8Array(buffer)
+            var binary = ""
+            for (var i = 0; i < bytes.length; i += 0x8000) {
+                binary += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000))
+            }
+            return btoa(binary)
+        }
+
+
+        function hex(buffer) {
+            return Array.from(new Uint8Array(buffer)).map(function (b) { return b.toString(16).padStart(2, "0") }).join("")
+        }
+
+
+        // Reads both lists from the branch's newest commit. Photos are shown from raw.githubusercontent.com at that
+        // commit, so a photo published a moment ago shows before GitHub Pages has rebuilt.
+        async function loadFromGitHub() {
+            showNotice("Loading from GitHub…")
+            try {
+                var ref = await gh("/repos/" + OWNER + "/" + REPO + "/git/ref/heads/" + BRANCH)
+                var commit = ref.object.sha
+                for (var i = 0; i < SETS.length; i++) {
+                    var set = SETS[i]
+                    var file = await gh("/repos/" + OWNER + "/" + REPO + "/contents/" + set.folder + "slider.json?ref=" + commit)
+                    var list = JSON.parse(decodeBase64Text(file.content))
+                    set.blobSha = file.sha
+                    set.loaded = list.pairs.map(function (pair) {
+                        return {
+                            id: nextId++,
+                            before: { name: pair.before, width: pair.width, height: pair.height, url: rawUrl(commit, set.folder + pair.before) },
+                            after: { name: pair.after, width: pair.width, height: pair.height, url: rawUrl(commit, set.folder + pair.after) },
+                            description: pair.description || "",
+                        }
+                    })
+                    set.pairs = set.loaded.slice()
+                }
+                loadedCommit = commit
+                showNotice("")
+            } catch (error) {
+                showNotice("Couldn't load the photo lists. " + error.message, true)
+            }
+            render()
+        }
+
+
+        async function checkLogin() {
+            login = null
+            if (!token) return renderConnection()
+            try {
+                login = (await gh("/user")).login
+            } catch (error) {
+                if (error.status === 401) {
+                    showNotice("GitHub didn't accept the saved token (it may have expired). Connect again with a new one.", true)
+                    saveToken(null)
+                }
+            }
+            renderConnection()
+        }
+
+
+        function showNotice(text, isError) {
+            var notice = document.getElementById("notice")
+            notice.innerHTML = ""
+            if (!text) return
+            var div = document.createElement("div")
+            div.className = "notice" + (isError ? " error" : "")
+            div.textContent = text
+            notice.appendChild(div)
+        }
+
+
+        function renderConnection() {
+            var el = document.getElementById("connection")
+            el.innerHTML = ""
+            if (token) {
+                var who = document.createElement("span")
+                who.textContent = login ? "Connected as @" + login : "Token saved"
+                var disconnect = document.createElement("button")
+                disconnect.className = "button"
+                disconnect.textContent = "Disconnect"
+                disconnect.onclick = function () {
+                    saveToken(null)
+                    login = null
+                    renderConnection()
+                    renderBar()
+                }
+                el.append(who, disconnect)
+            } else {
+                var connect = document.createElement("button")
+                connect.className = "button primary"
+                connect.textContent = "Connect GitHub"
+                connect.onclick = openTokenDialog
+                el.append(connect)
+            }
+        }
+
+
+        function render() {
+            renderTabs()
+            renderGrid()
+            renderBar()
+        }
+
+
+        function renderTabs() {
+            var tabs = document.getElementById("tabs")
+            tabs.innerHTML = ""
+            SETS.forEach(function (set) {
+                var tab = document.createElement("button")
+                tab.className = "tab"
+                tab.setAttribute("role", "tab")
+                tab.setAttribute("aria-selected", set.key === activeKey ? "true" : "false")
+                tab.textContent = set.label
+                if (isDirty(set)) {
+                    var dot = document.createElement("span")
+                    dot.className = "dot"
+                    dot.title = "Unpublished changes"
+                    tab.appendChild(dot)
+                }
+                tab.onclick = function () {
+                    activeKey = set.key
+                    render()
+                }
+                tabs.appendChild(tab)
+            })
+        }
+
+
+        function renderGrid() {
+            var grid = document.getElementById("grid")
+            grid.innerHTML = ""
+            if (!loadedCommit) return
+            var set = activeSet()
+            var loadedIds = new Set(set.loaded.map(function (pair) { return pair.id }))
+            set.pairs.forEach(function (pair, index) {
+                grid.appendChild(makeCard(set, pair, index, loadedIds))
+            })
+            grid.appendChild(makeAddCard())
+        }
+
+
+        function makeCard(set, pair, index, loadedIds) {
+            var card = document.createElement("div")
+            card.className = "card"
+            card.dataset.id = pair.id
+
+            var top = document.createElement("div")
+            top.className = "card-top"
+            var num = document.createElement("span")
+            num.className = "num"
+            num.textContent = index + 1
+            top.appendChild(num)
+            var badgeText = ""
+            if (!loadedIds.has(pair.id)) badgeText = "New"
+            else if (pair.before.bytes || pair.after.bytes) badgeText = "Replaced"
+            if (badgeText) {
+                var badge = document.createElement("span")
+                badge.className = "badge"
+                badge.textContent = badgeText
+                top.appendChild(badge)
+            }
+            var spacer = document.createElement("span")
+            spacer.className = "spacer"
+            var grip = document.createElement("span")
+            grip.className = "grip"
+            grip.title = "Drag to reorder"
+            grip.textContent = "⠿"
+            var remove = document.createElement("button")
+            remove.className = "icon-button"
+            remove.setAttribute("aria-label", "Remove pair " + (index + 1))
+            remove.title = "Remove pair"
+            remove.textContent = "×"
+            remove.onclick = function (event) {
+                event.stopPropagation()
+                removePair(pair.id)
+            }
+            top.append(spacer, grip, remove)
+
+            var halves = document.createElement("div")
+            halves.className = "halves"
+            ;["before", "after"].forEach(function (side) {
+                var half = document.createElement("div")
+                half.className = "half"
+                var img = document.createElement("img")
+                img.loading = "lazy"
+                img.alt = side
+                img.src = pair[side].url
+                var label = document.createElement("span")
+                label.className = "label"
+                label.textContent = side === "before" ? "Before" : "After"
+                half.append(img, label)
+                makeDropTarget(half, function (files) { replaceHalf(pair.id, side, files[0]) })
+                halves.appendChild(half)
+            })
+
+            var desc = document.createElement("div")
+            fillDescription(desc, pair.description)
+
+            var meta = document.createElement("div")
+            meta.className = "meta"
+            meta.textContent = pair.before.width + " × " + pair.before.height
+            if (!sameShape(pair.before, pair.after)) {
+                meta.className = "meta warn"
+                meta.textContent += " · before and after are different shapes"
+            }
+
+            card.append(top, halves, desc, meta)
+            return card
+        }
+
+
+        function fillDescription(el, description) {
+            el.className = "desc" + (description ? "" : " empty")
+            el.textContent = description || "No description"
+            el.title = description || ""
+        }
+
+
+        // The last card: drop photos on it, or pick one for each slot. Several photos dropped at once pair up in name
+        // order (1a, 1b, 2a, 2b, …).
+        var addSlots = { before: null, after: null }
+
+        function makeAddCard() {
+            var card = document.createElement("div")
+            card.className = "card add-card"
+            var top = document.createElement("div")
+            top.className = "card-top"
+            var title = document.createElement("span")
+            title.className = "num"
+            title.textContent = "Add a pair"
+            top.appendChild(title)
+
+            var halves = document.createElement("div")
+            halves.className = "halves"
+            ;["before", "after"].forEach(function (side) {
+                var slot = document.createElement("button")
+                slot.type = "button"
+                slot.className = "slot"
+                if (addSlots[side] === "busy") {
+                    slot.textContent = "Preparing…"
+                } else if (addSlots[side]) {
+                    var img = document.createElement("img")
+                    img.src = addSlots[side].url
+                    img.alt = side
+                    slot.appendChild(img)
+                } else {
+                    slot.textContent = side === "before" ? "+ Before" : "+ After"
+                }
+                slot.onclick = function () { chooseFile({ add: side }) }
+                makeDropTarget(slot, function (files) {
+                    if (files.length > 1) addFiles(files)
+                    else fillAddSlot(side, files[0])
+                })
+                halves.appendChild(slot)
+            })
+
+            var meta = document.createElement("div")
+            meta.className = "meta"
+            meta.textContent = "Drop photos here or click a slot. Drop several at once and they pair up in name order (1a, 1b, 2a, 2b…)."
+
+            card.append(top, halves, meta)
+            makeDropTarget(card, addFiles)
+            return card
+        }
+
+
+        function makeDropTarget(el, onFiles) {
+            el.addEventListener("dragover", function (event) {
+                if (!event.dataTransfer || Array.from(event.dataTransfer.types).indexOf("Files") < 0) return
+                event.preventDefault()
+                event.stopPropagation()
+                el.classList.add("drop-target")
+            })
+            el.addEventListener("dragleave", function (event) {
+                if (!el.contains(event.relatedTarget)) el.classList.remove("drop-target")
+            })
+            el.addEventListener("drop", function (event) {
+                event.preventDefault()
+                event.stopPropagation()
+                el.classList.remove("drop-target")
+                var files = Array.from(event.dataTransfer.files)
+                if (files.length) onFiles(files)
+            })
+        }
+
+
+        function sameShape(a, b) {
+            return Math.abs(a.width / a.height - b.width / b.height) < 0.02
+        }
+
+
+        function loadImage(url) {
+            return new Promise(function (resolve, reject) {
+                var img = new Image()
+                img.onload = function () { resolve(img) }
+                img.onerror = function () { reject(new Error("unreadable")) }
+                img.src = url
+            })
+        }
+
+
+        // Scales the photo down to MAX_EDGE, saves it as JPEG and names it after its contents, so a new photo always
+        // gets a new URL and no phone keeps showing a cached copy of the one it replaced.
+        async function preparePhoto(file) {
+            var sourceUrl = URL.createObjectURL(file)
+            try {
+                var img
+                try {
+                    img = await loadImage(sourceUrl)
+                } catch (e) {
+                    var heic = /\.hei[cf]$/i.test(file.name)
+                    throw new Error("Couldn't read " + file.name + "." + (heic ? " This browser can't open HEIC photos: use Safari, or export it as JPEG first." : ""))
+                }
+                var scale = Math.min(1, MAX_EDGE / Math.max(img.naturalWidth, img.naturalHeight))
+                var width = Math.round(img.naturalWidth * scale)
+                var height = Math.round(img.naturalHeight * scale)
+                var canvas = document.createElement("canvas")
+                canvas.width = width
+                canvas.height = height
+                var context = canvas.getContext("2d")
+                context.imageSmoothingQuality = "high"
+                context.fillStyle = "#ffffff"
+                context.fillRect(0, 0, width, height)
+                context.drawImage(img, 0, 0, width, height)
+                var blob = await new Promise(function (resolve, reject) {
+                    canvas.toBlob(function (b) { b ? resolve(b) : reject(new Error("Couldn't convert " + file.name + ".")) }, "image/jpeg", JPEG_QUALITY)
+                })
+                var bytes = await blob.arrayBuffer()
+                var name = hex(await crypto.subtle.digest("SHA-256", bytes)).slice(0, 16) + ".jpg"
+                return { name: name, width: width, height: height, url: URL.createObjectURL(blob), bytes: bytes }
+            } finally {
+                URL.revokeObjectURL(sourceUrl)
+            }
+        }
+
+
+        async function fillAddSlot(side, file) {
+            addSlots[side] = "busy"
+            renderGrid()
+            try {
+                addSlots[side] = await preparePhoto(file)
+            } catch (error) {
+                addSlots[side] = null
+                showNotice(error.message, true)
+            }
+            if (addSlots.before && addSlots.after && addSlots.before !== "busy" && addSlots.after !== "busy") {
+                activeSet().pairs.push({ id: nextId++, before: addSlots.before, after: addSlots.after, description: "" })
+                addSlots = { before: null, after: null }
+                render()
+            } else {
+                renderGrid()
+            }
+        }
+
+
+        async function addFiles(files) {
+            files = files.slice().sort(function (a, b) { return a.name.localeCompare(b.name, undefined, { numeric: true }) })
+            if (files.length === 1) return fillAddSlot(addSlots.before ? "after" : "before", files[0])
+            if (files.length % 2 !== 0) {
+                showNotice("Drop photos in before/after pairs: " + files.length + " is an odd number.", true)
+                return
+            }
+            var set = activeSet()
+            showNotice("Preparing " + files.length + " photos…")
+            try {
+                var prepared = []
+                for (var i = 0; i < files.length; i++) prepared.push(await preparePhoto(files[i]))
+                for (var j = 0; j < prepared.length; j += 2) {
+                    set.pairs.push({ id: nextId++, before: prepared[j], after: prepared[j + 1], description: "" })
+                }
+                showNotice("")
+            } catch (error) {
+                showNotice(error.message, true)
+            }
+            render()
+        }
+
+
+        async function replaceHalf(pairId, side, file) {
+            var set = activeSet()
+            showNotice("Preparing " + file.name + "…")
+            try {
+                var half = await preparePhoto(file)
+                set.pairs = set.pairs.map(function (pair) {
+                    if (pair.id !== pairId) return pair
+                    var updated = { id: pair.id, before: pair.before, after: pair.after, description: pair.description }
+                    updated[side] = half
+                    return updated
+                })
+                showNotice("")
+            } catch (error) {
+                showNotice(error.message, true)
+            }
+            render()
+            if (previewPairId === pairId) openPreview(pairId)
+        }
+
+
+        function removePair(pairId) {
+            var set = activeSet()
+            set.pairs = set.pairs.filter(function (pair) { return pair.id !== pairId })
+            render()
+        }
+
+
+        function chooseFile(target) {
+            replaceTarget = target
+            var input = document.getElementById("file-input")
+            input.value = ""
+            input.click()
+        }
+
+
+        document.getElementById("file-input").addEventListener("change", function (event) {
+            var file = event.target.files[0]
+            if (!file || !replaceTarget) return
+            if (replaceTarget.add) fillAddSlot(replaceTarget.add, file)
+            else replaceHalf(replaceTarget.pairId, replaceTarget.side, file)
+            replaceTarget = null
+        })
+
+
+        // Dragging to reorder. With a mouse the whole card drags; on a touchscreen only the ⠿ grip does, so swiping
+        // across the cards still scrolls the page.
+        var drag = null
+
+        document.getElementById("grid").addEventListener("pointerdown", function (event) {
+            var card = event.target.closest(".card[data-id]")
+            if (!card || event.button !== 0 || event.target.closest("button")) return
+            var onGrip = !!event.target.closest(".grip")
+            if (event.pointerType !== "mouse" && !onGrip) return
+            drag = { card: card, startX: event.clientX, startY: event.clientY, active: false, ghost: null }
+            if (onGrip) event.preventDefault()
+        })
+
+        window.addEventListener("pointermove", function (event) {
+            if (!drag) return
+            if (!drag.active) {
+                if (Math.hypot(event.clientX - drag.startX, event.clientY - drag.startY) < 6) return
+                var rect = drag.card.getBoundingClientRect()
+                drag.offsetX = drag.startX - rect.left
+                drag.offsetY = drag.startY - rect.top
+                drag.ghost = drag.card.cloneNode(true)
+                drag.ghost.classList.add("ghost")
+                drag.ghost.style.width = rect.width + "px"
+                document.body.appendChild(drag.ghost)
+                drag.card.classList.add("placeholder")
+                drag.active = true
+            }
+            drag.ghost.style.left = (event.clientX - drag.offsetX) + "px"
+            drag.ghost.style.top = (event.clientY - drag.offsetY) + "px"
+
+            var over = document.elementFromPoint(event.clientX, event.clientY)
+            var target = over && over.closest(".card[data-id]")
+            if (target && target !== drag.card) {
+                var r = target.getBoundingClientRect()
+                var grid = document.getElementById("grid")
+                if (event.clientX < r.left + r.width / 2) grid.insertBefore(drag.card, target)
+                else grid.insertBefore(drag.card, target.nextSibling)
+            }
+            autoScroll(event.clientY)
+        })
+
+        window.addEventListener("pointerup", finishDrag)
+        window.addEventListener("pointercancel", finishDrag)
+
+        // A touch on the grip mustn't scroll the page while it drags.
+        document.addEventListener("touchmove", function (event) {
+            if (drag) event.preventDefault()
+        }, { passive: false })
+
+        function finishDrag(event) {
+            if (!drag) return
+            var wasActive = drag.active
+            var card = drag.card
+            if (drag.ghost) drag.ghost.remove()
+            card.classList.remove("placeholder")
+            drag = null
+            if (wasActive) {
+                var set = activeSet()
+                var byId = new Map(set.pairs.map(function (pair) { return [String(pair.id), pair] }))
+                set.pairs = Array.from(document.querySelectorAll("#grid .card[data-id]")).map(function (el) { return byId.get(el.dataset.id) })
+                render()
+            } else if (event.type === "pointerup") {
+                openPreview(Number(card.dataset.id))
+            }
+        }
+
+        function autoScroll(y) {
+            var edge = 60
+            if (y < edge) window.scrollBy(0, -12)
+            else if (y > window.innerHeight - edge - 90) window.scrollBy(0, 12)
+        }
+
+
+        // Click on a card: the pair in a working slider, sized like the apps size it.
+        var comparePosition = 0.03
+
+        function openPreview(pairId) {
+            var set = activeSet()
+            var index = set.pairs.findIndex(function (pair) { return pair.id === pairId })
+            if (index < 0) return
+            var pair = set.pairs[index]
+            previewPairId = pairId
+            document.getElementById("preview-title").textContent = set.short + " pair " + (index + 1)
+            document.getElementById("compare-before").src = pair.before.url
+            document.getElementById("compare-after").src = pair.after.url
+            var meta = pair.before.width + " × " + pair.before.height
+            if (!sameShape(pair.before, pair.after)) meta += " · the after photo is " + pair.after.width + " × " + pair.after.height + " and will be stretched to fit"
+            document.getElementById("preview-meta").textContent = meta
+            var descriptionInput = document.getElementById("preview-description")
+            if (descriptionInput.value !== pair.description) descriptionInput.value = pair.description
+            var dialog = document.getElementById("preview-dialog")
+            if (!dialog.open) dialog.showModal()
+            comparePosition = 0.03
+            sizeCompare(pair)
+        }
+
+        function sizeCompare(pair) {
+            var compare = document.getElementById("compare")
+            var maxWidth = document.querySelector("#preview-dialog .dialog-body").clientWidth - 32
+            var maxHeight = Math.max(200, window.innerHeight - 260)
+            var scale = Math.min(maxWidth / pair.before.width, maxHeight / pair.before.height, 1)
+            compare.style.width = Math.floor(pair.before.width * scale) + "px"
+            compare.style.height = Math.floor(pair.before.height * scale) + "px"
+            updateCompare()
+        }
+
+        function updateCompare() {
+            var percent = comparePosition * 100
+            document.getElementById("compare-after").style.clipPath = "inset(0 " + (100 - percent) + "% 0 0)"
+            document.getElementById("compare-divider").style.left = percent + "%"
+        }
+
+        ;(function () {
+            var compare = document.getElementById("compare")
+            var dragging = false
+            function move(event) {
+                var rect = compare.getBoundingClientRect()
+                comparePosition = Math.min(1, Math.max(0, (event.clientX - rect.left) / rect.width))
+                updateCompare()
+            }
+            compare.addEventListener("pointerdown", function (event) {
+                dragging = true
+                compare.setPointerCapture(event.pointerId)
+                move(event)
+            })
+            compare.addEventListener("pointermove", function (event) { if (dragging) move(event) })
+            compare.addEventListener("pointerup", function () { dragging = false })
+            compare.addEventListener("pointercancel", function () { dragging = false })
+        })()
+
+        // Typing a description updates the pair (as a new object, so `loaded` keeps the old text) and its card as you go.
+        document.getElementById("preview-description").addEventListener("input", function (event) {
+            var set = activeSet()
+            var description = event.target.value.trim() ? event.target.value : ""
+            set.pairs = set.pairs.map(function (pair) {
+                if (pair.id !== previewPairId) return pair
+                return { id: pair.id, before: pair.before, after: pair.after, description: description }
+            })
+            var desc = document.querySelector('#grid .card[data-id="' + previewPairId + '"] .desc')
+            if (desc) fillDescription(desc, description)
+            renderTabs()
+            renderBar()
+        })
+
+        document.getElementById("preview-close").onclick = function () { document.getElementById("preview-dialog").close() }
+        document.getElementById("preview-dialog").addEventListener("close", function () { previewPairId = null })
+        document.getElementById("replace-before-button").onclick = function () { chooseFile({ pairId: previewPairId, side: "before" }) }
+        document.getElementById("replace-after-button").onclick = function () { chooseFile({ pairId: previewPairId, side: "after" }) }
+        document.getElementById("remove-pair-button").onclick = function () {
+            removePair(previewPairId)
+            document.getElementById("preview-dialog").close()
+        }
+
+
+        function openTokenDialog() {
+            document.getElementById("token-input").value = ""
+            document.getElementById("token-dialog").showModal()
+        }
+
+        document.getElementById("token-close").onclick = function () { document.getElementById("token-dialog").close() }
+        document.getElementById("token-form").addEventListener("submit", function () {
+            var value = document.getElementById("token-input").value.trim()
+            if (!value) return
+            saveToken(value)
+            showNotice("")
+            checkLogin().then(renderBar)
+        })
+
+
+        // The list exactly as it is written to slider.json: one pair per line, so the repo's history reads cleanly. A pair
+        // without a description leaves the field out.
+        function serialize(pairs) {
+            var lines = pairs.map(function (pair) {
+                var fields = [
+                    "\"before\": " + JSON.stringify(pair.before.name),
+                    "\"after\": " + JSON.stringify(pair.after.name),
+                    "\"width\": " + pair.before.width,
+                    "\"height\": " + pair.before.height,
+                ]
+                var description = pair.description.trim()
+                if (description) fields.push("\"description\": " + JSON.stringify(description))
+                return "    {" + fields.join(", ") + "}"
+            })
+            return "{\n  \"format\": 1,\n  \"pairs\": [\n" + lines.join(",\n") + "\n  ]\n}\n"
+        }
+
+
+        function isDirty(set) {
+            return serialize(set.pairs) !== serialize(set.loaded)
+        }
+
+
+        function describeChanges(set) {
+            var loadedById = new Map(set.loaded.map(function (pair) { return [pair.id, pair] }))
+            var currentIds = new Set(set.pairs.map(function (pair) { return pair.id }))
+            var added = 0, removed = 0, replaced = 0, described = 0
+            set.pairs.forEach(function (pair) {
+                var old = loadedById.get(pair.id)
+                if (!old) return added++
+                if (old.before.name !== pair.before.name) replaced++
+                if (old.after.name !== pair.after.name) replaced++
+                if (old.description.trim() !== pair.description.trim()) described++
+            })
+            set.loaded.forEach(function (pair) { if (!currentIds.has(pair.id)) removed++ })
+            var oldOrder = set.loaded.filter(function (pair) { return currentIds.has(pair.id) }).map(function (pair) { return pair.id }).join()
+            var newOrder = set.pairs.filter(function (pair) { return loadedById.has(pair.id) }).map(function (pair) { return pair.id }).join()
+            var parts = []
+            if (added) parts.push(added + (added === 1 ? " pair added" : " pairs added"))
+            if (removed) parts.push(removed + (removed === 1 ? " pair removed" : " pairs removed"))
+            if (replaced) parts.push(replaced + (replaced === 1 ? " photo replaced" : " photos replaced"))
+            if (described) parts.push(described + (described === 1 ? " description edited" : " descriptions edited"))
+            if (oldOrder !== newOrder) parts.push("new order")
+            return parts.join(", ")
+        }
+
+
+        var barMessage = null
+        // Next to unpublished changes the bar shows only a publish in progress or one that failed, not news of the last success.
+        var barMessageIsError = false
+
+        function renderBar() {
+            var bar = document.getElementById("bar")
+            var text = document.getElementById("bar-text")
+            var dirtySets = SETS.filter(isDirty)
+            var publishButton = document.getElementById("publish-button")
+            var discardButton = document.getElementById("discard-button")
+            text.innerHTML = ""
+            if (dirtySets.length) {
+                var line = document.createElement("div")
+                line.textContent = "Not published yet: " + dirtySets.map(function (set) { return set.short + " (" + describeChanges(set) + ")" }).join("; ")
+                text.appendChild(line)
+                if (barMessage && (publishing || barMessageIsError)) {
+                    var sub = document.createElement("div")
+                    sub.className = "sub"
+                    sub.textContent = barMessage
+                    text.appendChild(sub)
+                }
+                publishButton.hidden = false
+                discardButton.hidden = false
+                publishButton.disabled = publishing
+                discardButton.disabled = publishing
+                publishButton.textContent = token ? (publishing ? "Publishing…" : "Publish") : "Connect GitHub to publish"
+                bar.hidden = false
+            } else if (barMessage) {
+                text.textContent = barMessage
+                publishButton.hidden = true
+                discardButton.hidden = true
+                bar.hidden = false
+            } else {
+                bar.hidden = true
+            }
+        }
+
+
+        document.getElementById("discard-button").onclick = function () {
+            SETS.forEach(function (set) { set.pairs = set.loaded.slice() })
+            addSlots = { before: null, after: null }
+            barMessage = null
+            render()
+        }
+
+        document.getElementById("publish-button").onclick = function () {
+            if (!token) return openTokenDialog()
+            publish()
+        }
+
+
+        // One commit for everything: the new photos and the rewritten slider.json of each changed set, so hosts never
+        // get a list that names a photo that isn't there yet. If the branch moved since this page loaded, the commit
+        // still goes on top as long as neither slider.json changed in between; otherwise nothing is written.
+        async function publish() {
+            var dirtySets = SETS.filter(isDirty)
+            if (!dirtySets.length || publishing) return
+            if (dirtySets.some(function (set) { return set.pairs.length === 0 })) {
+                barMessage = "Each set needs at least one pair."
+                barMessageIsError = true
+                return renderBar()
+            }
+            publishing = true
+            barMessageIsError = false
+            barMessage = "Checking GitHub…"
+            renderBar()
+            try {
+                var repo = "/repos/" + OWNER + "/" + REPO
+                var head = (await gh(repo + "/git/ref/heads/" + BRANCH)).object.sha
+                if (head !== loadedCommit) {
+                    for (var i = 0; i < dirtySets.length; i++) {
+                        var current = await gh(repo + "/contents/" + dirtySets[i].folder + "slider.json?ref=" + head)
+                        if (current.sha !== dirtySets[i].blobSha) {
+                            throw new Error("The " + dirtySets[i].short + " list was changed on GitHub after this page loaded, so nothing was published. Copy down your changes, reload the page and make them again.")
+                        }
+                    }
+                }
+
+                var tree = []
+                var uploaded = {}
+                for (var s = 0; s < dirtySets.length; s++) {
+                    var set = dirtySets[s]
+                    for (var p = 0; p < set.pairs.length; p++) {
+                        var pair = set.pairs[p]
+                        var halves = [pair.before, pair.after]
+                        for (var h = 0; h < 2; h++) {
+                            var half = halves[h]
+                            var path = set.folder + half.name
+                            if (!half.bytes || uploaded[path]) continue
+                            barMessage = "Uploading photos… (" + (Object.keys(uploaded).length + 1) + ")"
+                            renderBar()
+                            var blob = await gh(repo + "/git/blobs", { method: "POST", body: { content: toBase64(half.bytes), encoding: "base64" } })
+                            uploaded[path] = true
+                            tree.push({ path: path, mode: "100644", type: "blob", sha: blob.sha })
+                        }
+                    }
+                    tree.push({ path: set.folder + "slider.json", mode: "100644", type: "blob", content: serialize(set.pairs) })
+                }
+
+                barMessage = "Committing…"
+                renderBar()
+                var baseTree = (await gh(repo + "/git/commits/" + head)).tree.sha
+                var newTree = await gh(repo + "/git/trees", { method: "POST", body: { base_tree: baseTree, tree: tree } })
+                var message = dirtySets.map(function (set) { return set.short + " sliders: " + describeChanges(set) }).join("; ") + ".\n\nPublished from sliders_admin.html."
+                var commit = await gh(repo + "/git/commits", { method: "POST", body: { message: message, tree: newTree.sha, parents: [head] } })
+                await gh(repo + "/git/refs/heads/" + BRANCH, { method: "PATCH", body: { sha: commit.sha, force: false } })
+
+                // Published: what's here is now what's on GitHub.
+                loadedCommit = commit.sha
+                for (var d = 0; d < dirtySets.length; d++) {
+                    var file = await gh(repo + "/contents/" + dirtySets[d].folder + "slider.json?ref=" + commit.sha)
+                    dirtySets[d].blobSha = file.sha
+                }
+                SETS.forEach(function (set) {
+                    set.pairs = set.pairs.map(function (pair) {
+                        return { id: pair.id, before: settle(pair.before), after: settle(pair.after), description: pair.description }
+                    })
+                    set.loaded = set.pairs.slice()
+                })
+                publishing = false
+                barMessage = "Published (commit " + commit.sha.slice(0, 7) + "). Waiting for GitHub Pages to rebuild…"
+                render()
+                watchPagesBuild(commit.sha)
+            } catch (error) {
+                publishing = false
+                barMessageIsError = true
+                barMessage = error.status === 401 || error.status === 403
+                    ? "GitHub refused the token (" + error.message + "). Check that it covers gavingt.github.io with Contents: Read and write."
+                    : error.message
+                renderBar()
+            }
+        }
+
+
+        // After publishing, a half keeps its photo but drops the bytes, so it no longer counts as new.
+        function settle(half) {
+            if (!half.bytes) return half
+            return { name: half.name, width: half.width, height: half.height, url: half.url }
+        }
+
+
+        function timeIn(minutes) {
+            return new Date(Date.now() + minutes * 60000).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })
+        }
+
+
+        // GitHub Pages rebuilds the site in about a minute; its CDN then serves the old slider.json for up to 10 more.
+        async function watchPagesBuild(sha) {
+            var started = Date.now()
+            while (Date.now() - started < 5 * 60000) {
+                await new Promise(function (resolve) { setTimeout(resolve, 5000) })
+                try {
+                    var build = await gh("/repos/" + OWNER + "/" + REPO + "/pages/builds/latest")
+                    if (build.commit === sha && build.status === "built") {
+                        barMessage = "Live on GitHub Pages. Hosts see it by about " + timeIn(10) + ", once GitHub's cache lets go of the old list."
+                        return renderBar()
+                    }
+                    if (build.commit === sha && build.status === "errored") {
+                        barMessage = "GitHub Pages failed to build this commit: " + ((build.error && build.error.message) || "no reason given") + "."
+                        return renderBar()
+                    }
+                } catch (error) {
+                    // The token may lack Pages: Read-only. Fall back to the usual timing.
+                    barMessage = "Published. Hosts see it by about " + timeIn(12) + " (GitHub Pages rebuilds in about a minute, then its cache holds the old list for up to 10)."
+                    return renderBar()
+                }
+            }
+            barMessage = "Published, but GitHub Pages hasn't finished rebuilding after 5 minutes. Check the repo's Actions or Pages settings."
+            renderBar()
+        }
+
+
+        // Keep a photo dropped next to a card from opening in the tab.
+        window.addEventListener("dragover", function (event) { event.preventDefault() })
+        window.addEventListener("drop", function (event) { event.preventDefault() })
+
+        window.addEventListener("beforeunload", function (event) {
+            if (SETS.some(isDirty)) {
+                event.preventDefault()
+                event.returnValue = ""
+            }
+        })
+
+        window.addEventListener("resize", function () {
+            if (previewPairId == null) return
+            var pair = activeSet().pairs.find(function (p) { return p.id === previewPairId })
+            if (pair) sizeCompare(pair)
+        })
+
+        renderConnection()
+        render()
+        checkLogin()
+        loadFromGitHub()
+    </script>
+</body>
+
+</html>
