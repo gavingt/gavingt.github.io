@@ -195,6 +195,17 @@
 
         .desc.empty { color: var(--muted); font-style: italic; }
 
+        .card.off .halves { opacity: 0.4; }
+
+        .switch { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 600; color: var(--muted); cursor: pointer; }
+        .switch input { width: 16px; height: 16px; margin: 0; accent-color: var(--accent); cursor: pointer; }
+
+        .status { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+        .status.over { color: var(--warn); }
+
+        .counts { font-size: 14px; margin: 0 0 14px; }
+        .counts .over { color: var(--warn); }
+
         .description-field { margin-top: 12px; }
         .description-field label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 6px; }
         .description-field input { width: 100%; padding: 9px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font: inherit; }
@@ -288,8 +299,9 @@
         </header>
 
         <div class="tabs" role="tablist" id="tabs"></div>
-        <p class="hint">Drag cards to change the order. Drop a photo on either half of a card to replace it, or click a card to preview it and edit its description (shown only on this page). Changes stay on this page until you publish them. The iOS and Android apps and sliders.html all read this list, and hosts see a published change within about 10 minutes.</p>
+        <p class="hint">Drag cards to change the order. Drop a photo on either half of a card to replace it, or click a card to preview it and edit its description (shown only on this page). Untick On to keep a pair here without showing it. The slider shows the first 28 pairs that are on; any more wait here until a place opens up. Changes stay on this page until you publish them. The iOS and Android apps and sliders.html all read this list, and hosts see a published change within about 10 minutes.</p>
         <div id="notice"></div>
+        <div class="counts" id="counts"></div>
         <div class="grid" id="grid"></div>
     </div>
 
@@ -360,6 +372,9 @@
         var MAX_EDGE = 2000
         var JPEG_QUALITY = 0.85
 
+        // The most pairs the slider shows: the first this many that are switched on, in order.
+        var MAX_ON_SLIDER = 28
+
         var SETS = [
             { key: "qvc", label: "Picture Keeper (QVC)", short: "QVC", folder: "img/slider-photos-qvc/" },
             { key: "hsn", label: "Ultimate Backup (HSN)", short: "HSN", folder: "img/slider-photos-hsn/" },
@@ -375,9 +390,10 @@
         var publishing = false
 
         // For each set: `pairs` is the list as edited here, `loaded` the list last read from or published to GitHub, and
-        // `blobSha` the slider.json blob that list came from. A pair is { id, before, after, description }, and a half is
-        // { name, width, height, url, bytes? }; pairs and halves are never changed in place, so `loaded` keeps the originals.
-        // The description is only for this page: the apps and the web sliders ignore it.
+        // `blobSha` the slider.json blob that list came from. A pair is { id, before, after, description, enabled }, and a
+        // half is { name, width, height, url, bytes? }; pairs and halves are never changed in place, so `loaded` keeps the
+        // originals. The description and `enabled` are only for this page: the apps and the web sliders read just the
+        // pairs on the slider (see serialize).
         SETS.forEach(function (set) {
             set.pairs = []
             set.loaded = []
@@ -471,14 +487,7 @@
                     var file = await gh("/repos/" + OWNER + "/" + REPO + "/contents/" + set.folder + "slider.json?ref=" + commit)
                     var list = JSON.parse(decodeBase64Text(file.content))
                     set.blobSha = file.sha
-                    set.loaded = list.pairs.map(function (pair) {
-                        return {
-                            id: nextId++,
-                            before: { name: pair.before, width: pair.width, height: pair.height, url: rawUrl(commit, set.folder + pair.before) },
-                            after: { name: pair.after, width: pair.width, height: pair.height, url: rawUrl(commit, set.folder + pair.after) },
-                            description: pair.description || "",
-                        }
-                    })
+                    set.loaded = pairsFromList(list, commit, set.folder)
                     set.pairs = set.loaded.slice()
                 }
                 loadedCommit = commit
@@ -487,6 +496,45 @@
                 showNotice("Couldn't load the photo lists. " + error.message, true)
             }
             render()
+        }
+
+
+        // Rebuilds this page's order from slider.json: `pairs` (the ones on the slider, in order) and `reserve` (the rest,
+        // each with its `position` in that order and whether it's `enabled`). A reserve entry whose position is missing or
+        // taken goes to the end.
+        function pairsFromList(list, commit, folder) {
+            function toPair(entry, enabled) {
+                return {
+                    id: nextId++,
+                    before: { name: entry.before, width: entry.width, height: entry.height, url: rawUrl(commit, folder + entry.before) },
+                    after: { name: entry.after, width: entry.width, height: entry.height, url: rawUrl(commit, folder + entry.after) },
+                    description: entry.description || "",
+                    enabled: enabled,
+                }
+            }
+            var onSlider = list.pairs.map(function (entry) { return toPair(entry, true) })
+            var reserve = (list.reserve || []).slice().sort(function (a, b) { return a.position - b.position })
+            var total = onSlider.length + reserve.length
+            var slots = new Array(total).fill(null)
+            var misplaced = []
+            reserve.forEach(function (entry) {
+                var pair = toPair(entry, entry.enabled === true)
+                var position = entry.position
+                if (Number.isInteger(position) && position >= 0 && position < total && !slots[position]) slots[position] = pair
+                else misplaced.push(pair)
+            })
+            var rest = onSlider.concat(misplaced)
+            return slots.map(function (pair) { return pair || rest.shift() })
+        }
+
+
+        // The ids of the pairs the slider shows: the first MAX_ON_SLIDER that are switched on.
+        function onSliderIds(pairs) {
+            var ids = new Set()
+            pairs.forEach(function (pair) {
+                if (pair.enabled && ids.size < MAX_ON_SLIDER) ids.add(pair.id)
+            })
+            return ids
         }
 
 
@@ -575,28 +623,53 @@
 
         function renderGrid() {
             var grid = document.getElementById("grid")
+            var counts = document.getElementById("counts")
             grid.innerHTML = ""
+            counts.innerHTML = ""
             if (!loadedCommit) return
             var set = activeSet()
             var loadedIds = new Set(set.loaded.map(function (pair) { return pair.id }))
-            set.pairs.forEach(function (pair, index) {
-                grid.appendChild(makeCard(set, pair, index, loadedIds))
+            var onSlider = onSliderIds(set.pairs)
+            var sliderNumber = 0
+            set.pairs.forEach(function (pair) {
+                var shown = onSlider.has(pair.id)
+                if (shown) sliderNumber++
+                grid.appendChild(makeCard(set, pair, shown ? sliderNumber : 0, loadedIds))
             })
             grid.appendChild(makeAddCard())
+
+            var off = set.pairs.filter(function (pair) { return !pair.enabled }).length
+            var over = set.pairs.length - onSlider.size - off
+            counts.textContent = onSlider.size + " of " + MAX_ON_SLIDER + " on the slider" + (off ? " · " + off + " off" : "")
+            if (over) {
+                var overText = document.createElement("span")
+                overText.className = "over"
+                overText.textContent = " · " + over + " on but waiting for a place (over " + MAX_ON_SLIDER + ")"
+                counts.appendChild(overText)
+            }
         }
 
 
-        function makeCard(set, pair, index, loadedIds) {
+        // `sliderNumber` is the pair's place on the slider, or 0 when it isn't on it.
+        function makeCard(set, pair, sliderNumber, loadedIds) {
             var card = document.createElement("div")
-            card.className = "card"
+            card.className = "card" + (sliderNumber ? "" : " off")
             card.dataset.id = pair.id
 
             var top = document.createElement("div")
             top.className = "card-top"
             var num = document.createElement("span")
             num.className = "num"
-            num.textContent = index + 1
+            num.textContent = sliderNumber || "–"
+            num.title = sliderNumber ? "Place on the slider" : "Not on the slider"
             top.appendChild(num)
+            if (!sliderNumber) {
+                var status = document.createElement("span")
+                status.className = "status" + (pair.enabled ? " over" : "")
+                status.textContent = pair.enabled ? "Over " + MAX_ON_SLIDER : "Off"
+                status.title = pair.enabled ? "On, but the slider already has " + MAX_ON_SLIDER + " pairs ahead of it" : "Switched off"
+                top.appendChild(status)
+            }
             var badgeText = ""
             if (!loadedIds.has(pair.id)) badgeText = "New"
             else if (pair.before.bytes || pair.after.bytes) badgeText = "Replaced"
@@ -608,20 +681,28 @@
             }
             var spacer = document.createElement("span")
             spacer.className = "spacer"
+            var toggle = document.createElement("label")
+            toggle.className = "switch"
+            toggle.title = "Show this pair on the slider"
+            var checkbox = document.createElement("input")
+            checkbox.type = "checkbox"
+            checkbox.checked = pair.enabled
+            checkbox.onchange = function () { setEnabled(pair.id, checkbox.checked) }
+            toggle.append(checkbox, document.createTextNode("On"))
             var grip = document.createElement("span")
             grip.className = "grip"
             grip.title = "Drag to reorder"
             grip.textContent = "⠿"
             var remove = document.createElement("button")
             remove.className = "icon-button"
-            remove.setAttribute("aria-label", "Remove pair " + (index + 1))
+            remove.setAttribute("aria-label", "Remove pair" + (sliderNumber ? " " + sliderNumber : ""))
             remove.title = "Remove pair"
             remove.textContent = "×"
             remove.onclick = function (event) {
                 event.stopPropagation()
                 removePair(pair.id)
             }
-            top.append(spacer, grip, remove)
+            top.append(spacer, toggle, grip, remove)
 
             var halves = document.createElement("div")
             halves.className = "halves"
@@ -791,7 +872,7 @@
                 showNotice(error.message, true)
             }
             if (addSlots.before && addSlots.after && addSlots.before !== "busy" && addSlots.after !== "busy") {
-                activeSet().pairs.push({ id: nextId++, before: addSlots.before, after: addSlots.after, description: "" })
+                activeSet().pairs.push({ id: nextId++, before: addSlots.before, after: addSlots.after, description: "", enabled: true })
                 addSlots = { before: null, after: null }
                 render()
             } else {
@@ -813,7 +894,7 @@
                 var prepared = []
                 for (var i = 0; i < files.length; i++) prepared.push(await preparePhoto(files[i]))
                 for (var j = 0; j < prepared.length; j += 2) {
-                    set.pairs.push({ id: nextId++, before: prepared[j], after: prepared[j + 1], description: "" })
+                    set.pairs.push({ id: nextId++, before: prepared[j], after: prepared[j + 1], description: "", enabled: true })
                 }
                 showNotice("")
             } catch (error) {
@@ -830,7 +911,7 @@
                 var half = await preparePhoto(file)
                 set.pairs = set.pairs.map(function (pair) {
                     if (pair.id !== pairId) return pair
-                    var updated = { id: pair.id, before: pair.before, after: pair.after, description: pair.description }
+                    var updated = Object.assign({}, pair)
                     updated[side] = half
                     return updated
                 })
@@ -840,6 +921,15 @@
             }
             render()
             if (previewPairId === pairId) openPreview(pairId)
+        }
+
+
+        function setEnabled(pairId, enabled) {
+            var set = activeSet()
+            set.pairs = set.pairs.map(function (pair) {
+                return pair.id === pairId ? Object.assign({}, pair, { enabled: enabled }) : pair
+            })
+            render()
         }
 
 
@@ -873,7 +963,7 @@
 
         document.getElementById("grid").addEventListener("pointerdown", function (event) {
             var card = event.target.closest(".card[data-id]")
-            if (!card || event.button !== 0 || event.target.closest("button")) return
+            if (!card || event.button !== 0 || event.target.closest("button, label, input")) return
             var onGrip = !!event.target.closest(".grip")
             if (event.pointerType !== "mouse" && !onGrip) return
             drag = { card: card, startX: event.clientX, startY: event.clientY, active: false, ghost: null }
@@ -949,7 +1039,8 @@
             if (index < 0) return
             var pair = set.pairs[index]
             previewPairId = pairId
-            document.getElementById("preview-title").textContent = set.short + " pair " + (index + 1)
+            var sliderNumber = Array.from(onSliderIds(set.pairs)).indexOf(pairId) + 1
+            document.getElementById("preview-title").textContent = set.short + (sliderNumber ? " pair " + sliderNumber : " pair (not on the slider)")
             document.getElementById("compare-before").src = pair.before.url
             document.getElementById("compare-after").src = pair.after.url
             var meta = pair.before.width + " × " + pair.before.height
@@ -1002,8 +1093,7 @@
             var set = activeSet()
             var description = event.target.value.trim() ? event.target.value : ""
             set.pairs = set.pairs.map(function (pair) {
-                if (pair.id !== previewPairId) return pair
-                return { id: pair.id, before: pair.before, after: pair.after, description: description }
+                return pair.id === previewPairId ? Object.assign({}, pair, { description: description }) : pair
             })
             var desc = document.querySelector('#grid .card[data-id="' + previewPairId + '"] .desc')
             if (desc) fillDescription(desc, description)
@@ -1036,10 +1126,16 @@
         })
 
 
-        // The list exactly as it is written to slider.json: one pair per line, so the repo's history reads cleanly. A pair
-        // without a description leaves the field out.
+        // The list exactly as it is written to slider.json: one pair per line, so the repo's history reads cleanly. `pairs`
+        // holds only the pairs on the slider, in order, since the apps and the web sliders show every pair in it. The rest go
+        // in `reserve`, which only this page reads, each with its `position` in this page's order and whether it's
+        // `enabled` (on, but past the limit). A pair without a description leaves that field out, and a list with nothing
+        // in reserve leaves `reserve` out.
         function serialize(pairs) {
-            var lines = pairs.map(function (pair) {
+            var onSlider = onSliderIds(pairs)
+            var shown = []
+            var reserve = []
+            pairs.forEach(function (pair, position) {
                 var fields = [
                     "\"before\": " + JSON.stringify(pair.before.name),
                     "\"after\": " + JSON.stringify(pair.after.name),
@@ -1048,9 +1144,18 @@
                 ]
                 var description = pair.description.trim()
                 if (description) fields.push("\"description\": " + JSON.stringify(description))
-                return "    {" + fields.join(", ") + "}"
+                if (onSlider.has(pair.id)) {
+                    shown.push(fields)
+                } else {
+                    reserve.push(fields.concat(["\"position\": " + position, "\"enabled\": " + pair.enabled]))
+                }
             })
-            return "{\n  \"format\": 1,\n  \"pairs\": [\n" + lines.join(",\n") + "\n  ]\n}\n"
+            function lines(entries) {
+                return entries.map(function (fields) { return "    {" + fields.join(", ") + "}" }).join(",\n")
+            }
+            var text = "{\n  \"format\": 1,\n  \"pairs\": [\n" + lines(shown) + "\n  ]"
+            if (reserve.length) text += ",\n  \"reserve\": [\n" + lines(reserve) + "\n  ]"
+            return text + "\n}\n"
         }
 
 
@@ -1062,13 +1167,14 @@
         function describeChanges(set) {
             var loadedById = new Map(set.loaded.map(function (pair) { return [pair.id, pair] }))
             var currentIds = new Set(set.pairs.map(function (pair) { return pair.id }))
-            var added = 0, removed = 0, replaced = 0, described = 0
+            var added = 0, removed = 0, replaced = 0, described = 0, switchedOn = 0, switchedOff = 0
             set.pairs.forEach(function (pair) {
                 var old = loadedById.get(pair.id)
                 if (!old) return added++
                 if (old.before.name !== pair.before.name) replaced++
                 if (old.after.name !== pair.after.name) replaced++
                 if (old.description.trim() !== pair.description.trim()) described++
+                if (old.enabled !== pair.enabled) pair.enabled ? switchedOn++ : switchedOff++
             })
             set.loaded.forEach(function (pair) { if (!currentIds.has(pair.id)) removed++ })
             var oldOrder = set.loaded.filter(function (pair) { return currentIds.has(pair.id) }).map(function (pair) { return pair.id }).join()
@@ -1078,6 +1184,8 @@
             if (removed) parts.push(removed + (removed === 1 ? " pair removed" : " pairs removed"))
             if (replaced) parts.push(replaced + (replaced === 1 ? " photo replaced" : " photos replaced"))
             if (described) parts.push(described + (described === 1 ? " description edited" : " descriptions edited"))
+            if (switchedOn) parts.push(switchedOn + (switchedOn === 1 ? " pair switched on" : " pairs switched on"))
+            if (switchedOff) parts.push(switchedOff + (switchedOff === 1 ? " pair switched off" : " pairs switched off"))
             if (oldOrder !== newOrder) parts.push("new order")
             return parts.join(", ")
         }
@@ -1140,8 +1248,8 @@
         async function publish() {
             var dirtySets = SETS.filter(isDirty)
             if (!dirtySets.length || publishing) return
-            if (dirtySets.some(function (set) { return set.pairs.length === 0 })) {
-                barMessage = "Each set needs at least one pair."
+            if (dirtySets.some(function (set) { return onSliderIds(set.pairs).size === 0 })) {
+                barMessage = "Each set needs at least one pair on the slider."
                 barMessageIsError = true
                 return renderBar()
             }
@@ -1198,7 +1306,7 @@
                 }
                 SETS.forEach(function (set) {
                     set.pairs = set.pairs.map(function (pair) {
-                        return { id: pair.id, before: settle(pair.before), after: settle(pair.after), description: pair.description }
+                        return Object.assign({}, pair, { before: settle(pair.before), after: settle(pair.after) })
                     })
                     set.loaded = set.pairs.slice()
                 })
