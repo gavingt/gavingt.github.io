@@ -332,6 +332,8 @@
             <div class="dialog-actions">
                 <button class="button" id="replace-before-button">Replace before photo…</button>
                 <button class="button" id="replace-after-button">Replace after photo…</button>
+                <button class="button" id="download-before-button">Download before</button>
+                <button class="button" id="download-after-button">Download after</button>
                 <span class="spacer"></span>
                 <button class="button danger" id="remove-pair-button">Remove pair</button>
             </div>
@@ -1105,6 +1107,61 @@
         document.getElementById("preview-dialog").addEventListener("close", function () { previewPairId = null })
         document.getElementById("replace-before-button").onclick = function () { chooseFile({ pairId: previewPairId, side: "before" }) }
         document.getElementById("replace-after-button").onclick = function () { chooseFile({ pairId: previewPairId, side: "after" }) }
+        document.getElementById("download-before-button").onclick = function (event) { downloadHalf("before", event.currentTarget) }
+        document.getElementById("download-after-button").onclick = function (event) { downloadHalf("after", event.currentTarget) }
+
+        // Saves one half of the previewed pair, named after its place on the slider (e.g. "QVC pair 4 before.jpg"). The photo
+        // is fetched as a blob first: a download link straight to raw.githubusercontent.com would just open it, since browsers
+        // ignore `download` on another site's URL. A photo added here and not yet published is saved from its own bytes.
+        async function downloadHalf(side, button) {
+            var set = activeSet()
+            var pair = set.pairs.find(function (p) { return p.id === previewPairId })
+            if (!pair) return
+            var half = pair[side]
+            var sliderNumber = Array.from(onSliderIds(set.pairs)).indexOf(pair.id) + 1
+            var extension = (half.name.match(/\.\w+$/) || [".jpg"])[0]
+            var name = sliderNumber
+                ? set.short + " pair " + sliderNumber + " " + side + extension
+                : set.short + " " + side + " " + half.name
+            var label = button.textContent
+            button.disabled = true
+            button.textContent = "Downloading…"
+            try {
+                var blob
+                if (half.bytes) {
+                    blob = new Blob([half.bytes], { type: "image/jpeg" })
+                } else {
+                    var response = await fetch(half.url)
+                    if (!response.ok) throw new Error("HTTP " + response.status)
+                    blob = await response.blob()
+                }
+                var url = URL.createObjectURL(blob)
+                var link = document.createElement("a")
+                link.href = url
+                link.download = name
+                document.body.appendChild(link)
+                link.click()
+                link.remove()
+                setTimeout(function () { URL.revokeObjectURL(url) }, 10000)
+                button.textContent = label
+            } catch (error) {
+                button.textContent = "Couldn't download"
+                setTimeout(function () { button.textContent = label }, 3000)
+            }
+            button.disabled = false
+        }
+
+        // A click on the dimmed backdrop closes the preview. It has to start there too, so letting go of the slider's divider
+        // after dragging it past the dialog's edge doesn't count.
+        ;(function () {
+            var dialog = document.getElementById("preview-dialog")
+            var pressedOnBackdrop = false
+            dialog.addEventListener("pointerdown", function (event) { pressedOnBackdrop = event.target === dialog })
+            dialog.addEventListener("click", function (event) {
+                if (pressedOnBackdrop && event.target === dialog) dialog.close()
+                pressedOnBackdrop = false
+            })
+        })()
         document.getElementById("remove-pair-button").onclick = function () {
             removePair(previewPairId)
             document.getElementById("preview-dialog").close()
