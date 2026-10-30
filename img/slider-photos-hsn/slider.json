@@ -4,7 +4,7 @@
     {"before": "986c502903387b7c.jpg", "after": "ba8b65554b439caa.jpg", "width": 1027, "height": 1531},
     {"before": "05a75a6227cd70c1.jpg", "after": "dd401d5a032a23e0.jpg", "width": 1001, "height": 1570},
     {"before": "c00dbba1089186ee.jpg", "after": "654f5e43e73051f0.jpg", "width": 1019, "height": 1543},
-    {"before": "60380bbbc3b5bdd1.jpg", "after": "e2d4b77081d88611.jpg", "width": 1062, "height": 1482},
+    {"before": "60380bbbc3b5bdd1.jpg", "after": "964ab1f0b7a1b419.jpg", "width": 1062, "height": 1482},
     {"before": "0a.jpg", "after": "0b.jpg", "width": 1400, "height": 1400, "description": "Stephanie McKee Zielinski"},
     {"before": "036d7a358839abde.jpg", "after": "c964ca5c8f2491a7.jpg", "width": 1013, "height": 1553},
     {"before": "1a.jpg", "after": "1b.jpg", "width": 1400, "height": 1400, "description": "Stephanie McKee Zielinski"},
@@ -28,11 +28,13 @@
     {"before": "20a.jpg", "after": "20b.jpg", "width": 1200, "height": 1654},
     {"before": "21a.jpg", "after": "21b.jpg", "width": 1200, "height": 1263},
     {"before": "24a.jpg", "after": "24b.jpg", "width": 1600, "height": 1200},
-    {"before": "26a.jpg", "after": "26b.jpg", "width": 1800, "height": 1200},
-    {"before": "27a.jpg", "after": "27b.jpg", "width": 2000, "height": 1334},
-    {"before": "6a.jpg", "after": "6b.jpg", "width": 1366, "height": 1024},
-    {"before": "22a.jpg", "after": "22b.jpg", "width": 1600, "height": 1200},
-    {"before": "25a.jpg", "after": "25b.jpg", "width": 1600, "height": 1200},
-    {"before": "23a.jpg", "after": "23b.jpg", "width": 1789, "height": 1200}
+    {"before": "26a.jpg", "after": "26b.jpg", "width": 1800, "height": 1200}
+  ],
+  "reserve": [
+    {"before": "27a.jpg", "after": "27b.jpg", "width": 2000, "height": 1334, "position": 28, "enabled": true},
+    {"before": "6a.jpg", "after": "6b.jpg", "width": 1366, "height": 1024, "position": 29, "enabled": true},
+    {"before": "22a.jpg", "after": "22b.jpg", "width": 1600, "height": 1200, "position": 30, "enabled": true},
+    {"before": "25a.jpg", "after": "25b.jpg", "width": 1600, "height": 1200, "position": 31, "enabled": true},
+    {"before": "23a.jpg", "after": "23b.jpg", "width": 1789, "height": 1200, "position": 32, "enabled": true}
   ]
 }
