@@ -35,6 +35,17 @@
     {"before": "6a.jpg", "after": "6b.jpg", "width": 1366, "height": 1024, "position": 29, "enabled": true},
     {"before": "22a.jpg", "after": "22b.jpg", "width": 1600, "height": 1200, "position": 30, "enabled": true},
     {"before": "25a.jpg", "after": "25b.jpg", "width": 1600, "height": 1200, "position": 31, "enabled": true},
-    {"before": "23a.jpg", "after": "23b.jpg", "width": 1789, "height": 1200, "position": 32, "enabled": true}
+    {"before": "23a.jpg", "after": "23b.jpg", "width": 1789, "height": 1200, "position": 32, "enabled": true},
+    {"before": "2a.jpg", "after": "2b.jpg", "width": 1400, "height": 1400, "position": 33, "enabled": false},
+    {"before": "4a.jpg", "after": "4b.jpg", "width": 1280, "height": 969, "position": 34, "enabled": false},
+    {"before": "28a.jpg", "after": "28b.jpg", "width": 2048, "height": 1365, "position": 35, "enabled": false},
+    {"before": "29a.jpg", "after": "29b.jpg", "width": 2048, "height": 1152, "position": 36, "enabled": false},
+    {"before": "30a.jpg", "after": "30b.jpg", "width": 1000, "height": 1499, "position": 37, "enabled": false},
+    {"before": "200a.jpg", "after": "200b.jpg", "width": 1024, "height": 1648, "position": 38, "enabled": false},
+    {"before": "201a.jpg", "after": "201b.jpg", "width": 819, "height": 1299, "position": 39, "enabled": false},
+    {"before": "lori_100a.jpg", "after": "lori_100b.jpg", "width": 1806, "height": 1200, "position": 40, "enabled": false},
+    {"before": "lori_101a.jpg", "after": "lori_101b.jpg", "width": 1802, "height": 1200, "position": 41, "enabled": false},
+    {"before": "lori_102a.jpg", "after": "lori_102b.jpg", "width": 2000, "height": 927, "position": 42, "enabled": false},
+    {"before": "lori_103a.jpg", "after": "lori_103b.jpg", "width": 1799, "height": 1200, "position": 43, "enabled": false}
   ]
 }
